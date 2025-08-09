@@ -72,27 +72,27 @@
                     <p class="text-lg leading-relaxed mb-8">
                         생성형 AI는 인간의 뇌 구조를 모방한 **딥러닝(Deep Learning)** 모델을 기반으로 작동하며, 그 과정은 크게 3단계로 구성됩니다.
                     </p>
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="flex flex-col md:flex-row items-stretch justify-between gap-4">
                         <!-- 1단계 카드 -->
-                        <div class="flex-1 w-full bg-blue-50 p-6 rounded-lg text-center">
-                            <span class="text-4xl">1️⃣</span>
-                            <h4 class="text-xl font-bold mt-3 mb-2">데이터 학습</h4>
+                        <div class="flex-1 w-full bg-blue-50 p-6 rounded-lg text-center flex flex-col">
+                            <div class="w-12 h-12 mx-auto mb-4 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-2xl font-bold flex-shrink-0">1</div>
+                            <h4 class="text-xl font-bold mb-2">데이터 학습</h4>
                             <p class="text-gray-600">방대한 데이터를 학습하며 패턴과 구조를 익힙니다.</p>
                         </div>
                         <!-- 화살표 -->
-                        <div class="text-4xl font-bold text-gray-400 transform md:rotate-0 rotate-90">→</div>
+                        <div class="text-4xl font-bold text-gray-300 transform md:rotate-0 rotate-90 flex items-center justify-center">→</div>
                         <!-- 2단계 카드 -->
-                        <div class="flex-1 w-full bg-green-50 p-6 rounded-lg text-center">
-                            <span class="text-4xl">2️⃣</span>
-                            <h4 class="text-xl font-bold mt-3 mb-2">패턴 분석</h4>
+                        <div class="flex-1 w-full bg-green-50 p-6 rounded-lg text-center flex flex-col">
+                            <div class="w-12 h-12 mx-auto mb-4 bg-green-200 text-green-700 rounded-full flex items-center justify-center text-2xl font-bold flex-shrink-0">2</div>
+                            <h4 class="text-xl font-bold mb-2">패턴 분석</h4>
                             <p class="text-gray-600">학습 데이터에서 고유한 패턴과 관계를 파악합니다.</p>
                         </div>
                         <!-- 화살표 -->
-                        <div class="text-4xl font-bold text-gray-400 transform md:rotate-0 rotate-90">→</div>
+                        <div class="text-4xl font-bold text-gray-300 transform md:rotate-0 rotate-90 flex items-center justify-center">→</div>
                         <!-- 3단계 카드 -->
-                        <div class="flex-1 w-full bg-purple-50 p-6 rounded-lg text-center">
-                            <span class="text-4xl">3️⃣</span>
-                            <h4 class="text-xl font-bold mt-3 mb-2">콘텐츠 생성</h4>
+                        <div class="flex-1 w-full bg-purple-50 p-6 rounded-lg text-center flex flex-col">
+                            <div class="w-12 h-12 mx-auto mb-4 bg-purple-200 text-purple-700 rounded-full flex items-center justify-center text-2xl font-bold flex-shrink-0">3</div>
+                            <h4 class="text-xl font-bold mb-2">콘텐츠 생성</h4>
                             <p class="text-gray-600">학습된 패턴을 응용해 새로운 결과물을 만듭니다.</p>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
             <div class="card bg-white rounded-xl shadow-md p-0 overflow-hidden transition-all duration-300">
                 <!-- 테이블 -->
                 <table class="w-full border-collapse">
-                    <thead class="bg-gray-100">
+                    <thead class="bg-slate-200">
                         <tr>
                             <th class="text-lg font-bold text-gray-700">종류</th>
                             <th class="text-lg font-bold text-gray-700">설명</th>
@@ -267,7 +267,7 @@
                 <a href="https://www.ibm.com/kr-ko/think/topics/generative-ai" target="_blank" class="hover:text-blue-600">IBM</a>
                 <a href="https://www.kpf.or.kr/front/research/trendView.do?seq=266" target="_blank"="hover:text-blue-600">한국언론진흥재단</a>
             </div>
-            <p class="mt-8"> 2025. 지식샘터 강의자료 </p>
+            <p class="mt-8">2025. 지식샘터 연수자료</p>
         </footer>
 
     </div>
@@ -275,14 +275,15 @@
     <!-- 모달 구조 -->
     <div id="serviceModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 hidden z-50 transition-opacity duration-300">
         <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-full overflow-y-auto transform scale-95 transition-transform duration-300">
-            <div class="p-6">
+            <div class="p-8">
                 <div class="flex justify-between items-start">
                     <h3 id="modalTitle" class="text-2xl font-bold text-gray-900"></h3>
                     <button id="closeModal" class="text-gray-400 hover:text-gray-600">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
-                <div id="modalBody" class="mt-4 text-lg leading-relaxed text-gray-700 space-y-4">
+                <hr class="my-4">
+                <div id="modalBody" class="text-lg leading-relaxed text-gray-700 space-y-4">
                     <!-- 콘텐츠가 여기에 삽입됩니다. -->
                 </div>
             </div>
