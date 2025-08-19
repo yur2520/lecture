@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Gemini 핵심 요약</title>
+    <title>AI 도구의 이해: Gemini의 특징과 활용</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Noto Sans KR -->
@@ -11,152 +11,252 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Noto Sans KR 폰트를 기본으로 사용합니다 */
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-        /* 점 패턴 배경 스타일 */
+        body { font-family: 'Noto Sans KR', sans-serif; }
         .gradient-bg {
             background-color: #f8fafc;
             background-image: radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0);
             background-size: 20px 20px;
         }
-        /* 카드 공통 스타일 */
         .card {
             background-color: white;
-            border-radius: 1rem; /* 16px */
-            padding: 2rem; /* 32px */
+            border-radius: 1rem;
+            padding: 2rem;
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
             transition: all 0.3s ease-in-out;
-            display: flex;
-            flex-direction: column;
-        }
-        /* 카드 호버 시 효과 */
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        /* fieldset의 legend 스타일링을 위해 추가 */
-        legend {
-            padding: 0 0.5rem; /* px-2 */
-            margin-left: 1rem; /* ml-4 */
-            font-weight: 700; /* font-bold */
-            font-size: 1.25rem; /* text-xl */
-            color: #1e40af; /* text-blue-800 */
         }
     </style>
 </head>
 <body class="gradient-bg text-gray-800">
 
-    <!-- 전체 컨테이너 -->
     <div class="container mx-auto max-w-5xl px-4 py-12 sm:py-20">
 
-        <!-- 헤더 섹션 -->
         <header class="text-center mb-16">
-            <h1 class="text-5xl md:text-6xl font-black text-gray-900 leading-tight">Google Gemini</h1>
+            <h1 class="text-5xl md:text-6xl font-black text-gray-900 leading-tight">AI 도구의 이해: Gemini</h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">다양한 AI 모델의 특징을 이해하고 스마트하게 활용하기</p>
         </header>
 
-        <!-- 메인 컨텐츠 그리드 -->
-        <main class="grid grid-cols-1 gap-8">
+        <main class="grid grid-cols-1 gap-12">
 
-            <!-- 카드 1: Gemini의 특징 (Workspace 연동 포함) -->
+            <!-- 1. Gemini 기본 소개 -->
             <div class="card">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">1. Gemini의 특징</h2>
-                <div class="space-y-8">
-                    <!-- 멀티모달 & 활용 예시 섹션 -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                        <!-- 멀티모달 설명 -->
-                        <div class="p-4 bg-gray-50 rounded-lg space-y-4 h-full">
-                            <h3 class="font-bold text-lg text-indigo-600">멀티모달 (Multimodal)</h3>
-                            <ul class="list-disc list-inside text-gray-600">
-                                <li>텍스트, 음성, 이미지 등 다양한 정보 이해 및 생성</li>
-                                <li>여러 형식의 자료를 활용한 AI 상호작용</li>
-                            </ul>
-                            <div class="flex flex-wrap justify-around items-center bg-white p-4 rounded-lg border">
-                                <div class="text-center p-2">
-                                    <svg class="w-10 h-10 mx-auto text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                    <span class="mt-1 text-sm block font-semibold">텍스트</span>
-                                </div>
-                                <div class="text-2xl font-light text-gray-300">+</div>
-                                <div class="text-center p-2">
-                                    <svg class="w-10 h-10 mx-auto text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1-1m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    <span class="mt-1 text-sm block font-semibold">이미지</span>
-                                </div>
-                                <div class="text-2xl font-light text-gray-300">+</div>
-                                <div class="text-center p-2">
-                                    <svg class="w-10 h-10 mx-auto text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                                    <span class="mt-1 text-sm block font-semibold">음성</span>
-                                </div>
+                <p class="mb-8 text-gray-600">
+                    「Gemini」는 「Google」이 개발한 생성형 AI 모델입니다. 가장 큰 특징은 멀티모달(Multimodal)이라는 점으로, 텍스트뿐만 아니라 이미지, 음성 등 다양한 유형의 정보를 종합적으로 이해하고 처리할 수 있는 능력을 갖추고 있습니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 멀티모달 설명 -->
+                    <div class="p-6 bg-gray-50 rounded-lg flex flex-col justify-center">
+                        <h3 class="font-bold text-lg text-indigo-600 text-center">멀티모달 (Multimodal) 이란?</h3>
+                        <p class="text-center text-gray-600 mt-2 mb-4">여러 종류의 데이터를 동시에 이해하고<br>상호작용하는 AI의 능력</p>
+                        <div class="flex flex-wrap justify-around items-center bg-white p-4 rounded-lg border">
+                            <div class="text-center p-2">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png" alt="텍스트 아이콘" class="w-10 h-10 mx-auto">
+                                <span class="mt-1 text-sm block font-semibold">텍스트</span>
                             </div>
-                        </div>
-                        <!-- 핵심 기능 리스트 -->
-                        <div class="space-y-4">
-                            <h3 class="font-bold text-lg text-indigo-600">활용 예시</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-start"><div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></div><div><h3 class="font-bold text-lg">콘텐츠 생성</h3><p class="text-gray-600">글, 코드, 스크립트, 이메일 작성</p></div></li>
-                                <li class="flex items-start"><div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg></div><div><h3 class="font-bold text-lg">아이디어 탐색</h3><p class="text-gray-600">브레인스토밍 및 아이디어 구체화</p></div></li>
-                                <li class="flex items-start"><div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div><div><h3 class="font-bold text-lg">정보 요약 및 검색</h3><p class="text-gray-600">긴 글 요약, Gmail/Drive 내용 검색</p></div></li>
-                            </ul>
+                            <div class="text-2xl font-light text-gray-300">+</div>
+                            <div class="text-center p-2">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/photos_48dp.png" alt="이미지 아이콘" class="w-10 h-10 mx-auto">
+                                <span class="mt-1 text-sm block font-semibold">이미지</span>
+                            </div>
+                            <div class="text-2xl font-light text-gray-300">+</div>
+                            <div class="text-center p-2">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/assistant_48dp.png" alt="음성 아이콘" class="w-10 h-10 mx-auto">
+                                <span class="mt-1 text-sm block font-semibold">음성</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- 구분선 -->
-                    <hr class="border-gray-200">
-                    
-                    <!-- Workspace 연동 & Labs 소개 섹션 -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Workspace 연동 하위 카드 -->
-                        <div class="p-6 bg-gray-50 rounded-lg relative flex flex-col">
-                            <div class="absolute top-4 right-4 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-1 rounded-full">유료 기능</div>
-                            <h3 class="font-bold text-lg text-indigo-600 mb-4">Workspace 연동</h3>
-                            <p class="text-gray-600 mb-6 flex-grow"><strong>Google 도구 안에서</strong> AI의 능력을 바로 활용하여 생산성을 높일 수 있습니다.</p>
-                            <div class="flex flex-wrap gap-4 justify-center items-center mt-auto">
-                                <img src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png" alt="Google Docs 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Docs';">
-                                <img src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png" alt="Google Sheets 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Sheets';">
-                                <img src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png" alt="Google Slides 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Slides';">
-                                <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Gmail';">
-                            </div>
-                        </div>
-
-                        <!-- Workspace Labs 소개 하위 카드 -->
-                        <div class="bg-white border border-gray-200 rounded-lg p-6 relative flex flex-col text-center items-center justify-center shadow-sm">
-                            <div class="absolute top-4 left-4 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">Tip</div>
-                            <h3 class="font-bold text-lg text-gray-800 mt-8 mb-2">Google Workspace Labs</h3>
-                            <p class="text-gray-600 flex-grow mb-4">정식 출시 전 새로운 AI 기능을 먼저 체험해볼 수 있는 일종의 테스터 서비스입니다. 신청 시 유료 기능을 무료로 체험해 볼 수 있습니다.</p>
-                            <a href="https://workspace.google.com/labs-signup/" target="_blank" class="mt-auto inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">자세히 알아보기</a>
-                        </div>
+                    <!-- 기본 기능 -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                         <h3 class="font-bold text-lg text-indigo-600 mb-4">주요 기본 기능</h3>
+                         <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>콘텐츠 생성:</strong> 보고서, 이메일, 코드, 발표 스크립트 등 다양한 글 초안 작성</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>아이디어 탐색:</strong> 새로운 아이디어를 내거나, 기존 아이디어를 발전시키는 브레인스토밍</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>정보 요약 및 번역:</strong> 긴 문서나 기사를 핵심만 요약하거나, 다른 언어로 번역</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>질의응답 및 학습:</strong> 궁금한 점에 대해 질문하고 답변을 받으며 새로운 지식 학습</div></li>
+                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- 카드 2: Gemini Canvas -->
+            <!-- 2. 모델 아키텍처 비교 -->
             <div class="card">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">2. Gemini Canvas</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
-                    <!-- Gemini Canvas 하위 카드 -->
-                    <div class="p-6 bg-gray-50 rounded-lg text-center flex flex-col justify-center">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Gemini Canvas</h3>
-                        <img src="https://storage.googleapis.com/gemini-prod/static/google_io/gemini_canvas_animation.gif" alt="Gemini Canvas 사용 예시" class="mx-auto mb-4 rounded-lg border" onerror="this.onerror=null;this.src='https://placehold.co/300x150/E9E9E9/B0B0B0?text=Canvas+GIF';">
-                        <p class="text-lg text-gray-600">아이디어와 결과물을 <strong>시각화</strong>하며 AI와 상호작용하고 작업을 발전시킬 수 있는 기능입니다.</p>
-                    </div>
-                    <!-- 관계도 하위 카드 -->
-                    <div class="p-6 rounded-lg text-center flex flex-col justify-center">
-                         <fieldset class="w-full p-4 bg-blue-50 rounded-xl border-2 border-dashed border-blue-200 text-center">
-                            <legend>Google Gemini</legend>
-                            <div class="flex flex-wrap justify-center items-center gap-3 mt-2">
-                                <div class="bg-white text-gray-700 font-semibold py-2 px-3 rounded-full shadow-sm border text-sm">Canvas</div>
-                                <div class="bg-white text-gray-700 font-semibold py-2 px-3 rounded-full shadow-sm border text-sm">Imagen</div>
-                                <div class="bg-white text-gray-700 font-semibold py-2 px-3 rounded-full shadow-sm border text-sm">Veo</div>
-                                <div class="bg-white text-gray-700 font-semibold py-2 px-3 rounded-full shadow-sm border text-sm">Gems</div>
-                                <div class="bg-white text-gray-700 font-semibold py-2 px-3 rounded-full shadow-sm border text-sm">Deep Research</div>
-                                <div class="bg-white text-gray-700 font-semibold py-2 px-3 rounded-full shadow-sm border text-sm">... etc</div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">2. AI 개발의 양대산맥: 「OpenAI」와 「Google」</h2>
+                <p class="mb-8 text-gray-600">
+                    현재 생성형 AI 분야는 「OpenAI」와 「Google」이 기술 발전을 이끌고 있습니다. 많은 분들이 익숙하게 사용하시는 「ChatGPT」, 「DALL-E」 등은 「OpenAI」가 개발한 모델들입니다. 실제 사용자 수¹, 웹 트래픽², 시장 분석 보고서 등 여러 지표에 따르면 이 두 기업이 시장을 주도하는 핵심 플레이어이며, AI를 개발하는 방식에 약간의 차이를 보입니다. 이 특징을 이해하면 어떤 도구가 나의 작업에 더 적합할지 판단하는 데 도움이 됩니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- OpenAI 방식 -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <div class="text-center mb-4">
+                            <div class="inline-block bg-gray-200 rounded-full px-4 py-1">
+                                <h3 class="text-lg font-bold text-gray-800">접근 방식 1: 전문화 모델의 결합 (「OpenAI」)</h3>
                             </div>
-                        </fieldset>
+                        </div>
+                        <p class="mb-4 text-gray-600 text-center">각 기능에 특화된 고성능 모델을 개발한 후, 이를 긴밀하게 연결하는 방식입니다.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-stretch rounded-lg border border-gray-300 bg-white overflow-hidden">
+                                <div class="bg-gray-200 p-3 flex items-center justify-center w-24">
+                                    <span class="font-bold text-gray-700">언어</span>
+                                </div>
+                                <div class="flex-grow flex justify-center items-center p-2 font-semibold">「ChatGPT」</div>
+                            </div>
+                            <div class="flex items-stretch rounded-lg border border-gray-300 bg-white overflow-hidden">
+                                <div class="bg-gray-200 p-3 flex items-center justify-center w-24">
+                                    <span class="font-bold text-gray-700">이미지</span>
+                                </div>
+                                <div class="flex-grow flex justify-center items-center p-2 font-semibold">「DALL-E」</div>
+                            </div>
+                            <div class="flex items-stretch rounded-lg border border-gray-300 bg-white overflow-hidden">
+                                <div class="bg-gray-200 p-3 flex items-center justify-center w-24">
+                                    <span class="font-bold text-gray-700">영상</span>
+                                </div>
+                                <div class="flex-grow flex justify-center items-center p-2 font-semibold">「Sora」</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Google 방식 -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <div class="text-center mb-4">
+                            <div class="inline-block bg-blue-100 rounded-full px-4 py-1">
+                                <h3 class="text-lg font-bold text-blue-800">접근 방식 2: 통합 멀티모달 (「Google」)</h3>
+                            </div>
+                        </div>
+                        <p class="mb-4 text-gray-600 text-center">개발 초기부터 다양한 유형의 정보를 하나의 모델에서 동시에 처리하도록 설계하는 방식입니다.</p>
+                         <div class="flex items-stretch rounded-lg border border-blue-300 bg-white overflow-hidden h-[138px]">
+                            <div class="bg-blue-100 p-3 flex items-center justify-center w-24">
+                                <span class="font-bold text-blue-800">통합 모델</span>
+                            </div>
+                            <div class="flex-grow flex justify-center items-center p-2 font-semibold text-lg">「Gemini」</div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- 3. Gemini의 강점 -->
+            <div class="card">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">3. Gemini의 강점</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-4">
+                    
+                    <!-- 강점 1: 멀티모달 '입력' 및 '분석' -->
+                    <div class="flex flex-col">
+                        <h3 class="text-2xl font-bold text-indigo-600 mb-4">1. 다양한 포맷의 정보를 '입력'으로 활용</h3>
+                        <div class="mt-6 flex flex-col flex-grow">
+                            <div class="flex items-center justify-center mb-6">
+                                <img src="https://placehold.co/400x250/E9E9E9/B0B0B0?text=다양한+포맷+입력+예시" alt="다양한 포맷 입력 예시 이미지" class="rounded-lg shadow-md w-full">
+                            </div>
+                            <div class="flex flex-col flex-grow">
+                                <p class="mb-6 text-gray-600">
+                                    「Gemini」는 텍스트뿐만 아니라 이미지, 문서 등을 직접 입력받아 그 내용을 분석하고 이해할 수 있습니다. 이는 단순히 결과물을 생성하는 것을 넘어, 주어진 비정형 데이터를 정보로 활용하는 새로운 작업 방식을 가능하게 합니다.
+                                </p>
+                                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200 mt-auto">
+                                    <p class="font-semibold text-indigo-800 mb-3">사용 예시</p>
+                                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                        <li>손으로 그린 차트나 다이어그램 사진을 올리고, 내용을 정리하여 텍스트로 변환 요청</li>
+                                        <li>복잡한 표나 그래프가 포함된 이미지 문서를 보여주고, 핵심 데이터 요약 요청</li>
+                                        <li>회의 칠판을 찍은 사진을 기반으로 회의록 초안 작성</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 강점 2: Google Workspace 연동 -->
+                    <div class="flex flex-col">
+                        <h3 class="text-2xl font-bold text-indigo-600 mb-4">2. 「Google Workspace」와의 통합</h3>
+                        <div class="mt-6 flex flex-col flex-grow">
+                             <div class="flex items-center justify-center mb-6">
+                                <img src="https://placehold.co/400x250/E9E9E9/B0B0B0?text=Google+Workspace+연동+예시" alt="Google Workspace 연동 예시 이미지" class="rounded-lg shadow-md w-full">
+                            </div>
+                            <div class="flex flex-col flex-grow">
+                                <p class="mb-6 text-gray-600">
+                                   「Google Workspace」(Gmail, Drive, Docs 등)를 주요 업무 도구로 사용하는 경우, 「Gemini」는 별도의 확장 프로그램 설치 없이 연동하여 작업 효율을 높일 수 있습니다. (유료 플랜 해당)
+                                </p>
+                                 <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200 mt-auto">
+                                    <p class="font-semibold text-indigo-800 mb-3">사용 예시</p>
+                                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                        <li>"내 드라이브에서 'AI 윤리 교육' 관련 자료를 모두 찾아서, 중학생 대상 1차시 수업 계획안 초안을 작성해줘."</li>
+                                        <li>"지난주에 '가정통신문'이라는 키워드로 주고받은 이메일을 전부 검토해서, 회신이 필요한 메일 목록을 만들어줘."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Gemini Canvas 기능 -->
+            <div class="card">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">4. Gemini Canvas: 아이디어 시각화 및 발전</h2>
+                <p class="mb-6 text-gray-600">
+                    「Gemini Canvas」는 단순한 채팅을 넘어, 아이디어를 시각적으로 구성하고 발전시켜 나갈 수 있는 **대화형 작업 공간**입니다. AI와 주고받은 내용을 바탕으로 마인드맵, 순서도, 이미지 등을 생성하고 편집하며 결과물을 구체화할 수 있습니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="font-bold text-lg text-indigo-600 mb-4">주요 특징</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>시각적 아이디어 정리:</strong> 텍스트 대화를 마인드맵, 순서도 등 시각 자료로 자동 변환</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>반복 및 발전:</strong> 생성된 결과물을 보면서 추가 지시를 통해 내용을 수정하거나 확장 가능</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>멀티미디어 통합:</strong> 텍스트, 코드 블록, 이미지 등 다양한 형태의 결과물을 한 공간에서 관리</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-indigo-500">✓</span> <div><strong>결과물 저장 및 공유:</strong> 완성된 캔버스를 저장하고 다른 사람과 공유하여 협업</div></li>
+                        </ul>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+                        <p class="font-semibold text-indigo-800 mb-3">사용 예시</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li>'AI 활용 교육'이라는 단순한 아이디어에서 시작하여, 교육 목표, 커리큘럼, 세부 활동 계획을 담은 마인드맵을 만들 수 있습니다.</li>
+                            <li>새로운 프로젝트의 기획안을 작성할 때, 아이디어 브레인스토밍부터 최종 보고서 목차 구성까지의 과정을 시각적으로 발전시킬 수 있습니다.</li>
+                            <li>워크숍이나 강의의 전체적인 흐름을 순서도로 구성하고, 각 단계에 필요한 자료나 스크립트를 추가하여 체계적으로 준비할 수 있습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Gemini Canvas 와 ChatGPT Canvas 비교 -->
+            <div class="card">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">5. 「Gemini Canvas」 와 「ChatGPT Canvas」</h2>
+                <p class="mb-8 text-gray-600">
+                    두 AI 모두 대화 결과물을 관리하고 발전시키는 '캔버스' 기능을 제공하지만, 지향하는 바와 강점이 다릅니다. 어떤 작업에 더 적합할지 비교해보고 선택할 수 있습니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- ChatGPT Canvas -->
+                    <div class="p-6 bg-gray-50 rounded-lg flex flex-col">
+                        <h3 class="text-xl font-bold mb-3 text-center">「ChatGPT Canvas」</h3>
+                        <p class="text-center text-gray-600 mb-4 flex-grow"><strong>'문서 편집'</strong>에 초점을 맞춘 작업 공간</p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="mr-2 text-gray-500">✓</span> <div><strong>강점:</strong> 텍스트/코드의 인라인(inline) 편집, 버전 관리, 글의 톤/길이/표현을 버튼으로 쉽게 조절하는 기능</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-gray-500">✓</span> <div><strong>특징:</strong> 채팅창 옆에 바로 열리는 간결한 UI로, 생성된 초안을 빠르게 다듬고 수정하는 데 유리</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-gray-500">✓</span> <div><strong>적합한 작업:</strong> 보고서, 기획안, 코드 등 텍스트 중심의 결과물 초안을 만들고, 여러 버전을 비교하며 완성도를 높이는 작업</div></li>
+                        </ul>
+                    </div>
+                    <!-- Gemini Canvas -->
+                    <div class="p-6 bg-blue-50 rounded-lg border border-blue-200 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800 text-center">「Gemini Canvas」</h3>
+                        <p class="text-center text-gray-700 mb-4 flex-grow"><strong>'아이디어 시각화'</strong>에 초점을 맞춘 작업 공간</p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="mr-2 text-blue-500">✓</span> <div><strong>강점:</strong> 텍스트 대화를 마인드맵, 순서도, 표 등 다양한 시각적 형태로 자동 변환하고 구조화하는 기능</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-blue-500">✓</span> <div><strong>특징:</strong> 단순한 텍스트 편집을 넘어, 아이디어의 관계를 시각적으로 파악하고 확장해 나가는 데 유리</div></li>
+                            <li class="flex items-start"><span class="mr-2 text-blue-500">✓</span> <div><strong>적합한 작업:</strong> 브레인스토밍, 프로젝트 기획, 강의 커리큘럼 구성 등 아이디어를 구조화하고 전체적인 그림을 그리는 작업</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="text-left text-gray-500 mt-8 p-6 bg-gray-100 rounded-lg">
+                <h4 class="font-bold text-gray-700 mb-3">참고 및 출처</h4>
+                <ul class="list-disc list-inside text-sm space-y-2">
+                    <li>
+                        <sup class="font-semibold">1</sup> <strong>사용자 트래픽:</strong> SimilarWeb 등 웹 트래픽 분석 데이터 및 관련 언론 보도
+                    </li>
+                    <li>
+                        <sup class="font-semibold">2</sup> <strong>시장 점유율 및 동향:</strong> Fortune Business Insights, "Generative AI Market Size, Share, Growth & Forecast", IoT Analytics, "The leading generative AI companies" 등 시장 분석 보고서
+                    </li>
+                </ul>
+                <hr class="my-4 border-gray-300">
+                <p class="text-sm">본 자료는 AI 도구에 대한 이해를 돕기 위해 제작되었으며, 특정 서비스를 홍보할 목적이 없습니다.</p>
+                <p class="text-sm">AI 기술은 빠르게 발전하고 있으므로, 시점에 따라 기능에 차이가 있을 수 있습니다.</p>
+            </footer>
 
         </main>
-
     </div>
 
 </body>
