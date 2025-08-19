@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 기술과 기본 개념의 이해</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h1 class="text-4xl font-bold text-indigo-600">웹 기술과 기본 개념의 이해</h1>
+            <p class="mt-4 text-lg text-gray-600">어렵게 느껴지는 웹 용어, 쉽고 가볍게 이해하기</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Section 1: The Building Blocks (HTML, CSS, JS) -->
+        <section id="building-blocks">
+            <h2 class="text-3xl font-bold text-center mb-10">웹사이트의 구성 요소: 건축물에 비유하기</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- HTML Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 bg-red-100 rounded-full">
+                            <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h3 class="ml-4 text-2xl font-bold">HTML: 구조 설계</h3>
+                    </div>
+                    <p class="text-gray-600">HTML (HyperText Markup Language)은 건축물의 뼈대를 세우는 설계도와 같습니다. 제목, 문단, 이미지 등 웹페이지의 기본 구조와 콘텐츠를 정의하는 역할을 합니다.</p>
+                </div>
+
+                <!-- CSS Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 bg-blue-100 rounded-full">
+                           <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                        </div>
+                        <h3 class="ml-4 text-2xl font-bold">CSS: 시각 디자인</h3>
+                    </div>
+                    <p class="text-gray-600">CSS (Cascading Style Sheets)는 건축물의 인테리어 디자인과 같습니다. 글자의 크기, 색상, 배치 등 웹사이트의 전반적인 시각적 표현을 담당합니다.</p>
+                </div>
+
+                <!-- JavaScript Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 bg-yellow-100 rounded-full">
+                            <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="ml-4 text-2xl font-bold">JavaScript: 기능 설비</h3>
+                    </div>
+                    <p class="text-gray-600">자바스크립트(JavaScript)는 건축물의 전기, 수도와 같은 기능 설비에 해당합니다. 버튼 클릭에 반응하는 등 웹사이트를 동적으로 만들어 상호작용을 가능하게 합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="my-16 border-gray-200">
+
+        <!-- Section 2: Frontend vs Backend -->
+        <section id="frontend-backend">
+            <h2 class="text-3xl font-bold text-center mb-4">웹 기술의 역할 구분: 프론트엔드와 백엔드</h2>
+            <p class="text-lg text-gray-600 text-center mb-10">웹사이트의 작동 방식을 '레스토랑 운영'에 비유하여 설명해 보겠습니다.</p>
+            
+            <!-- GIF Placeholder -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <img src="frontandbackend-whisk.gif" 
+                     alt="프론트엔드와 백엔드 개념 설명 GIF" 
+                     class="w-full h-auto rounded-lg shadow-md">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Frontend Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-green-600 mb-4">프론트엔드 (Frontend)</h3>
+                    <p class="text-gray-600">프론트엔드는 레스토랑의 '홀(Hall)' 영역에 해당합니다. 고객(사용자)이 직접 마주하고 경험하는 모든 시각적 요소와 상호작용을 포함합니다. 웹 환경에서는 사용자의 화면에 표시되는 모든 것을 의미합니다.</p>
+                </div>
+
+                <!-- Backend Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-purple-600 mb-4">백엔드 (Backend)</h3>
+                    <p class="text-gray-600">백엔드는 레스토랑의 '주방(Kitchen)' 영역과 같습니다. 고객의 눈에 직접 보이지는 않지만, 주문 처리, 데이터 관리 등 레스토랑 운영의 핵심 기능을 수행합니다. 웹사이트가 원활하게 작동하도록 지원하는 기술 분야입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="my-16 border-gray-200">
+
+        <!-- Section 3: Publication Process (NEW METAPHOR) -->
+        <section id="publication-process">
+            <h2 class="text-3xl font-bold text-center mb-10">웹사이트의 공개: 우리 집 주방과 전문 식당</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                <p class="text-gray-600 mb-8 text-center">
+                    웹사이트(요리)를 만들고 세상에 공개하는 과정은 '우리 집 주방에서 요리하여 전문 식당을 여는 과정'에 비유할 수 있습니다.
+                </p>
+                <ol class="space-y-8">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold mr-4 text-lg">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-orange-600">로컬 (Local): 우리 집 주방 🍳</h4>
+                            <p class="text-gray-600 mt-2">
+                                개발자의 개인 컴퓨터는 비공개적인 '우리 집 주방'과 같습니다. 이곳에서 웹사이트라는 요리를 개발하고 테스트합니다. 가족에게 요리를 대접할 수는 있지만, 24시간 불특정 다수의 손님을 받기에는 적합하지 않습니다.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold mr-4 text-lg">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-cyan-600">서버(Server)와 호스팅(Hosting): 전문 식당 임대 🏪</h4>
+                            <p class="text-gray-600 mt-2">
+                                요리를 모든 손님에게 24시간 제공하려면 완벽한 시설을 갖춘 '전문 식당'이 필요합니다. 이 식당이 바로 서버입니다. <br>물론 우리 집 주방(로컬 컴퓨터)도 식당처럼 운영할 수는 있지만, 전기세, 보안, 관리 문제로 비효율적입니다. 그래서 호스팅이라는 '식당 공간 임대 서비스'를 이용합니다. 임대료(호스팅 비용)를 내고 모든 관리를 맡겨, 우리는 요리(웹사이트 운영)에만 집중할 수 있습니다.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold mr-4 text-lg">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-indigo-600">네트워크 (Network): 식당으로 찾아오는 길 🗺️</h4>
+                            <p class="text-gray-600 mt-2">
+                                네트워크(인터넷)는 손님들이 식당으로 찾아올 수 있게 하는 '교통망'입니다. 사용자들은 주소(URL)라는 '지도'를 보고, 이 교통망을 통해 우리의 웹사이트(식당)에 방문하게 됩니다.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Divider -->
+        <hr class="my-16 border-gray-200">
+
+        <!-- Section 4: Sources -->
+        <section id="sources">
+            <h2 class="text-3xl font-bold text-center mb-10">참고 자료 및 심화 학습 정보</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                <p class="text-lg text-gray-600 mb-6">본 문서의 내용은 공신력 있는 다음의 자료들을 참고하여 작성되었습니다. 더 깊이 있는 학습을 원하시는 경우, 아래의 공식 문서를 참조하시기 바랍니다.</p>
+                <ul class="space-y-4">
+                    <li><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank" class="text-indigo-600 hover:underline font-semibold">MDN Web Docs (Mozilla)</a> - 웹 표준 기술에 대한 가장 공식적이고 상세한 기술 문서입니다.</li>
+                    <li><a href="https://www.w3.org/TR/CSS/#css" target="_blank" class="text-indigo-600 hover:underline font-semibold">W3C CSS Specifications</a> - CSS의 공식 표준 명세를 확인할 수 있는 곳입니다.</li>
+                    <li><a href="https://ko.javascript.info/" target="_blank" class="text-indigo-600 hover:underline font-semibold">모던 JavaScript 튜토리얼</a> - 자바스크립트 언어를 체계적으로 학습할 수 있는 상세한 가이드입니다.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
+            <p>&copy; 2024 Web Basics Explainer. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
