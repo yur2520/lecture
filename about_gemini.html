@@ -101,16 +101,28 @@
                     </div>
                     <!-- 구분선 -->
                     <hr class="border-gray-200">
-                    <!-- Workspace 연동 하위 카드 -->
-                    <div class="p-6 bg-gray-50 rounded-lg relative">
-                        <div class="absolute top-4 right-4 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-1 rounded-full">유료 기능</div>
-                        <h3 class="font-bold text-lg text-indigo-600 mb-4">Workspace 연동</h3>
-                        <p class="text-lg text-gray-600 mb-6"> <strong>Google 도구 안에서</strong> AI의 능력을 바로 활용할 수 있습니다.</p>
-                        <div class="flex flex-wrap gap-4 justify-center items-center">
-                            <img src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png" alt="Google Docs 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Docs';">
-                            <img src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png" alt="Google Sheets 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Sheets';">
-                            <img src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png" alt="Google Slides 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Slides';">
-                            <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Gmail';">
+                    
+                    <!-- Workspace 연동 & Labs 소개 섹션 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Workspace 연동 하위 카드 -->
+                        <div class="p-6 bg-gray-50 rounded-lg relative flex flex-col">
+                            <div class="absolute top-4 right-4 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-1 rounded-full">유료 기능</div>
+                            <h3 class="font-bold text-lg text-indigo-600 mb-4">Workspace 연동</h3>
+                            <p class="text-gray-600 mb-6 flex-grow"><strong>Google 도구 안에서</strong> AI의 능력을 바로 활용하여 생산성을 높일 수 있습니다.</p>
+                            <div class="flex flex-wrap gap-4 justify-center items-center mt-auto">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png" alt="Google Docs 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Docs';">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png" alt="Google Sheets 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Sheets';">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png" alt="Google Slides 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Slides';">
+                                <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail 로고" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/48x48/E9E9E9/B0B0B0?text=Gmail';">
+                            </div>
+                        </div>
+
+                        <!-- Workspace Labs 소개 하위 카드 -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 relative flex flex-col text-center items-center justify-center shadow-sm">
+                            <div class="absolute top-4 left-4 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">Tip</div>
+                            <h3 class="font-bold text-lg text-gray-800 mt-8 mb-2">Google Workspace Labs</h3>
+                            <p class="text-gray-600 flex-grow mb-4">정식 출시 전 새로운 AI 기능을 먼저 체험해볼 수 있는 일종의 테스터 서비스입니다. 신청 시 유료 기능을 무료로 체험해 볼 수 있습니다.</p>
+                            <a href="https://workspace.google.com/labs-signup/" target="_blank" class="mt-auto inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">자세히 알아보기</a>
                         </div>
                     </div>
                 </div>
@@ -123,8 +135,8 @@
                     <!-- Gemini Canvas 하위 카드 -->
                     <div class="p-6 bg-gray-50 rounded-lg text-center flex flex-col justify-center">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">Gemini Canvas</h3>
-                        <img src="Geminiui.png" alt="Gemini Canvas 이미지 삽입 영역" class="mx-auto mb-4 rounded" onerror="this.onerror=null;this.src='https://placehold.co/165x60/E9E9E9/B0B0B0?text=Image';">
-                        <p class="text-lg text-gray-600">Google Gemini 기능 중, 아이디어 및 결과물을 <strong>시각화</strong>하여 작업할 수 있도록 설계된 기능</p>
+                        <img src="https://storage.googleapis.com/gemini-prod/static/google_io/gemini_canvas_animation.gif" alt="Gemini Canvas 사용 예시" class="mx-auto mb-4 rounded-lg border" onerror="this.onerror=null;this.src='https://placehold.co/300x150/E9E9E9/B0B0B0?text=Canvas+GIF';">
+                        <p class="text-lg text-gray-600">아이디어와 결과물을 <strong>시각화</strong>하며 AI와 상호작용하고 작업을 발전시킬 수 있는 기능입니다.</p>
                     </div>
                     <!-- 관계도 하위 카드 -->
                     <div class="p-6 rounded-lg text-center flex flex-col justify-center">
