@@ -11,12 +11,36 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
         .gradient-text {
-            background: linear-gradient(to right, #2d93c2, #81b8d4);
+            background: linear-gradient(to right, #0ea5e9, #60a2c4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .carousel-track {
             transition: transform 0.3s ease-in-out;
+        }
+        /* --- Hexcode Picker Styles --- */
+        .transition-all-ease {
+            transition: all 0.3s ease-in-out;
+        }
+        #color-picker {
+            cursor: crosshair;
+        }
+        #hue-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: -6px;
+        }
+        #hue-slider::-webkit-slider-runnable-track {
+            height: 8px;
+            cursor: pointer;
+            background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(360, 100%, 50%));
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -27,7 +51,7 @@
 
         <!-- 헤더 섹션 -->
         <header class="text-center my-12">
-            <h1 class="text-4xl md:text-5xl font-bold gradient-text">웹 디자인 요청을 위한 기초 가이드</h1>
+            <h1 class="text-4xl md:text-5xl font-bold gradient-text">웹 디자인 요청하기</h1>
             <p class="mt-4 text-lg text-gray-600">효과적으로 디자인 수정을 요청하는 방법</p>
         </header>
 
@@ -60,7 +84,7 @@
                     <div class="bg-white rounded-xl shadow-lg p-6 md:col-span-2">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div class="sm:col-span-1">
-                                <img src="layout.png" alt="웹 페이지 구역 예시 이미지" class="rounded-lg w-full h-full object-cover">
+                                <img src="layout.png" onerror="this.onerror=null;this.src='https://placehold.co/400x600/e0f2fe/0ea5e9?text=Layout%5CnExample';" alt="웹 페이지 구역 예시 이미지" class="rounded-lg w-full h-full object-cover">
                             </div>
                             <div class="sm:col-span-2">
                                 <h3 class="text-xl font-bold mb-4">웹 페이지의 구역 명칭</h3>
@@ -90,8 +114,7 @@
                         <h3 class="text-xl font-bold mb-4">디자인 구성 요소 (UI 컴포넌트)</h3>
                         <p class="text-base text-gray-600 mb-4">미리 디자인된 웹 사이트의 구성 요소 부품이라고 할 수 있습니다.</p>
                         <div class="space-y-4 text-base">
-                            <div>
-                                <!-- 캐러셀 예시 -->
+                             <div class="p-3 rounded-lg border border-gray-200">
                                 <div id="carousel-example" class="relative overflow-hidden rounded-lg bg-gray-100 mb-2" style="height: 100px;">
                                     <div class="carousel-track absolute top-0 left-0 h-full flex">
                                         <div class="w-full h-full flex-shrink-0 bg-red-300 flex items-center justify-center"><span class="text-white font-bold">Slide 1</span></div>
@@ -103,8 +126,7 @@
                                 </div>
                                 <p><strong>캐러셀 (Carousel):</strong> 여러 이미지나 콘텐츠를 옆으로 돌려가며 볼 수 있는 슬라이드입니다.</p>
                             </div>
-                             <div>
-                                <!-- 버튼 예시 -->
+                             <div class="p-3 rounded-lg border border-gray-200">
                                 <div class="rounded-lg bg-gray-100 p-4 mb-2 space-y-3">
                                     <div class="flex items-center">
                                         <input id="checkbox1" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500">
@@ -124,7 +146,7 @@
                                 </div>
                                 <p><strong>체크박스/라디오/토글:</strong> 사용자가 선택할 수 있는 다양한 모양의 버튼들입니다.</p>
                              </div>
-                             <div>
+                             <div class="p-3 rounded-lg border border-gray-200">
                                 <p><strong>카드 (Card):</strong> 이미지, 제목, 설명 등 관련 정보를 하나의 사각형 안에 묶어놓은 형태입니다. 지금 이 설명을 담고 있는 흰색 사각형도 하나의 카드 레이아웃입니다.</p>
                              </div>
                         </div>
@@ -133,8 +155,14 @@
                     <div class="bg-white rounded-xl shadow-lg p-6">
                         <h3 class="text-xl font-bold mb-4">색상 표현법</h3>
                         <div class="space-y-3 text-base">
-                            <p><strong>HEX 코드:</strong> <code class="bg-gray-200 px-1 rounded">#2563EB</code> 처럼 #과 6자리 코드로 특정 색상을 정확하게 가리키는 고유 번호입니다.</p>
-                            <p><strong>Tailwind CSS 색상:</strong> <code class="bg-gray-200 px-1 rounded">blue-600</code> 처럼 Tailwind CSS에 미리 지정된 색상 이름을 사용하는 방식입니다. 영어 단어는 색상, 숫자는 진한 정도를 나타냅니다.</p>
+                            <div>
+                                <p><strong>HEX 코드:</strong> <code class="bg-gray-200 px-1 rounded">#2563EB</code> 처럼 #과 6자리 코드로 특정 색상을 정확하게 가리키는 고유 번호입니다.</p>
+                                <button id="open-hex-picker-btn" class="w-full mt-2 mb-2 bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">HEX코드 선택기 열기</button>
+                            </div>
+                            <div>
+                                <p><strong>Tailwind CSS 색상:</strong> <code class="bg-gray-200 px-1 rounded">blue-600</code> 처럼 Tailwind CSS에 미리 지정된 색상 이름을 사용하는 방식입니다. 영어 단어는 색상, 숫자는 진한 정도를 나타냅니다.</p>
+                                <button id="open-tailwind-colors-btn" class="w-full mt-2 bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">색상표 보기</button>
+                            </div>
                         </div>
                     </div>
                     <!-- 반응형 디자인 카드 -->
@@ -238,55 +266,228 @@
                 </div>
             </div>
         </footer>
+    </div>
 
+    <!-- Hexcode Picker Modal -->
+    <div id="hex-picker-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div id="modal-backdrop" class="absolute inset-0"></div>
+        <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-center transition-all-ease relative">
+            <button id="close-hex-picker-btn" class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Hexcode 선택기</h1>
+            <p class="text-gray-500 mb-6">원하는 색상을 직접 선택해 보세요.</p>
+            <canvas id="color-picker" class="w-full h-56 rounded-xl border-2 border-gray-200"></canvas>
+            <div class="my-4">
+                <input type="range" id="hue-slider" min="0" max="360" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <div id="color-preview" class="w-16 h-16 rounded-full border-4 border-gray-200 transition-all-ease"></div>
+                <div class="flex-grow bg-gray-100 rounded-lg p-4 flex items-center justify-between">
+                    <span id="hex-code" class="text-xl md:text-2xl font-mono font-semibold text-gray-800">#FFFFFF</span>
+                    <button id="copy-btn" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-5 rounded-lg transition-all-ease transform hover:scale-105 active:scale-95">
+                        복사
+                    </button>
+                </div>
+            </div>
+            <div id="copy-message" class="mt-4 text-sm text-green-500 opacity-0 transition-opacity duration-300 h-5">
+                클립보드에 복사되었습니다!
+            </div>
+        </div>
+    </div>
+
+    <!-- Tailwind Colors Modal -->
+    <div id="tailwind-colors-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div id="tailwind-modal-backdrop" class="absolute inset-0"></div>
+        <div class="w-full max-w-4xl bg-white rounded-2xl shadow-2xl transition-all-ease relative max-h-[80vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white p-4 border-b z-10 flex justify-between items-center">
+                 <h2 class="text-2xl font-bold text-gray-800">Tailwind CSS 색상표</h2>
+                 <button id="close-tailwind-colors-btn" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+            <div id="tailwind-color-chart" class="p-6"></div>
+        </div>
     </div>
 
     <script>
-        // 캐러셀 스크립트
+        // --- Carousel Script ---
         const carousel = document.getElementById('carousel-example');
-        const track = carousel.querySelector('.carousel-track');
-        const prevButton = carousel.querySelector('.carousel-prev');
-        const nextButton = carousel.querySelector('.carousel-next');
-        const slides = Array.from(track.children);
-        let slideWidth = carousel.getBoundingClientRect().width;
+        if (carousel) {
+            const track = carousel.querySelector('.carousel-track');
+            const prevButton = carousel.querySelector('.carousel-prev');
+            const nextButton = carousel.querySelector('.carousel-next');
+            const slides = Array.from(track.children);
+            let slideWidth = carousel.getBoundingClientRect().width;
+            let currentIndex = 0;
 
-        let currentIndex = 0;
+            const setSlideWidths = () => {
+                slideWidth = carousel.getBoundingClientRect().width;
+                slides.forEach(slide => {
+                    slide.style.width = `${slideWidth}px`;
+                });
+            }
 
-        const setSlideWidths = () => {
-             slideWidth = carousel.getBoundingClientRect().width;
-             slides.forEach(slide => {
-                slide.style.width = `${slideWidth}px`;
+            const moveToSlide = (targetIndex) => {
+                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                currentIndex = targetIndex;
+            }
+
+            nextButton.addEventListener('click', () => {
+                const nextIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(nextIndex);
+            });
+
+            prevButton.addEventListener('click', () => {
+                const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                moveToSlide(prevIndex);
+            });
+
+            setSlideWidths();
+            moveToSlide(0);
+
+            window.addEventListener('resize', () => {
+                setSlideWidths();
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.3s ease-in-out';
+                }, 50);
             });
         }
 
-        const moveToSlide = (targetIndex) => {
-            track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-            currentIndex = targetIndex;
+        // --- Hex Picker Modal Script ---
+        const openHexBtn = document.getElementById('open-hex-picker-btn');
+        const closeHexBtn = document.getElementById('close-hex-picker-btn');
+        const hexModal = document.getElementById('hex-picker-modal');
+        const hexModalBackdrop = document.getElementById('modal-backdrop');
+
+        const canvas = document.getElementById('color-picker');
+        const ctx = canvas.getContext('2d');
+        const hueSlider = document.getElementById('hue-slider');
+        const colorPreview = document.getElementById('color-preview');
+        const hexCodeElement = document.getElementById('hex-code');
+        const copyBtn = document.getElementById('copy-btn');
+        const copyMessage = document.getElementById('copy-message');
+
+        let currentHue = 0;
+
+        function drawColorGradient(hue) {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            const whiteGradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            whiteGradient.addColorStop(0, 'rgba(255,255,255,1)');
+            whiteGradient.addColorStop(1, 'rgba(255,255,255,0)');
+            ctx.fillStyle = whiteGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            const blackGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            blackGradient.addColorStop(0, 'rgba(0,0,0,0)');
+            blackGradient.addColorStop(1, 'rgba(0,0,0,1)');
+            ctx.fillStyle = blackGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
-        nextButton.addEventListener('click', () => {
-            const nextIndex = (currentIndex + 1) % slides.length;
-            moveToSlide(nextIndex);
-        });
+        function rgbToHex(r, g, b) {
+            const toHex = c => ('0' + c.toString(16)).slice(-2);
+            return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
+        }
 
-        prevButton.addEventListener('click', () => {
-            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-            moveToSlide(prevIndex);
-        });
+        function pickColor(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const pixelData = ctx.getImageData(x, y, 1, 1).data;
+            const [r, g, b] = pixelData;
+            const hexColor = rgbToHex(r, g, b);
+            hexCodeElement.textContent = hexColor;
+            colorPreview.style.backgroundColor = hexColor;
+        }
 
-        // 초기화
-        setSlideWidths();
-        moveToSlide(0);
-
-        // 창 크기 변경 시 너비 재설정
-        window.addEventListener('resize', () => {
-            setSlideWidths();
-            track.style.transition = 'none'; // 리사이즈 중에는 애니메이션 비활성화
-            track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+        function copyToClipboard() {
+            const hexCode = hexCodeElement.textContent;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = hexCode;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+            copyMessage.classList.remove('opacity-0');
             setTimeout(() => {
-                 track.style.transition = 'transform 0.3s ease-in-out';
-            }, 50);
+                copyMessage.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        openHexBtn.addEventListener('click', () => {
+            hexModal.classList.remove('hidden');
+            drawColorGradient(currentHue);
         });
+
+        function closeHexModal() {
+            hexModal.classList.add('hidden');
+        }
+
+        closeHexBtn.addEventListener('click', closeHexModal);
+        hexModalBackdrop.addEventListener('click', closeHexModal);
+        
+        hueSlider.addEventListener('input', (e) => {
+            currentHue = e.target.value;
+            drawColorGradient(currentHue);
+        });
+
+        canvas.addEventListener('click', pickColor);
+        copyBtn.addEventListener('click', copyToClipboard);
+
+        colorPreview.style.backgroundColor = '#FFFFFF';
+        hexCodeElement.textContent = '#FFFFFF';
+
+        // --- Tailwind Colors Modal Script ---
+        const openTailwindBtn = document.getElementById('open-tailwind-colors-btn');
+        const closeTailwindBtn = document.getElementById('close-tailwind-colors-btn');
+        const tailwindModal = document.getElementById('tailwind-colors-modal');
+        const tailwindModalBackdrop = document.getElementById('tailwind-modal-backdrop');
+        const colorChartContainer = document.getElementById('tailwind-color-chart');
+
+        const tailwindColors = {
+            'Slate': 'slate', 'Gray': 'gray', 'Zinc': 'zinc', 'Neutral': 'neutral', 'Stone': 'stone',
+            'Red': 'red', 'Orange': 'orange', 'Amber': 'amber', 'Yellow': 'yellow', 'Lime': 'lime',
+            'Green': 'green', 'Emerald': 'emerald', 'Teal': 'teal', 'Cyan': 'cyan', 'Sky': 'sky',
+            'Blue': 'blue', 'Indigo': 'indigo', 'Violet': 'violet', 'Purple': 'purple', 'Fuchsia': 'fuchsia',
+            'Pink': 'pink', 'Rose': 'rose'
+        };
+        const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+
+        function generateColorChart() {
+            let chartHtml = '';
+            for (const name in tailwindColors) {
+                const color = tailwindColors[name];
+                chartHtml += `<div class="mb-8">`;
+                chartHtml += `<h3 class="text-lg font-semibold text-gray-800 mb-2">${name}</h3>`;
+                chartHtml += `<div class="grid grid-cols-5 sm:grid-cols-11 gap-2 text-center">`;
+                shades.forEach(shade => {
+                    const bgColor = `bg-${color}-${shade}`;
+                    const textColor = shade > 400 ? 'text-white' : 'text-black';
+                    chartHtml += `<div>`;
+                    chartHtml += `<div class="${bgColor} h-10 w-full rounded-md"></div>`;
+                    chartHtml += `<p class="text-xs mt-1 text-gray-600">${shade}</p>`;
+                    chartHtml += `</div>`;
+                });
+                chartHtml += `</div></div>`;
+            }
+            colorChartContainer.innerHTML = chartHtml;
+        }
+        
+        openTailwindBtn.addEventListener('click', () => {
+            tailwindModal.classList.remove('hidden');
+        });
+
+        function closeTailwindModal() {
+            tailwindModal.classList.add('hidden');
+        }
+
+        closeTailwindBtn.addEventListener('click', closeTailwindModal);
+        tailwindModalBackdrop.addEventListener('click', closeTailwindModal);
+
+        generateColorChart();
+
     </script>
 </body>
 </html>
