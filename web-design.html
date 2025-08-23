@@ -7,8 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+         @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            /* 폰트 파일 경로가 올바른지 확인해주세요. */
+            src: url('./SUITE-Variable.woff2') format('woff2-variations');
+        }
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
         }
         .gradient-text {
             background: linear-gradient(to right, #0ea5e9, #60a2c4);
