@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성형 AI 효과적으로 활용하기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .prompt-example, .prompt-example-web {
+            font-family: 'Nanum Gothic Coding', monospace;
+            background-color: #f3f4f6;
+            border-left: 4px solid #93c5fd;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 4px;
+            color: #374151;
+        }
+        .prompt-example-web {
+            background-color: #f0fdf4;
+            border-left-color: #6ee7b7;
+        }
+        /* Tab styles */
+        .tab-btn.active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .tab-btn-teal.active {
+            border-color: #14b8a6;
+            color: #14b8a6;
+            background-color: #f0fdfa;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <h1 class="text-2xl font-bold text-gray-700">생성형 AI 효과적으로 활용하기</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12 max-w-7xl">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <div class="bg-slate-100 border border-slate-200 rounded-lg p-6 max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold text-slate-700 mb-2">프롬프트(Prompt)란 무엇일까요?</h2>
+                <p class="text-slate-600 text-justify">
+                    프롬프트는 생성형 AI에게 원하는 결과물을 얻기 위해 입력하는 <strong class="font-semibold text-slate-800">질문이나 명령</strong>을 의미합니다. 프롬프트에 따라 생성형 AI의 사용 효율은 크게 달라질 수 있습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 1: How to Use Generative AI Efficiently -->
+        <section id="general-ai" class="mb-16">
+            <h3 class="text-3xl font-bold text-center mb-4">효과적인 프롬프트 사용요령</h3>
+            <p class="text-center text-gray-600 mb-10">생성형 AI에 일반적으로 적용할 수 있는 대표적인 프롬프트 요령은 다음과 같습니다.</p>
+            
+            <div x-data="{ activeTab: 1 }" class="w-full max-w-4xl mx-auto">
+                <!-- Tab Buttons -->
+                <div class="mb-4 flex flex-wrap justify-center border-b border-gray-200">
+                    <button @click="activeTab = 1" :class="{ 'active': activeTab === 1 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">역할 부여</button>
+                    <button @click="activeTab = 2" :class="{ 'active': activeTab === 2 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">명확한 지시</button>
+                    <button @click="activeTab = 3" :class="{ 'active': activeTab === 3 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">맥락 제공</button>
+                    <button @click="activeTab = 4" :class="{ 'active': activeTab === 4 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">형식 지정</button>
+                    <button @click="activeTab = 5" :class="{ 'active': activeTab === 5 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">어조 설정</button>
+                    <button @click="activeTab = 6" :class="{ 'active': activeTab === 6 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">예시 보여주기</button>
+                    <button @click="activeTab = 7" :class="{ 'active': activeTab === 7 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">단계별 나누기</button>
+                    <button @click="activeTab = 8" :class="{ 'active': activeTab === 8 }" class="tab-btn px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">제약 조건</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="bg-white p-6 rounded-lg shadow-lg min-h-[300px]">
+                    <div x-show="activeTab === 1">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">역할 부여하기 (페르소나)</h4>
+                        <p class="text-gray-600 mb-4">AI에게 특정 전문가 역할을 부여하면, 그 관점에 맞는 전문적인 결과물을 얻을 수 있습니다.</p>
+                        <p class="prompt-example text-sm">"당신은 교육과정 전문가입니다. 초등학교 5학년 사회 교과서의 '인권' 단원을 바탕으로 한 차시 분량의 토론 수업 계획안을 작성해 주세요."</p>
+                        <p class="prompt-example-web text-sm">"너는 숙련된 프론트엔드 개발자야. '인권'을 주제로 한 초등학생용 학습 웹사이트의 메인 페이지를 만들어 줘. 카드 레이아웃을 사용하고, 각 카드에는 인권 관련 소주제와 아이콘을 넣어줘."</p>
+                    </div>
+                    <div x-show="activeTab === 2">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">명확하게 지시하기</h4>
+                        <p class="text-gray-600 mb-4">AI가 수행할 작업을 '만들어 줘', '분석해 줘' 등 명확한 동사로 구체적으로 지시합니다.</p>
+                        <p class="prompt-example text-sm">"초등학교 3학년 수준의 분수 개념 학습을 위한 객관식 문제 5개를 만들어 줘."</p>
+                        <p class="prompt-example-web text-sm">"분수 덧셈을 연습할 수 있는 간단한 웹 게임을 만들어 줘. 두 개의 분수가 랜덤으로 나오고, 정답을 입력하면 '정답!' 또는 '오답!' 메시지가 뜨게 해줘."</p>
+                    </div>
+                    <div x-show="activeTab === 3">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">맥락 제공하기</h4>
+                         <p class="text-gray-600 mb-4">작업의 배경, 수업 목표, 대상 학년 등을 충분히 설명하여 AI의 이해도를 높입니다.</p>
+                        <p class="prompt-example text-sm">"다음 주에 4학년 학생들과 '환경 보호'를 주제로 캠페인 활동을 할 거야. 학생들이 사용할 피켓 문구 아이디어 10개를 제안해 줘."</p>
+                        <p class="prompt-example-web text-sm">"4학년 학생들이 '환경 보호' 실천을 기록하고 공유하는 온라인 게시판 페이지를 만들어 줘. 이름과 실천 내용을 입력하고 '등록' 버튼을 누르면 목록에 추가되는 기능이 필요해."</p>
+                    </div>
+                    <div x-show="activeTab === 4">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">형식 지정하기</h4>
+                        <p class="text-gray-600 mb-4">원하는 결과물의 형식을 '표', '글머리 기호' 등으로 구체적으로 지정하여 정리된 결과물을 받습니다.</p>
+                        <p class="prompt-example text-sm">"이번 주에 배울 과학 단원 핵심 용어 5개를 '용어', '쉬운 설명', '예시' 항목이 있는 표 형식으로 정리해 줘."</p>
+                        <p class="prompt-example-web text-sm">"과학 용어 퀴즈 웹페이지를 만들어 줘. 화면 상단에 용어가 제시되고, 여러 개의 설명 보기 중 정답을 클릭하는 방식이야. 아코디언 UI를 사용해서 각 용어 카드를 만들고, 클릭하면 설명이 보이게 해줘."</p>
+                    </div>
+                    <div x-show="activeTab === 5">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">어조 설정하기</h4>
+                        <p class="text-gray-600 mb-4">결과물의 분위기나 스타일을 지정하여 원하는 뉘앙스의 결과물을 만들 수 있습니다.</p>
+                        <p class="prompt-example text-sm">"새 학기를 시작하는 학생들에게 용기를 주는 환영사를 따뜻하고 희망적인 어조로 작성해 줘."</p>
+                        <p class="prompt-example-web text-sm">"우리 반 온라인 클래스룸의 대문 페이지를 만들어 줘. '꿈과 희망이 가득한 우리 교실'이라는 문구가 따뜻하고 아기자기한 디자인으로 중앙에 표시되게 해줘."</p>
+                    </div>
+                    <div x-show="activeTab === 6">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">예시 보여주기</h4>
+                        <p class="text-gray-600 mb-4">원하는 결과물과 비슷한 예시를 제공하면, AI가 양식을 학습하여 더 정확한 결과물을 생성합니다.</p>
+                        <p class="prompt-example text-sm">"다음 예시처럼, 학생들이 시의 함축적 의미를 파악할 수 있는 발문 3가지를 만들어 줘. 예시: '시인은 왜 이 단어를 사용했을까?'"</p>
+                        <p class="prompt-example-web text-sm">"내가 보여주는 웹사이트(URL)와 비슷한 레이아웃으로 포트폴리오 페이지를 만들어 줘. 상단에는 내 이름과 소개, 하단에는 그리드 형태로 작품 이미지를 3개 넣어줘."</p>
+                    </div>
+                    <div x-show="activeTab === 7">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">단계별로 나누기</h4>
+                        <p class="text-gray-600 mb-4">복잡한 과제는 여러 단계로 나누어 순서대로 요청하면 AI가 더 체계적으로 작업을 처리합니다.</p>
+                        <p class="prompt-example text-sm">"먼저, '조선시대의 신분제도'에 대한 학습 목표를 3가지 정해줘. 그 다음, 각 학습 목표에 맞는 활동 아이디어를 하나씩 제안해 줘."</p>
+                        <p class="prompt-example-web text-sm">"먼저, '오늘의 할 일'을 관리하는 투두리스트 웹 앱의 기본 HTML 구조를 만들어 줘. 그 다음, 할 일을 추가하고 삭제할 수 있는 자바스크립트 기능을 추가해 줘."</p>
+                    </div>
+                    <div x-show="activeTab === 8">
+                        <h4 class="font-bold text-xl mb-2 text-slate-700">제약 조건 설정하기</h4>
+                        <p class="text-gray-600 mb-4">결과물에 포함할 내용이나 분량 등 제약 조건을 설정하여 정확도를 높일 수 있습니다.</p>
+                        <p class="prompt-example text-sm">"세종대왕의 업적에 대한 설명문을 500자 내외로 작성하되, 반드시 '한글 창제'와 '과학 기술 발전'에 대한 내용이 포함되어야 해."</p>
+                        <p class="prompt-example-web text-sm">"역사 인물 카드 맞추기 게임을 만들어 줘. 단, 카드는 가로 3개, 세로 4개로 총 12개여야 하고, 카드의 뒷면 색은 #a8dadc 로 지정해 줘."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: How to Use Gemini Efficiently -->
+        <section id="gemini" class="mb-16">
+            <div x-data="{ activeTab: 1 }" class="w-full max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-10 border-b-2 border-teal-400 pb-2">Gemini 효율적으로 사용하기</h3>
+                
+                <!-- Tab Buttons -->
+                <div class="mb-4 flex flex-wrap justify-center border-b border-gray-200">
+                    <button @click="activeTab = 1" :class="{ 'active': activeTab === 1 }" class="tab-btn tab-btn-teal px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">자연스러운 언어 사용</button>
+                    <button @click="activeTab = 2" :class="{ 'active': activeTab === 2 }" class="tab-btn tab-btn-teal px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">멀티모달 강점 활용</button>
+                    <button @click="activeTab = 3" :class="{ 'active': activeTab === 3 }" class="tab-btn tab-btn-teal px-4 py-2 font-semibold text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700 transition">목적 및 수준 명시</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="bg-white p-6 rounded-lg shadow-lg min-h-[300px]">
+                    <div x-show="activeTab === 1">
+                        <h4 class="font-bold text-xl mb-2 text-teal-700">자연스러운 언어 사용</h4>
+                        <p class="text-gray-600 flex-grow mb-4">키워드만 나열하기보다, 완성된 문장으로 생각을 자세히 전달하는 것이 더 효과적인 결과로 이어집니다.</p>
+                        <p class="prompt-example text-sm">"6학년 미술 수업에서 활용할 만한 '자화상 그리기' 활동 아이디어를 찾고 있어. 학생들이 흥미를 느낄 만한 독특한 방법 3가지를 추천해 줘."</p>
+                        <p class="prompt-example-web text-sm">"우리 반 학생들의 미술 작품을 전시할 온라인 갤러리 페이지를 만들어 줘. 작품 이미지를 클릭하면 모달창이 뜨면서 큰 이미지와 작품 설명이 보이게 해줘."</p>
+                    </div>
+                    <div x-show="activeTab === 2">
+                        <h4 class="font-bold text-xl mb-2 text-teal-700">멀티모달 강점 활용</h4>
+                        <p class="text-gray-600 flex-grow mb-4">텍스트뿐만 아니라 이미지를 첨부하여 더 풍부한 상호작용과 결과물을 얻어보세요.</p>
+                        <p class="prompt-example text-sm">"(교과서 그림을 첨부하며) 이 그림을 보고 학생들이 할 수 있는 창의적인 질문 5가지를 만들어 줘."</p>
+                        <p class="prompt-example-web text-sm">"(내가 만든 학교 로고 이미지를 첨부하며) 이 로고를 사용해서 학교 홈페이지의 헤더 부분을 만들어 줘. 로고는 왼쪽에, 메뉴는 오른쪽에 배치해 줘."</p>
+                    </div>
+                    <div x-show="activeTab === 3">
+                        <h4 class="font-bold text-xl mb-2 text-teal-700">목적 및 전문성 수준 명시</h4>
+                        <p class="text-gray-600 flex-grow mb-4">결과물을 사용할 목적과 교사의 역할을 명시하여 더 적절한 맞춤형 답변을 유도할 수 있습니다.</p>
+                        <p class="prompt-example text-sm">"나는 코딩 초보 교사야. 학생들이 엔트리 블록 코딩으로 간단한 '장애물 피하기 게임'을 만들 수 있도록 단계별 활동지를 만들어 줘."</p>
+                        <p class="prompt-example-web text-sm">"나는 자바스크립트 초보자야. 학생들이 버튼을 클릭할 때마다 화면의 숫자가 1씩 증가하는 간단한 카운터 앱을 만들어 줘. 코드 각 줄마다 이해하기 쉽게 주석을 달아줘."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2025. 지식샘터 강의자료</p>
+            <p class="text-xs text-slate-400 mt-2">
+                프롬프트 엔지니어링 참고 자료: <a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/introduction-prompt-design?hl=ko" target="_blank" class="underline hover:text-white">Google Cloud - 프롬프트 엔지니어링 소개</a>
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Alpine.js for tab functionality -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+</body>
+</html>
