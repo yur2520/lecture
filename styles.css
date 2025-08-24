@@ -4,6 +4,12 @@
     src: url('./SUITE-Variable.woff2') format('woff2-variations');
 }
 
+@font-face {
+    font-family: 'Goorm Sans Code';
+    font-weight: 300 900;
+    src: url('./goorm-sans-code.woff2') format('woff2-variations');
+}
+
 :root {
     --primary-color: #7ebad9;
     --container-background-1: #cadde8;
