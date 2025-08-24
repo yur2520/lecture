@@ -15,4 +15,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./ # HTML 파일들이 있는 디렉토리 (저장소 루트)
+        publish_dir: ./dist # HTML 파일들이 있는 디렉토리 (저장소 루트)
