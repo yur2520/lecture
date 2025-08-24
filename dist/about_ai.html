@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang=ko><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=robots content="noindex, nofollow"><title>생성형 AI</title><script src=https://cdn.tailwindcss.com></script><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&amp;display=swap" rel=stylesheet><style>body{font-family:Noto Sans KR,sans-serif}.section-title:after{content:"";background-color:#3b82f6;border-radius:2px;width:80px;height:3px;margin-top:.75rem;display:block}.card:hover{transform:translateY(-5px);box-shadow:0 10px 15px -3px #0000001a,0 4px 6px -2px #0000000d}th,td{text-align:left;padding:1rem 1.5rem}.modal-trigger{cursor:pointer;color:#2563eb;font-weight:600;transition:color .2s}.modal-trigger:hover{color:#1d4ed8;text-decoration:underline}</style><body class="bg-gray-50 text-gray-800">
+
+    
+    <div class="container max-w-4xl mx-auto px-4 py-8 sm:py-16">
+
+        
+        <header class="mb-16 text-center">
+            <h1 class="font-extrabold mb-4 md:text-5xl text-4xl text-gray-900">생성형 AI</h1>
+            <p class="text-gray-600 text-xl">의미와 원리, 종류 알아보기</p>
+        </header>
+
+        
+        <section class=mb-20>
+            <h2 class="font-bold mb-8 section-title text-3xl">1. 생성형 AI의 의미와 원리</h2>
+            <div class="bg-white card duration-300 p-8 rounded-xl shadow-md space-y-10 transition-all">
+                <div>
+                    <h3 class="font-bold mb-3 text-2xl text-blue-600">생성형 AI의 정의</h3>
+                    <p class="leading-relaxed text-lg">
+                        생성형 AI(Generative AI)는 기존 데이터를 학습하여, 그를 기반으로 새로운 텍스트, 이미지, 오디오 등 독창적인 콘텐츠를 만들어내는 인공지능 기술입니다. 단순히 데이터를 분석하거나 분류하는 것을 넘어, '창작'의 영역을 수행하는 것이 핵심입니다.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-6 text-2xl text-blue-600">작동 원리</h3>
+                    <p class="leading-relaxed mb-8 text-lg">
+                        생성형 AI는 인간의 뇌 구조를 모방한 **딥러닝(Deep Learning)** 모델을 기반으로 작동하며, 그 과정은 크게 3단계로 구성됩니다.
+                    </p>
+                    <div class="flex flex-col gap-4 items-stretch justify-between md:flex-row">
+                        
+                        <div class="bg-blue-50 flex flex-1 flex-col p-6 rounded-lg text-center w-full">
+                            <div class="bg-blue-200 flex flex-shrink-0 font-bold h-12 items-center justify-center mb-4 mx-auto rounded-full text-2xl text-blue-700 w-12">1</div>
+                            <h4 class="font-bold mb-2 text-xl">데이터 학습</h4>
+                            <p class=text-gray-600>방대한 데이터를 학습하며 패턴과 구조를 익힙니다.</p>
+                        </div>
+                        
+                        <div class="flex font-bold items-center justify-center md:rotate-0 rotate-90 text-4xl text-gray-300 transform">→</div>
+                        
+                        <div class="bg-green-50 flex flex-1 flex-col p-6 rounded-lg text-center w-full">
+                            <div class="bg-green-200 flex flex-shrink-0 font-bold h-12 items-center justify-center mb-4 mx-auto rounded-full text-2xl text-green-700 w-12">2</div>
+                            <h4 class="font-bold mb-2 text-xl">패턴 분석</h4>
+                            <p class=text-gray-600>학습 데이터에서 고유한 패턴과 관계를 파악합니다.</p>
+                        </div>
+                        
+                        <div class="flex font-bold items-center justify-center md:rotate-0 rotate-90 text-4xl text-gray-300 transform">→</div>
+                        
+                        <div class="bg-purple-50 flex flex-1 flex-col p-6 rounded-lg text-center w-full">
+                            <div class="bg-purple-200 flex flex-shrink-0 font-bold h-12 items-center justify-center mb-4 mx-auto rounded-full text-2xl text-purple-700 w-12">3</div>
+                            <h4 class="font-bold mb-2 text-xl">콘텐츠 생성</h4>
+                            <p class=text-gray-600>학습된 패턴을 응용해 새로운 결과물을 만듭니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class=mb-20>
+            <h2 class="font-bold mb-8 section-title text-3xl">2. 생성형 AI의 종류와 예시</h2>
+            <div class="bg-white card duration-300 overflow-hidden p-0 rounded-xl shadow-md transition-all">
+                
+                <table class="border-collapse w-full">
+                    <thead class=bg-slate-200>
+                        <tr>
+                            <th class="font-bold text-gray-700 text-lg">종류</th>
+                            <th class="font-bold text-gray-700 text-lg">설명</th>
+                            <th class="font-bold text-gray-700 text-lg">대표 예시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class=font-bold>텍스트 생성</td>
+                            <td>보고서, 이메일, 소설, 코드 등 다양한 종류의 글을 작성합니다.</td>
+                            <td>
+                                <span class=modal-trigger data-service=chatgpt>ChatGPT</span>, 
+                                <span class=modal-trigger data-service=gemini>Gemini</span>, 
+                                <span class=modal-trigger data-service=claude>Claude</span>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class=font-bold>이미지 생성</td>
+                            <td>텍스트 설명만으로 독창적이고 사실적인 이미지를 만들어냅니다.</td>
+                            <td>
+                                <span class=modal-trigger data-service=midjourney>Midjourney</span>, 
+                                <span class=modal-trigger data-service=dalle>DALL-E</span>, 
+                                <span class=modal-trigger data-service=stablediffusion>Stable Diffusion</span>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class=font-bold>오디오/음악 생성</td>
+                            <td>텍스트를 자연스러운 음성으로 변환하거나 새로운 음악을 작곡합니다.</td>
+                            <td>
+                                <span class=modal-trigger data-service=suno>Suno AI</span>, 
+                                <span class=modal-trigger data-service=elevenlabs>ElevenLabs</span>, 
+                                <span class=modal-trigger data-service=typecast>Typecast</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=font-bold>비디오 생성</td>
+                            <td>텍스트나 이미지를 기반으로 짧은 동영상을 제작합니다.</td>
+                            <td>
+                                <span class=modal-trigger data-service=sora>Sora</span>, 
+                                <span class=modal-trigger data-service=runwayml>RunwayML</span>, 
+                                <span class=modal-trigger data-service=pika>Pika Labs</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        
+        <section class=mb-20>
+            <h2 class="font-bold mb-8 section-title text-3xl">3. 주요 생성형 AI 서비스의 인지도와 특징</h2>
+            <div class="bg-white card duration-300 p-8 rounded-xl shadow-md transition-all">
+                <p class="leading-relaxed mb-8 text-lg">
+                    수많은 생성형 AI 서비스 중에서 이용자들에게 가장 널리 알려지고 사용되는 서비스는 단연 ChatGPT입니다. 한국언론진흥재단의 2025년 조사에 따르면, ChatGPT는 인지도와 사용 경험 측면에서 다른 서비스들을 압도하는 것으로 나타났습니다. Google의 Gemini가 그 뒤를 이었고, 네이버 하이퍼클로바X와 뤼튼 등 국내 서비스들도 높은 인지도를 보였습니다.
+                </p>
+                
+                <div class=space-y-8>
+                    
+                    <div>
+                        <span class="font-bold text-gray-800 text-lg">ChatGPT</span>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">인지도</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-blue-500 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:95%>95.0%</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">사용 경험</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-sky-400 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:92.5%>92.5%</div>
+                                </div>
+                            </div>
+                            <p class="mt-3 pl-2 text-gray-700 text-sm">
+                                뛰어난 범용성과 강력한 대화 능력으로 가장 대중적인 AI 챗봇입니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class=pt-4>
+                        <span class="font-bold text-gray-800 text-lg">Gemini</span>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">인지도</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-green-500 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:37.4%>37.4%</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">사용 경험</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-emerald-400 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:24.4%>24.4%</div>
+                                </div>
+                            </div>
+                            <p class="mt-3 pl-2 text-gray-700 text-sm">
+                                구글 검색 기반의 최신 정보 반영 및 멀티모달 기능에 강점이 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class=pt-4>
+                        <span class="font-bold text-gray-800 text-lg">네이버 하이퍼클로바X</span>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">인지도</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-purple-500 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:20.9%>20.9%</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">사용 경험</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-violet-400 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:11.2%>11.2%</div>
+                                </div>
+                            </div>
+                            <p class="mt-3 pl-2 text-gray-700 text-sm">
+                                한국어 데이터에 특화되어 자연스러운 한국어를 구사하며, 네이버 서비스와 연동됩니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class=pt-4>
+                        <span class="font-bold text-gray-800 text-lg">뤼튼 (Wrtn)</span>
+                        <div class="mt-2 space-y-2">
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">인지도</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-orange-500 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:20.2%>20.2%</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-x-3 items-center">
+                                <span class="font-medium text-gray-600 text-sm w-20">사용 경험</span>
+                                <div class="bg-gray-200 h-6 overflow-hidden rounded-full w-full">
+                                    <div class="bg-amber-500 flex font-bold h-full items-center justify-center rounded-full text-sm text-white" style=width:13.7%>13.7%</div>
+                                </div>
+                            </div>
+                            <p class="mt-3 pl-2 text-gray-700 text-sm">
+                                블로그 포스팅, 광고 문구 등 글쓰기 실무에 유용한 기능을 다수 제공합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-8 text-gray-500 text-right text-sm">
+                    자료: 한국언론진흥재단 미디어연구센터, '미디어서베이 11권 2호' (2025.04)
+                </p>
+            </div>
+        </section>
+
+        
+        <footer class="border-t mt-20 pt-8 text-center text-gray-500">
+            <h3 class="font-semibold mb-4 text-lg">자료 출처</h3>
+            <div class="gap-4 grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 text-sm">
+                <a href=https://www.sap.com/korea/products/artificial-intelligence/what-is-generative-ai.html target=_blank class=hover:text-blue-600>SAP</a>
+                <a href="https://cloud.google.com/use-cases/generative-ai?hl=ko" target=_blank class=hover:text-blue-600>Google Cloud</a>
+                <a href=https://www.cloudflare.com/ko-kr/learning/ai/what-is-generative-ai/ target=_blank class=hover:text-blue-600>Cloudflare</a>
+                <a href=https://www.databricks.com/kr/discover/generative-ai target=_blank class=hover:text-blue-600>Databricks</a>
+                <a href=https://aws.amazon.com/ko/what-is/generative-ai/ target=_blank class=hover:text-blue-600>AWS</a>
+                <a href=https://www.ibm.com/kr-ko/think/topics/generative-ai target=_blank class=hover:text-blue-600>IBM</a>
+                <a href="https://www.kpf.or.kr/front/research/trendView.do?seq=266" target=_blank ="hover:text-blue-600">한국언론진흥재단</a>
+            </div>
+            <p class=mt-8>2025. 지식샘터 연수자료</p>
+        </footer>
+
+    </div>
+
+    
+    <div id=serviceModal class="bg-gray-900 bg-opacity-75 duration-300 fixed flex hidden inset-0 items-center justify-center p-4 transition-opacity z-50">
+        <div class="bg-white duration-300 max-h-full max-w-2xl overflow-y-auto rounded-lg scale-95 shadow-xl transform transition-transform w-full">
+            <div class=p-8>
+                <div class="flex items-start justify-between">
+                    <h3 id=modalTitle class="font-bold text-2xl text-gray-900"></h3>
+                    <button id=closeModal class="hover:text-gray-600 text-gray-400">
+                        <svg xmlns:xmlns=http://www.w3.org/2000/svg fill=none stroke=currentColor class="h-6 w-6" viewBox="0 0 24 24"><path stroke-linecap=round stroke-linejoin=round stroke-width=2 d="M6 18 18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <hr class=my-4>
+                <div id=modalBody class="leading-relaxed space-y-4 text-gray-700 text-lg">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>let modalData={chatgpt:{title:"ChatGPT (챗GPT)",description:"OpenAI가 개발한 대화형 인공지능 챗봇입니다. 인간과 유사한 텍스트를 생성하는 능력에 기반하여, 사용자의 다양한 질문에 논리적인 답변을 제공합니다. 글쓰기, 번역, 코딩 지원 등 광범위한 분야에서 활용되며, 생성형 AI의 대중화를 이끈 대표적인 서비스입니다."},gemini:{title:"Gemini (제미나이)",description:"Google이 개발한 멀티모달(Multi-modal) 인공지능 모델입니다. 텍스트뿐만 아니라 이미지, 오디오, 비디오 등 여러 유형의 정보를 동시에 이해하고 처리하는 능력을 갖추었습니다. Google 검색 엔진과 연동하여 최신 정보를 답변에 반영하는 데 강점이 있습니다."},claude:{title:"Claude (클로드)",description:"Anthropic사가 개발한 인공지능 챗봇으로, '안전성'과 '유용성'을 핵심 가치로 삼고 있습니다. 유해하거나 비윤리적인 답변을 최소화하도록 설계되었으며, 길고 복잡한 문서를 정확하게 요약하고 분석하는 데 뛰어난 성능을 보입니다."},midjourney:{title:"Midjourney (미드저니)",description:"텍스트 설명문을 기반으로 고품질의 예술적인 이미지를 생성하는 서비스입니다. 특히 독창적이고 미학적인 화풍을 구현하는 데 강점을 가지고 있으며, 커뮤니케이션 플랫폼인 '디스코드(Discord)'를 통해 사용되는 독특한 방식을 취하고 있습니다."},dalle:{title:"DALL-E (달리)",description:"ChatGPT 개발사 OpenAI가 만든 이미지 생성 인공지능입니다. 사용자가 입력한 텍스트를 바탕으로 매우 창의적이고 초현실적인 이미지를 생성하는 것으로 잘 알려져 있습니다. 최신 버전은 생성된 이미지의 특정 부분을 수정하는 편집 기능도 제공합니다."},stablediffusion:{title:"Stable Diffusion (스테이블 디퓨전)",description:"Stability AI가 개발한 오픈소스 이미지 생성 모델입니다. 코드가 공개되어 있어 누구나 자유롭게 모델을 활용하고 수정할 수 있다는 것이 가장 큰 특징입니다. 이를 통해 사용자들은 자신만의 스타일에 맞는 이미지를 생성하는 등 높은 자유도를 누릴 수 있습니다."},suno:{title:"Suno AI (수노 AI)",description:"간단한 텍스트 프롬프트만으로 음악을 창작하는 혁신적인 서비스입니다. 장르, 분위기, 가사 등을 입력하면 그에 맞는 보컬과 악기 연주가 포함된 완성도 높은 곡을 생성하여, 누구나 쉽게 작곡가가 될 수 있는 경험을 제공합니다."},elevenlabs:{title:"ElevenLabs (일레븐랩스)",description:"매우 사실적인 인공지능 음성을 생성하는 데 특화된 플랫폼입니다. 텍스트를 입력하면 사람처럼 자연스러운 억양과 감정이 담긴 음성으로 변환해 주며, 자신의 목소리를 복제하여 사용하는 기능도 지원하여 오디오북, 더빙 등 다양한 분야에 활용됩니다."},typecast:{title:"Typecast (타입캐스트)",description:"국내 기업 네오사피엔스가 개발한 AI 성우 서비스입니다. 500개 이상의 다양한 목소리 캐릭터를 제공하며, 감정이나 톤을 조절하는 기능을 통해 영상 콘텐츠, 오디오북, 안내 방송 등에 생동감 있는 목소리를 더할 수 있도록 지원합니다."},sora:{title:"Sora (소라)",description:"OpenAI가 공개한 텍스트 기반 동영상 생성 모델입니다. 텍스트 설명만으로 최대 1분 길이의 고화질 동영상을 제작할 수 있는 잠재력을 보여주었습니다. 복잡한 장면과 사실적인 움직임을 구현하여 영상 제작 분야에 큰 파장을 일으킬 것으로 기대됩니다."},runwayml:{title:"RunwayML (런웨이ML)",description:"영상 제작자를 위한 다양한 AI 기반 편집 도구를 제공하는 플랫폼입니다. 기존 영상을 편집하는 기능은 물론, 텍스트나 이미지를 동영상으로 변환하는 생성 기능도 포함하고 있어 영상 창작의 전 과정을 지원하는 종합적인 솔루션으로 평가받습니다."},pika:{title:"Pika Labs (피카랩스)",description:"아이디어를 동영상으로 쉽게 변환할 수 있도록 돕는 AI 영상 생성 도구입니다. 사용하기 쉬운 인터페이스를 통해 누구나 짧은 시간 안에 창의적인 영상을 만들 수 있도록 지원하며, 영상의 스타일을 다양하게 변형하는 기능을 제공하여 주목받고 있습니다."}},modal=document.getElementById("serviceModal"),modalContainer=modal.querySelector("div"),closeModalBtn=document.getElementById("closeModal"),modalTitle=document.getElementById("modalTitle"),modalBody=document.getElementById("modalBody"),triggers=document.querySelectorAll(".modal-trigger"),openModal=e=>{let t=modalData[e];t&&(modalTitle.textContent=t.title,modalBody.innerHTML=`<p>${t.description}</p>`,modal.classList.remove("hidden"),setTimeout(()=>{modal.classList.add("opacity-100"),modalContainer.classList.remove("scale-95"),modalContainer.classList.add("scale-100")},10))},closeModal=()=>{modal.classList.remove("opacity-100"),modalContainer.classList.remove("scale-100"),modalContainer.classList.add("scale-95"),setTimeout(()=>{modal.classList.add("hidden")},300)};triggers.forEach(e=>{e.addEventListener("click",e=>{openModal(e.target.dataset.service)})}),closeModalBtn.addEventListener("click",closeModal),modal.addEventListener("click",e=>{e.target===modal&&closeModal()}),window.addEventListener("keydown",e=>{"Escape"!==e.key||modal.classList.contains("hidden")||closeModal()});</script>
+
+
