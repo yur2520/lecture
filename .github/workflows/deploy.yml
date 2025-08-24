@@ -1,10 +1,10 @@
 name: Deploy Canvas HTML to GitHub Pages
 
 on:
-  workflow_dispatch: # <-- 오직 수동 실행만 허용
+  workflow_dispatch: 
 
 jobs:
-  build-and-deploy: # 잡 이름이 'build-and-deploy'
+  build-and-deploy: 
     runs-on: ubuntu-latest
 
     steps:
