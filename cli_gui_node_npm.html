@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>코딩 첫걸음: CLI, GUI, Node.js, npm 개념 정리</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Noto Sans KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Noto Sans KR 폰트 적용 */
+        body {
+            font-family:  'SUITE Variable','Noto Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-6 md:p-12">
+        <!-- 헤더 섹션 -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-2">코딩 첫걸음, 필수 개념 정복하기</h1>
+            <p class="text-lg md:text-xl text-gray-600">CLI, GUI, Node.js, npm을 비유로 쉽게 이해해봐요!</p>
+        </header>
+
+        <main class="space-y-12">
+            <!-- 1. CLI와 GUI 섹션 -->
+            <section>
+                <h2 class="text-3xl font-bold text-center mb-8">1. 컴퓨터와 대화하는 두 가지 방법</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- GUI 카드 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-sky-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                            </svg>
+                            <h3 class="text-2xl font-bold text-sky-600">GUI (Graphical User Interface)</h3>
+                        </div>
+                        <p class="mb-4">우리가 매일 사용하는 컴퓨터 화면이에요. 아이콘, 메뉴, 버튼을 <strong class="text-sky-500">마우스로 클릭</strong>해서 조작하는 직관적인 방식이죠.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="font-semibold text-green-600">장점 👍</h4>
+                                <p class="text-gray-600">그림으로 되어 있어 사용하기 쉽고 배우기 편해요.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-red-600">단점 👎</h4>
+                                <p class="text-gray-600">100개의 파일을 옮기려면 100번 클릭해야 하는 등, 반복 작업이 번거로워요.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CLI 카드 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                            </svg>
+                            <h3 class="text-2xl font-bold text-indigo-600">CLI (Command Line Interface)</h3>
+                        </div>
+                        <p class="mb-4">까만 화면에 <strong class="text-indigo-500">텍스트 명령어</strong>를 직접 입력해서 컴퓨터를 조작해요. 해커 영화에 자주 등장하는 그 화면이죠! 만약 당신이 MS-DOS 운영체제를 경험한 적이 있다면, 이 또한 CLI 환경의 대표적인 예시라고 할 수 있습니다.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="font-semibold text-green-600">장점 👍</h4>
+                                <p class="text-gray-600">명령어 한 줄로 100개 파일 복사 등, 복잡하고 반복적인 작업을 자동화할 수 있어요.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-red-600">단점 👎</h4>
+                                <p class="text-gray-600">명령어를 외워야 해서 처음에는 조금 어렵게 느껴질 수 있어요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Node.js와 npm 섹션 -->
+            <section>
+                <h2 class="text-3xl font-bold text-center mb-8">2. 자바스크립트를 위한 특별한 도구들</h2>
+                 <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Node.js 카드 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                            <h3 class="text-2xl font-bold text-green-600">Node.js</h3>
+                        </div>
+                        <p class="mb-4">비유하자면, <strong class="text-green-500">'자바스크립트의 활동 무대 확장팩'</strong>이에요. 원래 웹 브라우저 안에서만 놀던 자바스크립트를 컴퓨터 세상(서버 등)으로 꺼내 준 멋진 도구죠.</p>
+                        <p class="text-gray-600">덕분에 자바스크립트 하나로 웹사이트의 앞면(프론트엔드)과 뒷면(백엔드)을 모두 만들 수 있게 되었어요.</p>
+                    </div>
+
+                    <!-- npm 카드 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                            <h3 class="text-2xl font-bold text-red-600">npm (Node Package Manager)</h3>
+                        </div>
+                        <p class="mb-4">개발자들을 위한 <strong class="text-red-500">'앱스토어'</strong>나 <strong class="text-red-500">'레고 부품 가게'</strong>라고 생각하면 쉬워요. 다른 개발자들이 미리 만들어 둔 유용한 코드 조각(패키지)들이 모여있죠.</p>
+                        <p class="text-gray-600">CLI에서 `npm install` 명령어로 필요한 부품을 간편하게 다운로드해서 내 프로젝트에 조립할 수 있습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 요약 섹션 -->
+            <section>
+                <div class="bg-blue-800 text-white p-8 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-center mb-6">핵심 요약</h2>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start"><span class="mr-3">✅</span> <strong>CLI vs. GUI:</strong> 컴퓨터와 소통하는 방법. CLI는 <span class="font-mono bg-blue-900 px-2 py-1 rounded">텍스트 명령어</span>, GUI는 <span class="font-mono bg-blue-900 px-2 py-1 rounded">마우스 클릭</span>.</li>
+                        <li class="flex items-start"><span class="mr-3">✅</span> <strong>Node.js:</strong> 웹 브라우저 밖에서 자바스크립트를 실행시켜주는 <span class="font-mono bg-blue-900 px-2 py-1 rounded">실행 환경</span>.</li>
+                        <li class="flex items-start"><span class="mr-3">✅</span> <strong>npm:</strong> 유용한 코드(패키지)를 쉽게 설치하고 관리하게 해주는 <span class="font-mono bg-blue-900 px-2 py-1 rounded">패키지 관리 도구</span>.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        
+        <!-- 푸터 -->
+        <footer class="text-center mt-12 py-6 border-t">
+            <p class="text-gray-500">이 페이지는 코딩 입문자들을 위해 만들어졌습니다.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
+

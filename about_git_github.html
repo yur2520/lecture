@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Git & GitHub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
         }
         .gradient-text {
             background: linear-gradient(to right, #4F46E5, #EC4899);
@@ -39,31 +41,32 @@
 
         <!-- Git Section -->
         <section id="git" class="mb-16">
-            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center bg-white p-8 rounded-2xl shadow-lg">
-                <div class="md:w-1/3 text-center md:text-left mb-8 md:mb-0">
-                    <div class="inline-block bg-red-100 p-4 rounded-full mb-4">
-                        <!-- Git Icon SVG -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-9 9-4-4"></path><path d="M14 6l-9 9"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-gray-900">Git: 버전 관리 시스템</h3>
-                    <p class="text-gray-500 mt-2">개발의 세이브 포인트</p>
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row content-stretch  overflow-hidden rounded-2xl shadow-lg bg-[#E4EAF2]">
+                <div class="w-full md:w-1/4 text-center items-end bg-[#041A38] md:text-left mb-8 md:mb-0">
+                    <div class="md:h-2/3 h-26">
+                    <img class="object-cover overflow-hidden" src="gits2.png">    </div>    
+                    <h3 class="px-6 text-4xl font-bold text-gray-50 text-shadow-lg">Git</h3>
+                    <h3 class="px-6 text-lg text-gray-50 text-right text-shadow-lg mb-6">버전 관리 시스템</h3>
+                   
                 </div>
-                <div class="md:w-2/3 md:pl-8">
-                    <p class="mb-6 text-lg">
-                        Git은 파일의 변경 사항을 시간 순서대로 기록하고 관리하는 프로그램입니다. 마치 게임의 '세이브 포인트'처럼 코드의 특정 상태를 저장(Commit)해두고, 언제든지 원하는 시점으로 되돌아갈 수 있게 해 줍니다.
+                <div class="p-6 md:w-3/4 md:pl-3">
+                    <p class="mb-1 md:text-mx p-4">
+                       Git은 파일의 변경 사항을 시간 순서대로 기록하고 관리하는 프로그램입니다. 오픈 소스 프로그램으로 누구나 무료로 사용할 수 있으며, 게임의 세이브 포인트처럼 코드의 특정 상태를 저장(Commit)해두고 언제든지 원하는 시점으로 되돌아갈 수 있게 해 줍니다. 
+                       개발 버전을 제어하는 다른 프로그램들도 있으나, 현재는 Git이 가장 널리 쓰이고 있으며 그 외의 시스템은 특정 환경이나 용도에 따라 제한적으로 사용되고 있습니다. 
+                      
                     </p>
-                    <div class="space-y-4">
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-bold">✅ 주요 특징</h4>
-                            <ul class="list-disc list-outside pl-5 mt-2 text-gray-700 space-y-1">
-                                <li>분산 버전 관리 (오프라인 작업 가능)</li>
-                                <li>빠르고 효율적인 성능</li>
-                                <li>강력한 브랜치(Branch) 기능</li>
+                    <div class="space-y-4 mb-4">
+                        <div class="bg-gray-100 p-4 rounded-lg m-4">
+                            <h4 class="font-bold">주요 특징</h4>
+                            <ul class="list-disc list-outside pl-5 mt-1 text-gray-700 space-y-1">
+                                <li>분산 버전 관리 (오프라인 작업 가능) : 완전히 독립적인 로컬 환경에서 작업하고 각 로컬 환경마다 버전을 관리할 수 있도록 해 줍니다. </li>
+                                <li>빠르고 효율적인 성능 : 거의 모든 작업을 로컬에서 수행하고, 메인 브랜치에 내보내기를 수행할 때에만 서버와 통신하므로 개발 시 쾌적한 속도를 경험할 수 있습니다.</li>
+                                <li>브랜치(Branch) 기능 : 나뭇가지가 뻗어나가는 것과 같이 각 분기점을 만들어 작업하고, 나중에 병합시킬 수 있습니다.</li>
                             </ul>
                         </div>
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-bold">💡 핵심 개념</h4>
-                            <ul class="list-disc list-outside pl-5 mt-2 text-gray-700 space-y-1">
+                        <div class="bg-gray-100 p-4 rounded-lg m-4">
+                            <h4 class="font-bold">핵심 개념</h4>
+                            <ul class="list-disc list-outside pl-5 mt-1 text-gray-700 space-y-1">
                                 <li><strong>Repository (저장소):</strong> 프로젝트 저장소</li>
                                 <li><strong>Commit (커밋):</strong> 변경 사항을 저장하는 단위</li>
                                 <li><strong>Branch (브랜치):</strong> 독립적인 작업 흐름</li>
@@ -77,22 +80,22 @@
 
         <!-- GitHub Section -->
         <section id="github" class="mb-16">
-            <div class="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center bg-white p-8 rounded-2xl shadow-lg">
-                <div class="md:w-1/3 text-center md:text-left mb-8 md:mb-0">
-                     <div class="inline-block bg-blue-100 p-4 rounded-full mb-4">
-                        <!-- GitHub Icon SVG -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row content-stretch rounded-2xl shadow-lg overflow-hidden bg-[#E1E5F2]">
+                <div class="w-full md:w-1/4 text-center items-end md:text-left mb-8 md:mb-0 bg-[#021E42]">
+                     <div class="md:h-2/3 h-26">
+                    <img class="object-cover" src="github.png" alt="HTML code" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ef4444/ffffff?text=Github';">
                     </div>
-                    <h3 class="text-3xl font-bold text-gray-900">GitHub: Git 호스팅 플랫폼</h3>
-                    <p class="text-gray-500 mt-2">전 세계 개발자들과의 협업 공간</p>
+                    <h3 class="px-6 text-4xl font-bold text-gray-50">GitHub</h3>
+                    <h3 class="px-6 text-mg text-gray-50 text-right mb-6 text-pretty">Git 호스팅과 협업 공간을 제공하는 플랫폼</h3>
+                   
                 </div>
-                <div class="md:w-2/3 md:pr-8">
+                <div class="md:w-3/4 md:pr-8 p-6">
                     <p class="mb-6 text-lg">
                         GitHub는 Git으로 관리되는 프로젝트를 저장하고 공유하는 웹사이트입니다. 내 컴퓨터에 있는 Git 저장소를 GitHub에 올려두면 안전하게 백업할 수 있고, 다른 사람들과 함께 코드를 보며 협업할 수 있습니다.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 gap-4">
                         <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-bold">✅ 주요 기능</h4>
+                            <h4 class="font-bold">주요 기능</h4>
                             <ul class="list-disc list-outside pl-5 mt-2 text-gray-700 space-y-1">
                                 <li>원격 저장소(Remote Repository) 제공</li>
                                 <li>코드 리뷰 (Pull Request)</li>
@@ -101,7 +104,7 @@
                             </ul>
                         </div>
                         <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-bold">💡 협업의 핵심</h4>
+                            <h4 class="font-bold">협업의 핵심</h4>
                             <ul class="list-disc list-outside pl-5 mt-2 text-gray-700 space-y-1">
                                 <li><strong>Push:</strong> 내 컴퓨터의 변경 이력을 GitHub로 업로드</li>
                                 <li><strong>Pull:</strong> GitHub의 변경 이력을 내 컴퓨터로 다운로드</li>
@@ -112,54 +115,11 @@
                 </div>
             </div>
         </section>
+        <div class="button-group max-w-4xl items-right mx-auto">
+            <a href="git_workflow.html">구체적인 사용 방법 및 예시</a>           
+        </div>
 
-        <!-- Comparison Section -->
-        <section id="comparison" class="mb-16">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-8">한눈에 보는 Git과 GitHub의 차이</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Git Card -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-red-400">
-                        <h3 class="text-2xl font-bold mb-3">Git</h3>
-                        <p class="text-gray-600 mb-4"><strong>소프트웨어 (도구)</strong></p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">✔️</span>
-                                <span>내 컴퓨터에 설치하여 사용</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">✔️</span>
-                                <span>코드의 버전(이력)을 관리</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">✔️</span>
-                                <span>인터넷 연결 없이도 작업 가능</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- GitHub Card -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-400">
-                        <h3 class="text-2xl font-bold mb-3">GitHub</h3>
-                        <p class="text-gray-600 mb-4"><strong>웹 서비스 (플랫폼)</strong></p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-2">✔️</span>
-                                <span>웹 브라우저를 통해 접속</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-2">✔️</span>
-                                <span>Git 저장소를 원격으로 저장하고 공유</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-2">✔️</span>
-                                <span>협업과 코드 리뷰에 중점</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+             
         <!-- Other Platforms Section -->
         <section id="other-platforms" class="mb-16">
             <div class="max-w-5xl mx-auto">

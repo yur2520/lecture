@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="styles.css">
     <title>강의자료 모음</title>
     <style>
         
-        @font-face {
-            font-family: 'SUITE Variable';
-            font-weight: 300 900;            
-            src: url('./SUITE-Variable.woff2') format('woff2-variations'); 
-        }
-
-        /* --- 기본 스타일 --- */
-        body {
-            /* SUITE Variable 폰트를 기본으로 사용하고, 없을 경우 Malgun Gothic을 사용합니다. */
+       
+        body {           
             font-family: 'SUITE Variable', 'Malgun Gothic', sans-serif;
             margin: 0;
             background-color: #f0f0f0;
@@ -128,12 +122,21 @@
             <p id="dev-card-description">개발지식 및 코딩 관련 정보</p>
             <div class="button-group">
                 <!-- 호버 이벤트를 적용할 버튼에 id를 추가합니다 -->
-                <a href="notion-of-web.html" id="web-terms-button">웹 기술 용어 기초</a>
-                <a href="web-design.html" id="web-design-button">웹 디자인</a>
+                <a href="notion-of-web.html" id="web-terms-button">웹 기술 기초개념</a>                              
+                <a href="cli_gui_node_npm.html" id="cli-gui-button">CLI-GUI, NODE.js, npm</a>
                 <a href="about_git_github.html">Git & GitHub</a> 
                 <a href="git_workflow.html">Git 사용법</a>  
-                <!--   
-                <a href="#" class="disabled">자료 준비 중</a>-->
+             </div>       
+        </div>
+
+
+        <div class="card">
+            <h1>UI * UX </h1>
+            <p id="ui-card-description">UI 디자인 관련</p>
+            <div class="button-group">
+                <a href="web-design.html" id="web-design-button">웹 디자인</a>                 
+                 <a href="ui_ux_trend.html" id="ui-ux-trend-button">UI/UX 트렌드</a>
+                
             </div>
         </div>
 
@@ -145,12 +148,14 @@
         // 1. 필요한 HTML 요소를 가져옵니다.
         const description = document.getElementById('dev-card-description');
         const webTermsButton = document.getElementById('web-terms-button');
-        const webDesignButton = document.getElementById('web-design-button'); // '웹 디자인' 버튼 추가
+        const webDesignButton = document.getElementById('web-design-button');
+        const uiuxTrendButton = document.getElementById('ui-ux-trend-button');
 
         // 2. 원래 텍스트와 각 버튼에 대한 변경될 텍스트를 변수에 저장합니다.
         const originalText = '개발지식 및 코딩 관련 정보';
         const webTermsHoverText = 'html, css, java script, 라이브러리, 프론트엔드&백엔드, 로컬, 서버, 호스팅, 네트워크';
-        const webDesignHoverText = '웹 페이지 영역의 명칭, 레이아웃과 UI컴포넌트 명칭, 색상 표현, 반응형과 적응형'; // '웹 디자인' 버튼 호버 텍스트
+        const webDesignHoverText = '웹 페이지 영역의 명칭, 레이아웃과 UI컴포넌트 명칭, 색상 표현, 반응형과 적응형';
+        const uiuxTrendHoverText = 'UI/UX 트렌드 관련 용어'
 
         // --- '웹 기술 용어 기초' 버튼 이벤트 리스너 ---
         webTermsButton.addEventListener('mouseover', () => {
