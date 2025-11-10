@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>강의자료 모음</title>
     <style>
-        
-       
-        body {           
+        body {
             font-family: 'SUITE Variable', 'Malgun Gothic', sans-serif;
             margin: 0;
             background-color: #f0f0f0;
@@ -18,14 +17,22 @@
 
         /* --- 카드 레이아웃 컨테이너 --- */
         .card-container {
-            display: flex; /* Flexbox 레이아웃 사용 */
-            justify-content: center; /* 가로 중앙 정렬 */
-            align-items: flex-start; /* 세로 상단 정렬 */
-            flex-wrap: wrap; /* 카드가 화면 너비를 넘어가면 다음 줄로 이동 */
-            gap: 40px; /* 카드 사이의 간격 */
-            padding: 50px 20px; /* 컨테이너 내부 여백 */
-            min-height: 100vh; /* 최소 높이를 화면 전체로 설정 */
-            box-sizing: border-box; /* padding을 포함하여 높이 계산 */
+            display: flex;
+            /* Flexbox 레이아웃 사용 */
+            justify-content: center;
+            /* 가로 중앙 정렬 */
+            align-items: flex-start;
+            /* 세로 상단 정렬 */
+            flex-wrap: wrap;
+            /* 카드가 화면 너비를 넘어가면 다음 줄로 이동 */
+            gap: 40px;
+            /* 카드 사이의 간격 */
+            padding: 50px 20px;
+            /* 컨테이너 내부 여백 */
+            min-height: 100vh;
+            /* 최소 높이를 화면 전체로 설정 */
+            box-sizing: border-box;
+            /* padding을 포함하여 높이 계산 */
         }
 
         /* --- 개별 카드 스타일 --- */
@@ -35,29 +42,32 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 320px; /* 카드의 기본 너비 */
+            width: 320px;
+            /* 카드의 기본 너비 */
             box-sizing: border-box;
         }
 
         /* --- 텍스트 및 버튼 스타일 (기존 스타일 유지) --- */
         .card h1 {
             color: #7ebad9;
-            margin-top: 0; /* h1 상단 마진 제거 */
+            margin-top: 0;
+            /* h1 상단 마진 제거 */
             margin-bottom: 16px;
             font-size: 2em;
             font-weight: 700;
         }
-        
+
         .card p {
             margin-bottom: 28px;
             font-size: 0.84em;
             line-height: 1.6;
             /* 텍스트가 변경될 때 높이가 변하는 것을 방지하기 위해 최소 높이를 설정합니다. */
-            min-height: 44px; 
+            min-height: 44px;
         }
 
         .button-group a {
-            display: block; /* 버튼을 블록 요소로 변경하여 한 줄에 하나씩 표시 */
+            display: block;
+            /* 버튼을 블록 요소로 변경하여 한 줄에 하나씩 표시 */
             background-color: #7ebad9;
             color: white;
             padding: 12px 25px;
@@ -67,31 +77,35 @@
             font-weight: 500;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom: 15px; /* 버튼 사이의 간격 */
+            margin-bottom: 15px;
+            /* 버튼 사이의 간격 */
         }
 
         .button-group a:last-child {
-            margin-bottom: 0; /* 마지막 버튼의 하단 간격 제거 */
+            margin-bottom: 0;
+            /* 마지막 버튼의 하단 간격 제거 */
         }
 
         .button-group a:hover {
             background-color: #24759e;
-            transform: translateY(-2px); /* 호버 시 살짝 위로 이동하는 효과 */
+            transform: translateY(-2px);
+            /* 호버 시 살짝 위로 이동하는 효과 */
         }
-        
+
         /* 비활성화된 버튼 스타일 */
         .button-group a.disabled {
             background-color: #cdd2d5;
             cursor: not-allowed;
-            pointer-events: none; /* 클릭 이벤트 비활성화 */
+            pointer-events: none;
+            /* 클릭 이벤트 비활성화 */
         }
-        
+
         .button-group a.disabled:hover {
             transform: none;
         }
-
     </style>
 </head>
+
 <body>
     <div class="card-container">
 
@@ -100,6 +114,7 @@
             <p>생성형 AI 관련 자료</p>
             <div class="button-group">
                 <a href="about_ai.html">AI의 의미와 종류</a>
+                <a href="about_ai2.html">AI의 의미와 종류2</a>
                 <a href="vibe_coding.html">바이브 코딩</a>
                 <a href="prompt.html">프롬프트</a>
                 <a href="about_gemini.html">Google Gemini</a>
@@ -110,9 +125,9 @@
             <h1>플랫폼 바로가기</h1>
             <p>서비스 및 플랫폼 관련 링크</p>
             <div class="button-group">
-                <a href="https://tailwindcss.com/docs">Tailwind CSS</a>                  
+                <a href="https://tailwindcss.com/docs">Tailwind CSS</a>
                 <a href="https://codepen.io/pen">Codepen * 코드펜</a>
-                
+
             </div>
         </div>
 
@@ -123,11 +138,11 @@
             <div class="button-group">
                 <!-- 호버 이벤트를 적용할 버튼에 id를 추가합니다 -->
                 <a href="notion-of-web.html" id="web-terms-button">웹 기술 기초개념</a>
-                <a href="coding_notions.html" id="coding-notions-button">코딩용어개념</a>                                     
+                <a href="coding_notions.html" id="coding-notions-button">코딩용어개념</a>
                 <a href="cli_gui_node_npm.html" id="cli-gui-button">CLI-GUI, NODE.js, npm</a>
-                <a href="about_git_github.html">Git & GitHub</a> 
-                <a href="git_workflow.html">Git 사용법</a>  
-             </div>       
+                <a href="about_git_github.html">Git & GitHub</a>
+                <a href="git_workflow.html">Git 사용법</a>
+            </div>
         </div>
 
 
@@ -135,9 +150,9 @@
             <h1>UI * UX </h1>
             <p id="ui-card-description">UI 디자인 관련</p>
             <div class="button-group">
-                <a href="web-design.html" id="web-design-button">웹 디자인</a>                 
-                 <a href="ui_ux_trend.html" id="ui-ux-trend-button">UI/UX 트렌드</a>
-                
+                <a href="web-design.html" id="web-design-button">웹 디자인</a>
+                <a href="ui_ux_trend.html" id="ui-ux-trend-button">UI/UX 트렌드</a>
+
             </div>
         </div>
 
@@ -175,4 +190,5 @@
         });
     </script>
 </body>
+
 </html>

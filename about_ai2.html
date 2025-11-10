@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성형 AI 동향 요약</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            src: url('./SUITE-Variable.woff2') format('woff2-variations');
+        }
+
+        /* Noto Sans KR 폰트 적용 */
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+        }
+
+        /* 섹션 제목 밑줄 스타일 */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #3b82f6;
+            /* 파란색 계열 */
+            margin-top: 0.75rem;
+            border-radius: 2px;
+        }
+
+        /* 카드 공통 스타일 */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 카드 호버 효과 */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 모델/서비스 카드 헤더 */
+        .card-header {
+            font-size: 1.125rem;
+            /* text-lg */
+            font-weight: 700;
+            /* font-bold */
+            color: #1d4ed8;
+            /* text-blue-800 */
+            margin-bottom: 0.5rem;
+            /* mb-2 */
+        }
+
+        /* 모델/서비스 카드 본문 */
+        .card-body {
+            font-size: 0.95rem;
+            /* 약간 작은 텍스트 */
+            color: #374151;
+            /* text-gray-700 */
+            line-height: 1.6;
+            /* leading-relaxed */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 메인 컨테이너 -->
+    <div class="container mx-auto max-w-5xl px-4 py-8 sm:py-16">
+
+        <!-- 헤더 -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">생성형 AI 동향 요약</h1>
+            <p class="text-xl text-gray-600">의미, 원리, 그리고 최신 모델 및 서비스</p>
+        </header>
+
+        <!-- 섹션 1: 생성형 AI의 의미와 원리 -->
+        <section class="mb-20">
+            <h2 class="section-title text-3xl font-bold mb-8">1. 생성형 AI의 의미와 원리</h2>
+
+            <!-- 1-1. 정의 -->
+            <div class="card bg-white rounded-xl shadow-md p-8 mb-10">
+                <h3 class="text-2xl font-bold text-blue-600 mb-3">생성형 AI (Generative AI) 란?</h3>
+                <p class="text-lg leading-relaxed">
+                    생성형 AI는 기존 데이터를 학습하여 텍스트, 이미지, 오디오, 코드 등 새롭고 독창적인 콘텐츠를 '생성'하는 인공지능 기술입니다.
+                    단순히 데이터를 '분류'하거나 '예측'하는 기존의 판별형 AI(Discriminative AI)와 달리, 데이터의 기본 패턴과 구조를 학습하여 '창작'의 영역을 수행하는 것이
+                    핵심입니다.
+                </p>
+            </div>
+
+            <!-- 1-2. 작동 원리 (고수준) -->
+            <div class="card bg-white rounded-xl shadow-md p-8 mb-10">
+                <h3 class="text-2xl font-bold text-blue-600 mb-6">기본 작동 원리 (3단계)</h3>
+                <p class="text-lg leading-relaxed mb-8">
+                    생성형 AI는 인간의 뇌 구조를 모방한 딥러닝(Deep Learning) 모델을 기반으로 작동하며, 그 과정은 크게 3단계로 구성됩니다.
+                </p>
+                <div class="flex flex-col md:flex-row items-stretch justify-between gap-4">
+                    <!-- 1단계 카드 -->
+                    <div class="flex-1 w-full bg-blue-50 p-6 rounded-lg text-center flex flex-col">
+                        <div
+                            class="w-12 h-12 mx-auto mb-4 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                            1</div>
+                        <h4 class="text-xl font-bold mb-2">데이터 학습</h4>
+                        <p class="text-gray-600">방대한 데이터를 학습하며 패턴과 구조를 익힙니다.</p>
+                    </div>
+                    <!-- 화살표 -->
+                    <div
+                        class="text-4xl font-bold text-gray-300 transform md:rotate-0 rotate-90 flex items-center justify-center">
+                        →</div>
+                    <!-- 2단계 카드 -->
+                    <div class="flex-1 w-full bg-green-50 p-6 rounded-lg text-center flex flex-col">
+                        <div
+                            class="w-12 h-12 mx-auto mb-4 bg-green-200 text-green-700 rounded-full flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                            2</div>
+                        <h4 class="text-xl font-bold mb-2">패턴 분석</h4>
+                        <p class="text-gray-600">학습 데이터에서 고유한 패턴과 관계를 파악합니다.</p>
+                    </div>
+                    <!-- 화살표 -->
+                    <div
+                        class="text-4xl font-bold text-gray-300 transform md:rotate-0 rotate-90 flex items-center justify-center">
+                        →</div>
+                    <!-- 3단계 카드 -->
+                    <div class="flex-1 w-full bg-purple-50 p-6 rounded-lg text-center flex flex-col">
+                        <div
+                            class="w-12 h-12 mx-auto mb-4 bg-purple-200 text-purple-700 rounded-full flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                            3</div>
+                        <h4 class="text-xl font-bold mb-2">콘텐츠 생성</h4>
+                        <p class="text-gray-600">학습된 패턴을 응용해 새로운 결과물을 만듭니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1-3. 핵심 기술 아키텍처 -->
+            <div class="card bg-white rounded-xl shadow-md p-8">
+                <h3 class="text-2xl font-bold text-blue-600 mb-6">핵심 기술 아키텍처</h3>
+                <p class="text-lg leading-relaxed mb-8">
+                    오늘날의 생성형 AI는 주로 4가지 핵심 설계 구조(아키텍처)를 기반으로 발전하고 있습니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 트랜스포머 -->
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-xl text-gray-800 mb-2">트랜스포머 (Transformers)</h4>
+                        <p class="text-gray-600">'셀프 어텐션' 메커니즘을 사용해 문장 내 단어들의 문맥과 중요도를 파악합니다. GPT, Gemini 등 대부분의 거대 언어
+                            모델(LLM)의 기반이 됩니다.</p>
+                    </div>
+                    <!-- 확산 모델 -->
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-xl text-gray-800 mb-2">확산 모델 (Diffusion Models)</h4>
+                        <p class="text-gray-600">이미지에 노이즈를 추가했다가 다시 제거하는 과정을 학습하여, 매우 섬세하고 고품질의 이미지를 생성하는 데 사용됩니다.</p>
+                    </div>
+                    <!-- GANs -->
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-xl text-gray-800 mb-2">GANs (생성적 대립 신경망)</h4>
+                        <p class="text-gray-600">'생성자'와 '구별자'가 서로 경쟁하며 실제와 유사한 데이터를 만듭니다. 주로 고해상도 이미지 합성에 사용되었습니다.</p>
+                    </div>
+                    <!-- VAEs -->
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-xl text-gray-800 mb-2">VAEs (변이형 오토인코더)</h4>
+                        <p class="text-gray-600">데이터를 저차원의 '잠재 공간'으로 압축했다가 다시 복원하는 과정을 통해 데이터의 핵심 특징을 학습합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 4: 기타 -->
+        <section class="mb-20">
+            <h2 class="section-title text-3xl font-bold mb-8">4. 기타</h2>
+            <div class="card bg-white rounded-xl shadow-md p-8">
+                <h3 class="text-2xl font-bold text-blue-600 mb-3">국내 AI 기본법</h3>
+                <p class="text-lg leading-relaxed space-y-4">
+                    <span>
+                        2026년은 2024년 말 국회를 통과한 'AI 기본법'이 본격 발효되는 해로, 국내 AI 시장에 중요한 시기입니다.
+                    </span>
+                    <span>
+                        이 법안이 발효되면, 특히 의료, 공공 서비스 등 '고위험 AI(High-Risk AI)' 분야에 대한 관리 감독 및 영향 평가가 의무화됩니다.
+                    </span>
+                    <span>
+                        이는 글로벌 모델이 국내 규제 기준을 맞추기 어렵게 만들어, KT(법률), LG(의료) 등 국내 규제 환경을 고려해 개발된 '도메인 특화' 주권 AI 모델들에게는 시장
+                        선점의 기회가 될 수 있습니다.
+                    </span>
+                </p>
+            </div>
+
+            <!-- LM 아레나 소개 카드 추가 -->
+            <div class="card bg-white rounded-xl shadow-md p-8 mt-10">
+                <h3 class="text-2xl font-bold text-blue-600 mb-3">AI 모델 성능 비교: LM 아레나</h3>
+                <p class="text-lg leading-relaxed">
+                    다양한 생성형 AI 모델들의 성능을 객관적으로 비교해보고 싶다면 'LM 아레나(LMSYS Chatbot Arena)'를 참고할 수 있습니다.
+                    이곳에서는 사용자들이 두 개의 모델을 익명으로 비교(블라인드 테스트)하고, 그 결과를 ELO 점수처럼 집계하여 순위를 매깁니다.
+                    <br><br>
+                    <a href="https://chat.lmsys.org/" target="_blank"
+                        class="inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                        → LM 아레나(LMSYS Arena) 바로가기
+                    </a>
+                </p>
+            </div>
+        </section>
+
+
+        <!-- 푸터 -->
+        <footer class="text-center text-gray-500 mt-20 pt-8 border-t">
+            <h3 class="text-lg font-semibold mb-4"></h3>
+            <p></p>
+            <p class="mt-8">2025. 지식샘터 연수자료</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
