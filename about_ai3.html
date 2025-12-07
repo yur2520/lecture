@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성형 AI (2025.12)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            src: url('https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/variable/woff2/SUITE-Variable.woff2') format('woff2-variations');
+        }
+
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+            word-break: keep-all;
+        }
+
+        /* 섹션 제목 스타일 */
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #2563eb;
+        }
+
+        /* 서브 섹션 제목 스타일 */
+        .subsection-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid #3b82f6;
+        }
+
+        /* 공통 카드 스타일 */
+        .info-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+            padding: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #bfdbfe;
+        }
+
+        /* 카드 내부 헤더 */
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .card-title-main {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e40af;
+        }
+
+        .card-subtitle-sub {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #6b7280;
+        }
+
+        .highlight-text {
+            color: #2563eb;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto max-w-5xl px-6 py-12">
+
+        <header class="text-center mb-20">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">생성형 AI</h1>
+            <p class="text-xl text-gray-600 font-medium">의미와 원리, 종류 알아보기</p>
+        </header>
+
+        <section class="mb-24">
+            <h2 class="section-title">1. 생성형 AI의 의미와 원리</h2>
+
+            <div class="info-card mb-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">생성형 AI (Generative AI) 란?</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    생성형 AI는 기존 데이터를 학습하여 텍스트, 이미지, 오디오, 코드 등 새롭고 독창적인 콘텐츠를 <span class="highlight-text">생성</span>하는 인공지능 기술입니다.
+                    단순히 데이터를 분류하거나 예측하는 기존의 판별형 AI(Discriminative AI)와 달리, 데이터의 기본 패턴과 구조를 학습하여 창작의 영역을 수행하는 것이 핵심입니다.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3 class="text-xl font-bold text-gray-900 mb-6">기본 작동 원리 (3단계)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                        <span class="block text-sm font-bold text-blue-600 mb-2">STEP 01</span>
+                        <h4 class="text-lg font-bold mb-2">데이터 학습</h4>
+                        <p class="text-gray-600 text-sm">방대한 데이터를 학습하며 패턴과 구조를 익힙니다.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                        <span class="block text-sm font-bold text-blue-600 mb-2">STEP 02</span>
+                        <h4 class="text-lg font-bold mb-2">패턴 분석</h4>
+                        <p class="text-gray-600 text-sm">학습 데이터에서 고유한 패턴과 관계를 파악합니다.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                        <span class="block text-sm font-bold text-blue-600 mb-2">STEP 03</span>
+                        <h4 class="text-lg font-bold mb-2">콘텐츠 생성</h4>
+                        <p class="text-gray-600 text-sm">학습된 패턴을 응용해 새로운 결과물을 만듭니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h2 class="section-title">2. 주요 생성형 AI 모델과 서비스</h2>
+
+            <div class="bg-white rounded-xl border-l-4 border-blue-600 shadow-sm p-6 mb-10">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">AI 모델과 AI 서비스의 차이</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <strong class="text-blue-700 block mb-2">파운드리 모델 (Foundry Model)</strong>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            자동차의 <strong>'엔진'</strong>에 해당합니다. 핵심 기술력과 지능을 담당하는 원천 모델입니다.<br>
+                            (예: GPT-5, Gemini 2.5, HyperCLOVA X)
+                        </p>
+                    </div>
+                    <div class="md:border-l md:border-gray-200 md:pl-8">
+                        <strong class="text-indigo-700 block mb-2">서비스 레이어 (Application)</strong>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            엔진을 탑재하여 소비자가 이용하는 <strong>'자동차'</strong>(완제품)입니다. 사용자 경험(UX)과 편의 기능을 제공합니다.<br>
+                            (예: 뤼튼, Copilot, Perplexity)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">2-1. 주요 생성형 AI 모델 (Foundry)</h3>
+            
+            <h4 class="text-lg font-bold text-gray-800 mb-4 px-1">글로벌 AI 모델 (Global Titans)</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">GPT-5 (지피티-5)</h4>
+                        <span class="card-subtitle-sub">OpenAI</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        추론 능력과 문제 해결 능력이 강화된 최신 모델입니다.(25.8월) 사용자의 복잡한 요구사항에 대해 스스로 계획을 수립하고 실행하는 에이전트(Agent) 기능이 특징입니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Gemini 3.0 (제미나이 3.0)</h4>
+                        <span class="card-subtitle-sub">Google</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        지난 11월 3.0버전으로 모델 업그레이드가 있었습니다. 대규모 컨텍스트(입력 데이터) 처리에 강점이 있습니다. 텍스트, 코드, 이미지, 오디오, 비디오 등 다양한 형태의 정보를 동시에 이해하고 생성하는 멀티모달 역량을 갖췄습니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Llama 4 (라마 4)</h4>
+                        <span class="card-subtitle-sub">Meta</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        고성능 오픈 소스 모델입니다. 
+                        개발자와 기업이 자유롭게 활용하고 미세 조정(Fine-tuning)할 수 있도록 설계되어, 자체적인 AI 생태계 확장에 기여하고 있습니다.                        
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Claude 4.5 (클로드 4.5)</h4>
+                        <span class="card-subtitle-sub">Anthropic</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        지난 11월 새 버전이 출시되었습니다. 문학적 창작과 코딩 분야에서 우수한 성능을 보입니다. 'Computer Use' 기능을 통해 AI가 화면을 인식하고 컴퓨터를 직접 제어하여 작업을 수행할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+
+            <h4 class="text-lg font-bold text-gray-800 mb-4 px-1">국내 AI 모델 (Sovereign AI)</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">HyperCLOVA X (하이퍼클로바X)</h4>
+                        <span class="card-subtitle-sub">Naver</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        한국어와 한국의 사회·문화적 맥락 이해도가 높은 모델입니다. 검색, 쇼핑 등 자사 서비스와 연계되며 공공 및 금융 분야에서 주로 활용됩니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Kanana 1.5 (카나나 1.5)</h4>
+                        <span class="card-subtitle-sub">Kakao</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        메신저 기반의 관계형 서비스를 지향합니다. 모바일 기기 내에서 구동되는 경량화 모델(sLLM)을 통해 개인정보 보호와 접근성을 높였습니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">A.X (에이닷 엑스)</h4>
+                        <span class="card-subtitle-sub">SK Telecom</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        통신 데이터와 서비스를 결합한 모델입니다. 통화 요약, 실시간 통역 등 통신 편의 기능을 제공하며, 검색 성능 강화를 위해 글로벌 모델과 협력하고 있습니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Mi:dm 2.0 (믿음 2.0)</h4>
+                        <span class="card-subtitle-sub">KT</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        신뢰성을 중시하는 B2B 및 B2G 특화 모델입니다. 환각 현상(Hallucination) 억제 기술을 적용하여 법률, 의료 등 전문적인 상담 지원에 활용됩니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">EXAONE 4.0 (엑사원 4.0)</h4>
+                        <span class="card-subtitle-sub">LG AI Research</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        논문, 특허 등 전문 데이터 학습에 집중한 모델입니다. 화학, 바이오, 의료 등 R&D(연구개발) 분야의 전문가를 보조하는 데 특화되어 있습니다.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">2-2. 주요 AI 서비스 (Application Layer)</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Copilot (코파일럿)</h4>
+                        <span class="card-subtitle-sub">Microsoft</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Microsoft 365(오피스) 제품군에 AI 모델을 통합한 서비스입니다. 문서 작성, 데이터 분석, 발표 자료 생성 등 업무 생산성 향상을 지원합니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Wrtn (뤼튼)</h4>
+                        <span class="card-subtitle-sub">Wrtn Tech</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        다양한 생성형 AI 모델(GPT, Claude 등)을 한곳에서 사용할 수 있는 포털형 서비스입니다. 문서 요약, 이미지 생성 등 한국 사용자에게 최적화된 툴을 제공합니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Perplexity (퍼플렉시티)</h4>
+                        <span class="card-subtitle-sub">Perplexity AI</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        대화형 검색 엔진 서비스입니다. 실시간 웹 검색 결과를 바탕으로 답변을 생성하며, 정보의 출처(각주)를 함께 제공하여 답변의 신뢰도를 높였습니다.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header-row">
+                        <h4 class="card-title-main">Lovable (러버블)</h4>
+                        <span class="card-subtitle-sub">Lovable</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        자연어 명령을 통해 웹사이트나 애플리케이션을 제작하는 노코드(No-code) 도구입니다. 코딩 지식이 없어도 원하는 기능을 설명하여 소프트웨어를 구축할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h2 class="section-title">3. 기타 참고자료</h2>
+            
+            <div class="info-card mb-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">국내 AI 기본법 (2026년 시행 예정)</h3>
+                
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    '인공지능 산업 육성 및 신뢰 기반 조성 등에 관한 기본법'이 2026년 1월부터 시행될 예정입니다. 
+                    이 법은 AI 산업의 진흥과 안전한 활용을 위한 규제 사이의 균형을 목적으로 합니다.
+                </p>
+
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-100">
+                    <h4 class="font-bold text-gray-800 mb-3">주요 내용</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600">
+                        <li><strong>고영향 AI 관리:</strong> 국민의 안전과 권익에 영향을 미치는 분야(의료, 채용 등)의 AI에 대한 신뢰성 확보 조치</li>
+                        <li><strong>생성물 표시:</strong> AI가 생성한 영상, 이미지 등의 콘텐츠에 워터마크 등 식별 표시 의무화</li>
+                        <li><strong>거버넌스 구축:</strong> 국가인공지능위원회 및 AI 안전연구소 등을 통해 정책 및 안전성 관리 총괄</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-6 pt-4 border-t border-gray-100 flex flex-col sm:flex-row gap-4">
+                    <a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95/(20676,20250121)"  target="_blank" class="text-blue-600 hover:text-blue-800 font-medium transition-colors">
+                        국가법령정보센터 (법률 제20676호)
+                    </a>
+                    <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148954629" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium transition-colors">
+                        대한민국 정책브리핑 (정책뉴스)
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">AI 모델 성능 비교: LM 아레나</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    'LM 아레나(LMSYS Chatbot Arena)'는 다양한 생성형 AI 모델의 성능을 비교하는 오픈 플랫폼입니다. 
+                    사용자가 익명화된 두 모델의 답변을 비교하여 투표하는 '블라인드 테스트' 방식을 통해 순위를 집계하므로, 모델의 실질적인 체감 성능을 파악하는 데 참고할 수 있습니다.
+                </p>
+                <a href="https://lmarena.ai/leaderboard/" target="_blank"
+                   class="inline-block bg-blue-600 text-white font-medium py-2 px-6 rounded hover:bg-blue-700 transition-colors">
+                    LM 아레나(LMSYS Arena) 바로가기
+                </a>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 py-8 border-t border-gray-200">
+            <p class="text-sm font-medium">2025. 12. 지식샘터 연수자료</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
