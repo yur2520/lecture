@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바이브 코딩 with Gemini</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            src: url('./SUITE-Variable.woff2') format('woff2-variations');
+        }
+        :root {
+            --primary-color: #4285f4; /* Google Blue */
+            --secondary-color: #34a853; /* Google Green */
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 헤더 디자인 */
+        header {
+            background: linear-gradient(135deg, #6e8efb, #77c1e3);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;            
+            word-break: keep-all;
+            line-height: 1.1;
+        }
+
+         header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            word-break: keep-all;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+
+        /* 메인 컨테이너 (그리드) */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: grid;
+            /* 반응형 핵심: 화면 너비에 따라 열 개수 자동 조절 */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* 카드 스타일 */
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* 카드별 강조 포인트 컬러 */
+        .card.download i { color: #e91e63; }
+        .card.codepen i { color: #000000; }
+        .card.sites i { color: #f4b400; }
+        .card.ai-studio i { color: #4285f4; }
+        .card.practice i { color: #34a853; }
+
+        /* 하단 푸터 */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* 모바일 최적화 */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .container { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>생각대로 뚝딱!</h2>
+    <h1>바이브코딩</h1>
+    <p>with Gemini</p>
+</header>
+
+<div class="container">
+    <a href="https://drive.google.com/file/d/1zp6iPqg64NTttncHSPSY9kK3evoSDEzY/view?usp=sharing" target="_blank" class="card download">
+        <i class="fas fa-file-pdf"></i>
+        <h3>교안 내려받기</h3>
+        <p></p>
+    </a>
+
+    <a href="https://codepen.io/pen/" target="_blank" class="card codepen">
+        <i class="fab fa-codepen"></i>
+        <h3>코드펜 바로가기</h3>
+        <p>브라우저에서 바로 코딩하고 결과 보기</p>
+    </a>
+
+    <a href="https://sites.google.com" target="_blank" class="card sites">
+        <i class="fab fa-google"></i>
+        <h3>구글 사이트 생성 바로가기</h3>
+        <p>웹 사이트 호스팅</p>
+    </a>
+
+    <a href="https://aistudio.google.com" target="_blank" class="card ai-studio">
+        <i class="fas fa-microchip"></i>
+        <h3>구글 AI 스튜디오 바로가기</h3>
+        <p>Gemini를 활용한 AI 앱 빌드</p>
+    </a>
+
+    <a href="practical-example.html" class="card practice">
+        <i class="fas fa-laptop-code"></i>
+        <h3>실습 따라하기</h3>
+        <p>단계별 튜토리얼을 보고 따라해요</p>
+    </a>
+</div>
+
+<footer>
+    &copy; 2026.1. 생각대로 뚝딱! 바이브 코딩 - 지식샘터 연수자료
+</footer>
+
+</body>
+</html>
