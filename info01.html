@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바이브 코딩 입문 가이드</title>
+    <style>
+        :root {
+            --primary-color: #6366f1; /* 메인 퍼플 블루 */
+            --secondary-color: #4f46e5;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .concept-box {
+            background-color: #f1f5f9;
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .comparison {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 250px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #334155;
+        }
+
+        .curriculum {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .curriculum-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 15px;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* 아이콘 대체용 이모지 스타일 */
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🚀 바이브 코딩 시작하기</h1>
+            <p>생성형 AI와 함께 나만의 웹 서비스를 만드는 첫걸음</p>
+        </header>
+
+        <section>
+            <h2>1. 코드? 텍스트? 시각화?</h2>
+            <p>우리가 웹 사이트를 만들 때, 생성형 AI에게 요청하면 아주 복잡하고 긴 영어 문장들을 만들어 줍니다. 이것이 바로 <strong>'코드(Code)'</strong>입니다.</p>
+            
+            <div class="concept-box">
+                <span class="icon">🤖</span><strong>AI의 역할:</strong> 복잡한 설계도(코드 텍스트)를 작성합니다.<br>
+                <span class="icon">🌏</span><strong>브라우저의 역할:</strong> 이 설계도를 해석해서 멋진 웹 사이트(시각화)로 보여줍니다.
+            </div>
+            <p>즉, 코드는 컴퓨터에게 보내는 <span class="highlight">작업 지시서(텍스트)</span>이고, 브라우저는 그 지시대로 건물을 짓는 <span class="highlight">시공사(화면)</span>와 같습니다.</p>
+        </section>
+
+        <section>
+            <h2>2. 내 코드가 어떻게 보일까?</h2>
+            <p>AI가 짜준 코드를 눈으로 확인하는 방법은 크게 두 가지가 있습니다.</p>
+            
+            <div class="comparison">
+                <div class="card" style="background-color: #eff6ff;">
+                    <h3>📂 방법 A: 파일로 저장</h3>
+                    <p>코드를 내 컴퓨터에 파일(예: index.html)로 저장한 뒤, 더블 클릭하여 크롬이나 엣지 같은 브라우저로 여는 가장 기본적인 방식입니다.</p>
+                </div>
+                <div class="card" style="background-color: #fefce8;">
+                    <h3>🛠️ 방법 B: 시각화 서비스</h3>
+                    <p><strong>제미나이 캔버스</strong>나 <strong>코드펜(CodePen)</strong>처럼, 코드를 넣으면 바로 옆에 결과를 보여주는 편리한 온라인 도구를 활용하는 방식입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. 세상에 내보내기: 호스팅(Hosting)</h2>
+            <p>내 컴퓨터에서만 코드를 보는 것은, 마치 <strong>'나만의 일기장에 알림장을 써둔 것'</strong>과 같습니다. 다른 친구들은 볼 수가 없죠.</p>
+            <div class="concept-box">
+                <p>📢 친구들이 어디서든 알림장을 보게 하려면 <strong>'학교 게시판'</strong>에 붙여야 하듯이,<br>
+                만들어진 사이트 코드도 누구나 접근할 수 있는 <strong>'온라인 공간(서버)'</strong>에 올려야 합니다.</p>
+            </div>
+            <p>이렇게 인터넷 상에 내 코드를 올려둘 서버 공간을 빌리는 것을 <span class="highlight">호스팅(Hosting)</span>이라고 부릅니다.</p>
+        </section>
+
+        <section>
+            <h2>📅 앞으로의 학습 계획</h2>
+            <p>우리는 이 원리를 바탕으로 다음과 같이 실습을 진행할 예정입니다.</p>
+            
+            <div class="curriculum">
+                <div class="curriculum-item">
+                    <span class="badge">1차시</span>
+                    <div>
+                        <strong>호스팅 전, 코드 생성 실습</strong><br>
+                        AI를 이용해 화면을 구성하는 코드를 만들고, 시각화 도구를 통해 내 컴퓨터에서 확인하는 법을 익힙니다.
+                    </div>
+                </div>
+                <div class="curriculum-item">
+                    <span class="badge">2차시</span>
+                    <div>
+                        <strong>호스팅 및 백엔드 심화</strong><br>
+                        실제 서버에 코드를 올려 배포(호스팅)해보고, 데이터 저장 등 서버 차원의 기능(백엔드)을 구현해 봅니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>여러분의 아이디어가 현실이 되는 과정을 응원합니다! 🎉</p>
+        </footer>
+    </div>
+
+</body>
+</html>
