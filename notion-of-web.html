@@ -2,358 +2,265 @@
 <html lang="ko">
 
 <head>
-    <meta name="robots" content="noindex, nofollow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>웹 기술 기본 개념</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            src: url('https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/variable/woff2/SUITE-Variable.woff2') format('woff2-variations');
         }
 
-        /* 코드 스니펫용 스타일 */
-        .code-snippet {
-            background-color: #2d3748;
-            color: #e2e8f0;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            font-family: monospace;
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+            word-wrap: break-word;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #2563eb;
+        }
+        
+        /* 모달 애니메이션 */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.2s, transform 0.2s;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-zinc-50 text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <h1 class="text-4xl font-bold text-indigo-600">웹 기술 기본 개념</h1>
-            <p class="mt-4 text-lg text-gray-600">HTML, CSS, Java script / 프론트엔드와 백엔드 / 서버와 호스팅</p>
-        </div>
-    </header>
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">웹 기술 기본 개념</h1>
+            <p class="text-gray-500 text-lg">HTML, CSS, JavaScript / 프론트엔드와 백엔드 / 서버와 호스팅</p>
+        </header>
 
-        <!-- Section 1: The Building Blocks (HTML, CSS, JS) -->
-        <section id="building-blocks">
-            <h2 class="text-3xl font-bold text-center mb-4">웹사이트의 구성 요소</h2>
-            <p class="text-ml text-gray-500 text-center">웹사이트를 구성하는 코드는 언뜻 복잡한 글자와 문자들이 뒤얽혀 있는 것 같아 보입니다.</p>
-            <p class="text-ml text-gray-500 text-center mb-10">하지만 각 코드는 정해진 문법에 따라 역할이 나뉘어 있습니다. 건축물의 구성 요소와도 비슷합니다.
-            </p>
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <main>
+            <section class="mb-16">
+                <h2 class="section-title">1. 웹사이트의 구성 요소</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
+                        <img class="w-full h-48 object-cover" src="html.png" alt="HTML code"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/ef4444/ffffff?text=HTML';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">구조 잡기 <span class="text-sky-600 text-lg">(HTML)</span></h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                웹페이지의 <strong>뼈대</strong>입니다. 제목, 본문, 이미지 등 웹페이지에 들어갈 <span class="font-semibold text-gray-800 underline decoration-sky-200">콘텐츠와 구조</span>를 정의합니다.
+                            </p>
+                        </div>
+                    </div>
 
-                <!-- HTML Card -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img class="w-full h-56 object-cover" src="html2.jpeg" alt="HTML code"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/ef4444/ffffff?text=HTML';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">HTML: 구조 설계</h3>
-                        <p class="text-gray-600">HTML (HyperText Markup Language)은 건축물의 뼈대에 해당합니다.</p>
-                        <p class="text-gray-600">예를 들자면, "이 부분에 제목이 들어가고, 그 아래 이 부분에 이미지를 넣을 거야."라는 식으로 틀을 잡아주는 것이 HTML의
-                            역할입니다. <strong class="text-sky-500">웹페이지의 기본 구조와 콘텐츠가 어떻게 이루어지는지 정의</strong>해 주는 코드라고 할 수
-                            있습니다.</p>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
+                        <img class="w-full h-48 object-cover" src="css.png" alt="CSS code"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/3b82f6/ffffff?text=CSS';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">스타일 입히기 <span class="text-sky-600 text-lg">(CSS)</span></h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                웹페이지의 <strong>디자인</strong>입니다. 글자 크기, 색상, 배치(레이아웃) 등을 지정하여 <span class="font-semibold text-gray-800 underline decoration-sky-200">시각적인 표현</span>을 담당합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
+                        <img class="w-full h-48 object-cover" src="js.png" alt="JavaScript code"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=JS';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">기능 구현 <span class="text-sky-600 text-lg">(JavaScript)</span></h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                웹페이지의 <strong>동작</strong>입니다. 버튼 클릭 시 반응하거나 데이터를 처리하는 등 사용자와의 <span class="font-semibold text-gray-800 underline decoration-sky-200">상호작용 기능</span>을 구현합니다.
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- CSS Card -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img class="w-full h-56 object-cover" src="css.jpg" alt="CSS code"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/3b82f6/ffffff?text=CSS';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">CSS: 시각 디자인</h3>
-                        <p class="text-gray-600">CSS (Cascading Style Sheets)는 건축물의 인테리어 디자인과 같습니다.</p>
-                        <p class="text-gray-600">html코드로 "여기에 제목이 들어간다" 라는 사실을 지정했다고 가정해 보세요. 그 제목을 이루는 글자의 크기는 어느 정도인지,
-                            글자의 색상은 무슨 색을 쓸 건지, 배치는 어떻게 할 건지와 같은 세부사항을 정해 주는 것이 바로 CSS 코드입니다. <strong
-                                class="text-sky-500">웹사이트의 전반적인 시각적 표현을 담당</strong>하고 있는 코드예요.</p>
-                    </div>
-                </div>
-
-                <!-- JavaScript Card -->
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img class="w-full h-56 object-cover" src="javascript.jpg" alt="JavaScript code"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=JS';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">JavaScript: 기능 설비</h3>
-                        <p class="text-gray-600">자바스크립트(JavaScript)는 건축물의 전기, 수도와 같은 기능 설비에 해당합니다. 웹 사이트의 특정 부분을 클릭했을 때
-                            어떤 변화가 나타나게 하고 싶다고 가정해 봅시다. 예를 들어 팝업창을 띄운다거나 하는 일 말이에요. 이 때 사용자의 행동에 반응하게 해 주는 코드가 자바스크립트
-                            코드입니다. 이 버튼을 클릭하면 이런 팝업창을 띄워라, 이런 식으로요. 즉, 웹사이트에서 <strong class="text-sky-500">동적인
-                                상호작용</strong>을 가능하게 해 주는 코드라고 할 수 있습니다.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Divider -->
-        <hr class="my-16 border-gray-200">
-
-        <!-- Section 1.5: Modern Workflow -->
-        <section id="modern-workflow">
-            <h2 class="text-3xl font-bold text-center mb-10">효율적인 도구의 등장과 웹사이트 제작 방식의 변화</h2>
-            <div class="max-w-6xl mx-auto space-y-8">
-                <!-- Row 1: Tool Explanations -->
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Tailwind CSS Card -->
-                    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-                        <h3 class="text-2xl font-bold text-teal-600 mb-4">Tailwind CSS</h3>
-                        <p class="text-gray-600 mb-4 flex-grow">
-                            CSS가 인테리어 디자인이라면, Tailwind CSS는 '빌트인 가구'와 비슷합니다. 목재를 가져와 직접 설계하는 대신, 업체에서 제공하는 색상, 크기 등의
-                            선택지들을 조합하여 가구를 완성하는 방식입니다.
-                        </p>
-                        <button id="open-tailwind-modal"
-                            class="mt-4 text-gray-500 hover:text-gray-800 font-semibold self-end flex items-center text-sm">
-                            <span
-                                class="bg-gray-200 text-gray-700 text-xs font-bold mr-2 px-2.5 py-1 rounded-full">참고</span>
-                            실제 코드 비교 →
-                        </button>
-                    </div>
-
-                    <!-- JavaScript Library Card -->
-                    <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-                        <h3 class="text-2xl font-bold text-yellow-600 mb-4">JavaScript 라이브러리</h3>
-                        <p class="text-gray-600 mb-4 flex-grow">
-                            자바스크립트 라이브러리는 건축물의 '스마트 스위치'와 같습니다. 복잡한 전기 회로를 직접 설계하는 대신, 미리 정교하게 만들어진 제품을 설치해 고급 기능을 바로
-                            사용하는 것과 같습니다. '이미지 슬라이드' 같은 복잡한 기능을 예로 들 수 있습니다.
-                        </p>
-                        <button id="open-js-modal"
-                            class="mt-4 text-gray-500 hover:text-gray-800 font-semibold self-end flex items-center text-sm">
-                            <span
-                                class="bg-gray-200 text-gray-700 text-xs font-bold mr-2 px-2.5 py-1 rounded-full">참고</span>
-                            실제 코드 비교 →
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Row 2: Combined Workflow -->
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h3 class="text-2xl font-bold text-sky-600 mb-4 text-center">더 간편해진 웹페이지 만들기</h3>
-                    <p class="text-gray-600 text-justify max-w-3xl mx-auto">
-                        전통적으로는 역할에 따라 HTML(구조), CSS(디자인), JavaScript(기능) 파일을 분리하는 것이 기본이었습니다. 하지만 이제는 간단한 웹사이트의 경우, HTML
-                        파일 하나만으로도 충분히 만들 수 있습니다.
+                <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">통합 개발 환경과 도구의 활용</h3>
+                    <p class="text-gray-600 text-[17px] leading-8 text-justify">
+                        과거에는 HTML, CSS, JavaScript 파일을 각각 분리해서 작업했으나, 최근에는 개발 편의성과 유지보수를 위해 이들을 <strong>하나의 컴포넌트(Component) 단위로 통합하여 개발(All-in-one)</strong>하는 경우가 많습니다. 
                         <br><br>
-                        HTML 문서에 Tailwind CSS 같은 디자인 도구와 자바스크립트 라이브러리(기능)의 온라인 주소(CDN)를 연결하기만 하면, 별도의 파일을 만들지 않고도 빠르고
-                        간편하게 하나의 완성된 웹페이지를 제작할 수 있게 되었습니다.
+                        이 과정에서 개발자들은 처음부터 모든 코드를 작성하지 않고, 디자인 속도를 획기적으로 높여주는
+                        <button onclick="openModal('modal-tailwind')" class="text-sky-600 font-bold underline decoration-sky-300 decoration-2 underline-offset-4 hover:text-sky-800 hover:bg-sky-50 rounded px-1 transition">Tailwind CSS</button>나, 
+                        복잡한 기능을 손쉽게 구현할 수 있도록 도와주는
+                        <button onclick="openModal('modal-jslib')" class="text-sky-600 font-bold underline decoration-sky-300 decoration-2 underline-offset-4 hover:text-sky-800 hover:bg-sky-50 rounded px-1 transition">JS 라이브러리</button>와 
+                        같은 효율적인 도구들을 적극적으로 사용합니다.
                     </p>
+                    <p class="mt-4 text-sm text-gray-400 text-right">* 파란색 글씨를 클릭하면 용어 설명을 볼 수 있습니다.</p>
+                </div>
+            </section>
+
+           
+            <section class="mb-16">
+                <h2 class="section-title">2. 프론트엔드와 백엔드</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="mb-8">
+                        <img src="frontandbackend-whisk.gif" alt="프론트엔드와 백엔드 설명"
+                        class="w-full h-auto rounded-lg shadow-sm max-h-80 object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x450/e0f2fe/0369a1?text=Frontend+%26+Backend';">
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-sky-400">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">프론트엔드 (Frontend)</h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                사용자가 웹사이트에 접속했을 때 <strong>눈에 보이는 화면과 인터페이스</strong>를 만드는 영역입니다. 사용자의 입력(클릭, 스크롤 등)을 받아 처리합니다.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-gray-400">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">백엔드 (Backend)</h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                눈에 보이지 않는 <strong>서버 시스템과 데이터</strong>를 관리하는 영역입니다. 회원 정보를 저장하거나 결제 시스템을 연동하는 등의 뒷단 처리를 담당합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="section-title">3. 웹사이트가 공개되는 과정</h2>
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                    <ul class="space-y-8">
+                        <li class="flex flex-col md:flex-row gap-4 items-start">
+                            <div class="flex-shrink-0">
+                                <span class="inline-block w-8 h-8 rounded-full bg-sky-100 text-sky-600 text-center leading-8 font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800">로컬 (Local)</h4>
+                                <p class="text-gray-600 mt-2 text-[17px] leading-7">
+                                    개발자의 개인 컴퓨터 환경을 '로컬'이라고 부릅니다. 이곳에서는 자유롭게 코드를 작성하고 수정하며, 웹사이트가 의도한 대로 작동하는지 테스트하는 작업을 수행합니다. 하지만 이 공간은 외부 인터넷망과 연결되지 않은 개인적인 공간이기 때문에, 다른 사람들이 내 웹사이트에 접속하여 볼 수는 없습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-4 items-start">
+                            <div class="flex-shrink-0">
+                                <span class="inline-block w-8 h-8 rounded-full bg-sky-100 text-sky-600 text-center leading-8 font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800">서버와 호스팅 (Server & Hosting)</h4>
+                                <p class="text-gray-600 mt-2 text-[17px] leading-7">
+                                    내가 만든 웹사이트를 다른 사람들이 볼 수 있게 하려면, 24시간 내내 인터넷에 연결되어 켜져 있는 고성능 컴퓨터인 '서버'에 파일들을 올려야 합니다. 개인이 이런 서버 컴퓨터를 직접 갖추고 관리하기는 어렵기 때문에, 전문 업체로부터 서버의 일정 공간을 임대하여 사용하는 것을 '호스팅' 서비스라고 합니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-4 items-start">
+                            <div class="flex-shrink-0">
+                                <span class="inline-block w-8 h-8 rounded-full bg-sky-100 text-sky-600 text-center leading-8 font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800">네트워크 (Network)</h4>
+                                <p class="text-gray-600 mt-2 text-[17px] leading-7">
+                                    사용자가 웹 브라우저의 주소창에 'www.google.com'과 같은 도메인 주소(URL)를 입력하면, 인터넷이라는 거대한 네트워크망을 통해 해당 주소가 가리키는 서버를 찾아갑니다. 서버는 요청을 확인하고 저장된 웹사이트 파일(HTML, CSS 등)을 사용자의 컴퓨터로 전송하며, 브라우저는 이 코드를 해석하여 우리가 보는 화면으로 보여줍니다.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-8 md:mb-0">
+                    <p class="font-bold text-xl">지식샘터 강의자료</p>
+                    <p class="text-gray-400 text-sm mt-2">2026.1. 생각대로 뚝딱! 바이브코딩</p>
+                </div>
+                <div class="text-xs text-gray-400 space-y-2">
+                    <p class="font-semibold text-gray-200 mb-2">출처 및 참고자료</p>
+                    <p><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank" class="hover:text-sky-400 hover:underline">MDN Web Docs (웹 기술 공식 문서)</a></p>
+                    <p><a href="https://www.w3schools.com/css/" target="_blank" class="hover:text-sky-400 hover:underline">W3Schools (CSS 레퍼런스)</a></p>
+                    <p><a href="https://ko.javascript.info/" target="_blank" class="hover:text-sky-400 hover:underline">모던 JavaScript 튜토리얼</a></p>
                 </div>
             </div>
-        </section>
-
-        <!-- Other sections remain the same... -->
-        <hr class="my-16 border-gray-200">
-        <section id="frontend-backend">
-            <h2 class="text-3xl font-bold text-center mb-4">프론트엔드와 백엔드</h2>
-            <p class="text-lg text-gray-600 text-center mb-10">웹 기술의 역할은 크게 두 가지로 나누어져요.</p>
-            <div class="max-w-3xl mx-auto mb-12">
-                <img src="frontandbackend-whisk.gif" alt="프론트엔드와 백엔드 개념 설명 GIF"
-                    class="w-full h-auto rounded-lg shadow-md"
-                    onerror="this.onerror=null;this.src='https://placehold.co/800x450/cccccc/ffffff?text=Frontend+%26+Backend';">
-            </div>
-            <div class="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h3 class="text-2xl font-bold text-[#48B4AA] mb-4">프론트엔드 (Frontend)</h3>
-                    <p class="text-gray-600">프론트엔드는 카페에서 테이블과 탁자가 있는 곳에 비유할 수 있습니다. 손님(사용자)이 직접 마주하고 경험하는 모든 시각적 요소와
-                        상호작용이 바로 프론트엔드 부분입니다. 웹 환경에서는 사용자의 화면에 표시되는 모든 것을 의미합니다.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h3 class="text-2xl font-bold text-[#D86C00] mb-4">백엔드 (Backend)</h3>
-                    <p class="text-gray-600">백엔드는 카페 카운터 너머, 음료나 음식을 만들고 준비하는 곳으로 비유할 수 있습니다. 손님들이 직접 경험하는 부분은 아니지만, 보이지
-                        않는 곳에서 누군가 주문을 처리하고, 재료를 가져와 준비하고, 남은 재료는 다시 창고에 넣는 등 바삐 움직이고 있는 것과 비슷해요. 백엔드는 웹사이트가 원활하게 작동하도록
-                        지원하는 기술 분야에 해당하며, 데이터를 저장하거나 꺼내고, 관리하고, 처리(계산)하는 역할을 합니다.</p>
-                </div>
-            </div>
-        </section>
-
-        <hr class="my-16 border-gray-200">
-        <section id="publication-process">
-            <h2 class="text-3xl font-bold text-center">웹사이트가 세상에 공개되는 과정</h2>
-            <p class="text-lg text-gray-500 text-center mb-10">로컬과 네트워크, 서버와 호스팅 개념 이해하기</p>
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
-                <p class="text-gray-600 mb-8 text-center">웹사이트를 요리라고 가정해 봅시다. 웹사이트를 만들고 세상에 공개하는 과정은 '우리 집 주방에서 요리하다가 전문
-                    식당을 여는 과정'과 비슷해요.</p>
-                <ol class="space-y-8">
-                    <li class="flex items-start">
-                        <div
-                            class="flex-shrink-0 h-10 w-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold mr-4 text-lg">
-                            1</div>
-                        <div>
-                            <h4 class="text-xl font-bold text-orange-600">로컬 (Local): 우리 집 주방 </h4>
-                            <p class="text-gray-600 mt-2">개발자의 개인 컴퓨터는 비공개적인 '우리 집 주방'과 같습니다. 이곳에서 웹사이트라는 요리를 개발하고
-                                테스트합니다. 가족에게 요리를 대접할 수는 있지만, 24시간 불특정 다수의 손님을 받기에는 적합하지 않습니다.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <div
-                            class="flex-shrink-0 h-10 w-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold mr-4 text-lg">
-                            2</div>
-                        <div>
-                            <h4 class="text-xl font-bold text-cyan-600">서버(Server)와 호스팅(Hosting): 전문 식당 임대 </h4>
-                            <p class="text-gray-600 mt-2">요리를 모든 손님에게 24시간 제공하려면 완벽한 시설을 갖춘 '전문 식당'이 필요합니다. 이 식당이 바로
-                                서버입니다. <br>물론 우리 집 주방(로컬 컴퓨터)도 식당처럼 운영할 수는 있어요. 하지만 전기요금이나 보안, 관리 문제로 비효율적입니다. 그래서 전문
-                                식당을 '임대'하기로 합니다. 특정한 공간을 빌리는 거죠. 이 서비스를 호스팅이라고 해요. 임대료와 마찬가지로 대부분의 서버는 호스팅 비용을 내야 이용할 수
-                                있습니다. 하지만 호스팅 비용을 내고 모든 관리를 맡기기 때문에, 우리는 요리(웹사이트 운영)에만 집중할 수 있게 됩니다.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <div
-                            class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold mr-4 text-lg">
-                            3</div>
-                        <div>
-                            <h4 class="text-xl font-bold text-indigo-600">네트워크 (Network): 식당으로 찾아오는 길 </h4>
-                            <p class="text-gray-600 mt-2">네트워크(인터넷)는 손님들이 식당으로 찾아올 수 있게 하는 '교통망'입니다. 사용자들은 주소(URL)를 보고,
-                                이 교통망을 통해 우리의 웹사이트(식당)에 방문하게 됩니다.</p>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </section>
-        <hr class="my-10 border-gray-200">
-        <section id="sources">
-            <h2 class="text-2xl font-bold text-center mb-6">참고 자료 및 심화 학습 정보</h2>
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-base text-gray-600 mb-6">본 문서의 내용은 다음의 자료들을 참고하여 작성되었습니다. 자세한 내용은 아래 공식 문서를 참조하시기 바랍니다.
-                </p>
-                <ul class="space-y-2">
-                    <li><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank"
-                            class="text-indigo-600 hover:underline font-semibold">MDN Web Docs (Mozilla)</a> - 웹 표준 기술에
-                        대한 가장 공식적이고 상세한 기술 문서입니다.</li>
-                    <li><a href="https://www.w3.org/TR/CSS/#css" target="_blank"
-                            class="text-indigo-600 hover:underline font-semibold">W3C CSS Specifications</a> - CSS의 공식
-                        표준 명세를 확인할 수 있는 곳입니다.</li>
-                    <li><a href="https://ko.javascript.info/" target="_blank"
-                            class="text-indigo-600 hover:underline font-semibold">모던 JavaScript 튜토리얼</a> - 자바스크립트 언어를
-                        체계적으로 학습할 수 있는 상세한 가이드입니다.</li>
-                </ul>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white mt-12">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
-            <p>본 페이지 및 미디어 자료는 구글 Gemini 서비스를 사용하여 제작되었습니다.</p>
         </div>
     </footer>
 
-    <!-- Tailwind CSS Modal -->
-    <div id="tailwind-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-lg shadow-2xl max-w-4xl w-full p-8 relative">
-            <button id="close-tailwind-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
+    <div id="modal-tailwind" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300" onclick="closeModal('modal-tailwind')">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full relative" onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-tailwind')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <h3 class="text-2xl font-bold text-teal-600 mb-6">Tailwind CSS 코드 비교</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="font-bold text-gray-700">전통 CSS 방식</h4>
-                    <pre class="code-snippet mt-2"><code>&lt;!-- HTML 파일 --&gt;
-&lt;button class="custom-btn"&gt;버튼&lt;/button&gt;
-
-&lt;!-- CSS 파일 --&gt;
-.custom-btn {
-  background-color: #3b82f6;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-}</code></pre>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-700">Tailwind CSS 방식</h4>
-                    <pre class="code-snippet mt-2"><code>&lt;!-- HTML 파일 --&gt;
-&lt;button class="bg-blue-500 text-white py-2 px-4 rounded"&gt;
-  버튼
-&lt;/button&gt;</code></pre>
-                </div>
+            <h3 class="text-2xl font-bold text-sky-600 mb-4">Tailwind CSS란?</h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                CSS 파일에 스타일 코드를 일일이 작성하는 전통적인 방식 대신, HTML 태그 안에 미리 정의된 <strong>스타일 도구(Class)</strong>를 적어 넣는 방식의 도구입니다.
+            </p>
+            <div class="bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
+                <p class="font-semibold mb-2">예시:</p>
+                <p><code>class="text-center bg-blue-500"</code>라고 적기만 하면, 별도의 CSS 파일 없이도 파란 배경에 가운데 정렬된 글씨가 만들어집니다.</p>
             </div>
         </div>
     </div>
 
-    <!-- JS Library Modal -->
-    <div id="js-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-lg shadow-2xl max-w-4xl w-full p-8 relative">
-            <button id="close-js-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
+    <div id="modal-jslib" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300" onclick="closeModal('modal-jslib')">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full relative" onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-jslib')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <h3 class="text-2xl font-bold text-yellow-600 mb-6">JavaScript 라이브러리 코드 비교</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="font-bold text-gray-700">전통 JS 방식 (간략화)</h4>
-                    <pre class="code-snippet mt-2"><code>&lt;!-- HTML/JS 파일 --&gt;
-&lt;div id="slider"&gt;...&lt;/div&gt;
-&lt;button id="nextBtn"&gt;다음&lt;/button&gt;
-
-&lt;script&gt;
-  let current = 0;
-  const slides = document.querySelectorAll('#slider div');
-  const nextBtn = document.getElementById('nextBtn');
-
-  nextBtn.addEventListener('click', () => {
-    // 슬라이드 넘기는 로직...
-    // 위치 계산, 애니메이션 등 복잡한 코드 필요
-  });
-&lt;/script&gt;</code></pre>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-700">라이브러리(Swiper.js) 방식</h4>
-                    <pre class="code-snippet mt-2"><code>&lt;!-- HTML 파일 --&gt;
-&lt;!-- Swiper 라이브러리 로드 --&gt;
-&lt;link rel="stylesheet" href="swiper-bundle.min.css"&gt;
-&lt;script src="swiper-bundle.min.js"&gt;&lt;/script&gt;
-
-&lt;div class="swiper"&gt;...&lt;/div&gt;
-
-&lt;script&gt;
-  const swiper = new Swiper('.swiper'); // 초기화 한 줄이면 끝!
-&lt;/script&gt;</code></pre>
-                </div>
+            <h3 class="text-2xl font-bold text-sky-600 mb-4">JavaScript 라이브러리란?</h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                이미지 슬라이드, 차트, 데이터 처리 등 자주 사용되는 복잡한 기능들을 개발자들이 미리 만들어 둔 <strong>'코드 모음집'</strong>입니다.
+            </p>
+            <div class="bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
+                <p class="font-semibold mb-2">장점:</p>
+                <p>바퀴를 다시 발명할 필요가 없는 것처럼, 이미 검증된 코드를 가져와 사용하기 때문에 개발 시간을 단축하고 오류를 줄일 수 있습니다.</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Modal functionality
-        const tailwindModal = document.getElementById('tailwind-modal');
-        const jsModal = document.getElementById('js-modal');
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            // 애니메이션 효과를 위해 약간의 지연 후 클래스 추가 (선택사항)
+            setTimeout(() => {
+                modal.firstElementChild.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
 
-        const openTailwindBtn = document.getElementById('open-tailwind-modal');
-        const closeTailwindBtn = document.getElementById('close-tailwind-modal');
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+        }
 
-        const openJsBtn = document.getElementById('open-js-modal');
-        const closeJsBtn = document.getElementById('close-js-modal');
-
-        openTailwindBtn.addEventListener('click', () => tailwindModal.classList.remove('hidden'));
-        closeTailwindBtn.addEventListener('click', () => tailwindModal.classList.add('hidden'));
-
-        openJsBtn.addEventListener('click', () => jsModal.classList.remove('hidden'));
-        closeJsBtn.addEventListener('click', () => jsModal.classList.add('hidden'));
-
-        // Close modal when clicking outside of it
-        window.addEventListener('click', (event) => {
-            if (event.target === tailwindModal) {
-                tailwindModal.classList.add('hidden');
-            }
-            if (event.target === jsModal) {
-                jsModal.classList.add('hidden');
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+                    modal.classList.add('hidden');
+                });
             }
         });
     </script>
-
 </body>
-
 </html>
