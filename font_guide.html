@@ -1,0 +1,191 @@
+<div class="bg-white rounded-xl shadow-lg p-6">
+    <h3 class="text-xl font-bold mb-4 text-sky-700">구글 폰트 (Google Fonts) 활용</h3>
+    
+    <div class="mb-4 text-base text-gray-700 space-y-3">
+        <p>
+            웹 폰트를 활용하여 쉽게 서체를 적용할 수 있습니다. 일반적으로 Embed code 등이 필요하지만, 제미나이와 구글 폰트를 사용하는 경우 서체 이름만으로도 프롬프트가 작동합니다.
+        </p>
+        
+        <div class="bg-sky-50 border-l-4 border-sky-400 p-3 rounded text-sm">
+            <strong>프롬프트 예시:</strong><br>
+            "제목에는 'Black Han Sans', 본문에는 'Noto Sans KR' 폰트를 써 줘."
+        </div>
+
+        <p class="mt-2">
+            <a href="https://fonts.google.com/?subset=korean" target="_blank" class="text-sky-600 hover:underline font-semibold flex items-center gap-1">
+                Google Fonts 공식 사이트(한글) 바로가기
+            </a>
+        </p>
+    </div>
+
+    <button id="fontBtn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-md flex justify-center items-center gap-2">
+        자주 쓰는 한글 폰트 이름 보기
+    </button>
+
+    <div id="fontModal" class="font-modal hidden">
+        <div class="font-modal-content relative animate-fade-in">
+            <span class="close-btn absolute top-3 right-4 text-2xl cursor-pointer text-gray-400 hover:text-gray-800">&times;</span>
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Google Fonts 한글 폰트 모음</h3>
+            <p class="text-gray-500 text-sm mb-6">마음에 드는 폰트의 <strong class="text-indigo-600">영문 이름</strong>을 복사해서 프롬프트에 사용하세요.</p>
+            
+            <div class="font-grid">
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Noto Sans KR', sans-serif;">
+                    <div class="font-name">Noto Sans KR</div>
+                    <div class="font-sample">다람쥐 헌 쳇바퀴에 타고파</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Nanum Gothic', sans-serif;">
+                    <div class="font-name">Nanum Gothic</div>
+                    <div class="font-sample">다람쥐 헌 쳇바퀴에 타고파</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Gowun Dodum', sans-serif;">
+                    <div class="font-name">Gowun Dodum</div>
+                    <div class="font-sample">고운 돋움체입니다.</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Do Hyeon', sans-serif;">
+                    <div class="font-name">Do Hyeon</div>
+                    <div class="font-sample">두꺼운 제목용 도현체</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Jua', sans-serif;">
+                    <div class="font-name">Jua</div>
+                    <div class="font-sample">동글동글한 주아체</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Black Han Sans', sans-serif;">
+                    <div class="font-name">Black Han Sans</div>
+                    <div class="font-sample">강렬한 블랙 한 산스</div>
+                </div>
+
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Noto Serif KR', serif;">
+                    <div class="font-name">Noto Serif KR</div>
+                    <div class="font-sample">우아한 본문용 명조체</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Nanum Myeongjo', serif;">
+                    <div class="font-name">Nanum Myeongjo</div>
+                    <div class="font-sample">전통적인 나눔 명조</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Gowun Batang', serif;">
+                    <div class="font-name">Gowun Batang</div>
+                    <div class="font-sample">정갈한 고운 바탕체</div>
+                </div>
+
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Nanum Pen Script', cursive;">
+                    <div class="font-name">Nanum Pen Script</div>
+                    <div class="font-sample">나눔 펜 글씨체</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Gaegu', cursive;">
+                    <div class="font-name">Gaegu</div>
+                    <div class="font-sample">개구쟁이 같은 개구체</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Hi Melody', cursive;">
+                    <div class="font-name">Hi Melody</div>
+                    <div class="font-sample">경쾌한 하이 멜로디</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Gamja Flower', cursive;">
+                    <div class="font-name">Gamja Flower</div>
+                    <div class="font-sample">감자꽃 피는 시골 감성</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Sunflower', sans-serif;">
+                    <div class="font-name">Sunflower</div>
+                    <div class="font-sample">해바라기처럼 활기찬</div>
+                </div>
+                <div class="font-card hover:border-indigo-500" style="font-family: 'Dongle', sans-serif;">
+                    <div class="font-name">Dongle</div>
+                    <div class="font-sample">아기자기한 동글체</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Gaegu&family=Gamja+Flower&family=Gowun+Batang&family=Gowun+Dodum&family=Hi+Melody&family=Jua&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@400;700&family=Sunflower:wght@300&display=swap');
+
+        .font-modal {
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .font-modal.hidden { display: none; }
+
+        .font-modal-content {
+            background-color: #fefefe;
+            padding: 30px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            overflow-y: auto;
+        }
+
+        .font-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .font-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .font-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .font-name {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 8px;
+            font-weight: 700;
+            background: #f3f4f6;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        
+        .font-sample { font-size: 1.35rem; word-break: keep-all; color: #1f2937; }
+        
+        @keyframes fade-in {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in { animation: fade-in 0.2s ease-out; }
+    </style>
+
+    <script>
+        (function() {
+            const modal = document.getElementById("fontModal");
+            const btn = document.getElementById("fontBtn");
+            const closeBtn = modal.querySelector(".close-btn");
+            const modalBackdrop = modal;
+
+            btn.onclick = function() {
+                modal.classList.remove("hidden");
+            }
+
+            closeBtn.onclick = function() {
+                modal.classList.add("hidden");
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modalBackdrop) {
+                    modal.classList.add("hidden");
+                }
+            }
+        })();
+    </script>
+</div>

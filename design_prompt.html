@@ -20,6 +20,7 @@
 
         body {
             font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+            word-wrap: auto;
         }
 
         .section-title {
@@ -40,6 +41,7 @@
             width: 60px;
             height: 2px;
             background-color: #2563eb;
+            
         }
 
         /* Color Picker Canvas */
@@ -135,42 +137,32 @@
                 </div>
             </section>
 
-            <section class="mb-16">
-                <h2 class="section-title">4. 색상과 폰트(Typography)</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <h3 class="text-xl font-bold mb-4 text-sky-700">색상 지정하기</h3>
-                        <div class="space-y-4">
-                            <div class="p-3 rounded-lg border border-gray-200">
-                                <p class="font-bold mb-1">HEX 코드</p>
-                                <p class="text-sm text-gray-600 mb-2">#2563EB 처럼 # 뒤에 6자리 코드로 색을 지정합니다.</p>
-                                <button id="open-hex-picker-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">HEX코드 선택기 열기</button>
-                            </div>
-                            <div class="p-3 rounded-lg border border-gray-200">
-                                <p class="font-bold mb-1">Tailwind CSS 컬러</p>
-                                <p class="text-sm text-gray-600 mb-2">blue-500, sky-200 처럼 미리 정의된 이름을 사용합니다.</p>
-                                <button id="open-tailwind-colors-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">색상표 보기</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <h3 class="text-xl font-bold mb-4 text-sky-700">구글 폰트 (Google Fonts)</h3>
-                        <p class="text-sm text-gray-600 mb-4">웹에서 무료로 사용할 수 있는 다양한 폰트를 적용하는 방법입니다.</p>
-                        <ol class="list-decimal list-inside space-y-3 text-sm text-gray-700">
-                            <li><strong>fonts.google.com</strong> 접속</li>
-                            <li>원하는 폰트를 검색하고 선택 (예: Noto Sans KR)</li>
-                            <li><strong>'Get font'</strong> > <strong>'Embed code'</strong> 클릭</li>
-                            <li>제공된 <code>&lt;link&gt;</code> 코드를 복사</li>
-                            <li>프롬프트에 <strong>"Noto Sans KR 폰트를 CDN으로 추가해 줘"</strong>라고 요청</li>
-                        </ol>
-                        <div class="mt-4 bg-gray-800 text-gray-200 p-3 rounded text-xs font-mono">
-                            /* CSS 예시 */<br>
-                            font-family: 'Noto Sans KR', sans-serif;
-                        </div>
-                    </div>
+           <section class="mb-16">
+    <h2 class="section-title">4. 색상과 폰트(Typography)</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-xl font-bold mb-4 text-sky-700">색상 지정하기</h3>
+            <div class="space-y-4">
+                <div class="p-3 rounded-lg border border-gray-200">
+                    <p class="font-bold mb-1">HEX 코드</p>
+                    <p class="text-sm text-gray-600 mb-2">#2563EB 처럼 # 뒤에 6자리 코드로 색을 지정합니다.</p>
+                    <button id="open-hex-picker-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">HEX코드 선택기 열기</button>
                 </div>
-            </section>
+                <div class="p-3 rounded-lg border border-gray-200">
+                    <p class="font-bold mb-1">Tailwind CSS 컬러</p>
+                    <p class="text-sm text-gray-600 mb-2">blue-500, sky-200 처럼 미리 정의된 이름을 사용합니다.</p>
+                    <button id="open-tailwind-colors-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">색상표 보기</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="font-guide-loader" class="min-h-[200px] flex-grow">
+            <div class="text-center text-gray-400 p-10">폰트 가이드 불러오는 중...</div>
+        </div>
+
+    </div>
+</section>
 
             <section class="mb-16">
                 <h2 class="section-title">5. 프롬프트 예시</h2>
@@ -344,7 +336,33 @@
             }
         }
 
-        window.addEventListener('load', loadExternalComponents);
+        async function loadFontGuide() {
+    const container = document.getElementById('font-guide-loader');
+    if (!container) return;
+
+    try {
+        const response = await fetch('font_guide.html'); // 새로 만든 파일명
+        if (!response.ok) throw new Error('Network response was not ok');
+        
+        const text = await response.text();
+        
+        // 스크립트 실행을 위해 Range 사용
+        const range = document.createRange();
+        range.selectNode(container);
+        const fragment = range.createContextualFragment(text);
+        
+        container.innerHTML = '';
+        container.appendChild(fragment);
+    } catch (e) {
+        console.error(e);
+        container.innerHTML = '<div class="text-red-500 text-center p-4">폰트 가이드 로딩 실패<br><span class="text-xs">Live Server 환경인지 확인하세요.</span></div>';
+    }
+}
+
+        window.addEventListener('load', () => {
+    loadExternalComponents();
+    loadFontGuide(); // 추가됨
+});
 
         // --- Hex Picker Modal Script ---
         const openHexBtn = document.getElementById('open-hex-picker-btn');
@@ -433,6 +451,8 @@
 
         if(canvas) canvas.addEventListener('click', pickColor);
         if(copyBtn) copyBtn.addEventListener('click', copyToClipboard);
+
+        
 
         // --- Tailwind Colors Modal Script ---
         const openTailwindBtn = document.getElementById('open-tailwind-colors-btn');
