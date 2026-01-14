@@ -66,6 +66,18 @@
             height: 100%;
             border-radius: 0.5rem;
         }
+
+        /* 아코디언 애니메이션 */
+        #component-viewer {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #component-viewer.open {
+            max-height: 2000px; /* 충분히 큰 값 */
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -94,10 +106,19 @@
                 <div class="flex items-start space-x-4">
                     <div class="step-number">2</div>
                     <div>
-                        <h2 class="text-2xl font-bold text-slate-800">프롬프트 입력하기</h2>
-                        <p class="mt-2 text-slate-600">원하는 결과물을 얻기 위해 구체적인 지시사항을 입력합니다.</p>
-                        <p class="mt-4 text-slate-700 font-semibold">예시 프롬프트)</p>
-                        <div class="prompt-box mt-2">"초등학교 학생들에게 현장체험학습 안전 수칙을 웹 페이지로 만들어서 안내하려고 해. 만 10세 전후의 아이들이 이해하기에 어렵지 않은 어휘를 사용하되 정중하고 격식 있는 어조를 사용해 줘."</div>
+                        <h2 class="text-2xl font-bold text-slate-800">프롬프트 입력 및 수정하기</h2>
+                        <p class="mt-2 text-slate-600">원하는 결과물을 얻기 위해 구체적인 지시사항을 입력하고, 생성된 결과물을 더 나은 방향으로 수정할 수 있습니다.</p>
+                        
+                        <div class="mt-4">
+                            <p class="text-slate-700 font-semibold mb-1">1단계: 초안 생성 프롬프트</p>
+                            <div class="prompt-box">"초등학교 학생들에게 현장체험학습 안전 수칙을 웹 페이지로 만들어서 안내하려고 해. 만 10세 전후의 아이들이 이해하기에 어렵지 않은 어휘를 사용하되 정중하고 격식 있는 어조를 사용해 줘."</div>
+                        </div>
+
+                        <div class="mt-6">
+                            <p class="text-slate-700 font-semibold mb-1">2단계: 수정(Iterate) 프롬프트</p>
+                            <div class="prompt-box mb-2">"각 타이틀 앞에 있는 아이콘 대신 어울리는 색상으로 번호를 붙여 줘."</div>
+                            <div class="prompt-box">"기호 **는 삭제해 줘."</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -105,12 +126,26 @@
             <section class="bg-white p-6 rounded-xl shadow-lg transition hover:shadow-xl">
                 <div class="flex items-start space-x-4">
                     <div class="step-number">3</div>
-                    <div>
-                        <h2 class="text-2xl font-bold text-slate-800">프롬프트로 수정해 보기</h2>
-                        <p class="mt-2 text-slate-600">생성된 결과물을 더 나은 방향으로 수정할 수 있습니다.</p>
+                    <div class="w-full">
+                        <h2 class="text-2xl font-bold text-slate-800">상호작용 더하기</h2>
+                        <p class="mt-2 text-slate-600">탭 메뉴와 같이 사용자가 직접 조작할 수 있는 동적인 요소를 추가할 수 있습니다.</p>
                         <p class="mt-4 text-slate-700 font-semibold">예시 프롬프트)</p>
-                        <div class="prompt-box mt-2">"각 타이틀 앞에 있는 아이콘 대신 어울리는 색상으로 번호를 붙여 줘."</div>
-                        <div class="prompt-box mt-2">"기호 **는 삭제해 줘."</div>
+                        <div class="prompt-box mt-2">"전체 타이틀 아래에 탭을 만들고, 각 카드를 탭 메뉴로 만들어 줘."</div>
+
+                        <div class="mt-6 pt-6 border-t border-slate-200">
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="font-bold text-slate-700">어떤 요소들을 추가할 수 있나요?</h3>
+                                    <p class="text-sm text-slate-500">버튼을 눌러 다양한 UI 컴포넌트 예시를 확인해보세요.</p>
+                                </div>
+                                <button id="btn-toggle-comp" onclick="toggleComponents()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 shadow-md">
+                                    동적 구성 요소 예시 보기 ▼
+                                </button>
+                            </div>
+                            
+                            <div id="component-viewer" class="mt-4 bg-slate-50 rounded-lg border border-slate-200">
+                                </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -118,18 +153,6 @@
             <section class="bg-white p-6 rounded-xl shadow-lg transition hover:shadow-xl">
                 <div class="flex items-start space-x-4">
                     <div class="step-number">4</div>
-                    <div>
-                        <h2 class="text-2xl font-bold text-slate-800">상호작용 더하기</h2>
-                        <p class="mt-2 text-slate-600">탭 메뉴와 같이 사용자가 직접 조작할 수 있는 동적인 요소를 추가할 수 있습니다.</p>
-                        <p class="mt-4 text-slate-700 font-semibold">예시 프롬프트)</p>
-                        <div class="prompt-box mt-2">"전체 타이틀 아래에 탭을 만들고, 각 카드를 탭 메뉴로 만들어 줘."</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="bg-white p-6 rounded-xl shadow-lg transition hover:shadow-xl">
-                <div class="flex items-start space-x-4">
-                    <div class="step-number">5</div>
                     <div class="w-full">
                         <h2 class="text-2xl font-bold text-slate-800">미디어 더하기</h2>
                         <p class="mt-2 text-slate-600">영상이나 이미지 같은 미디어 자료를 추가하여 콘텐츠를 더욱 풍부하게 만들 수 있습니다.</p>
@@ -166,18 +189,6 @@
                              <div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
                                이미지에서 마우스 오른쪽 버튼 클릭 후 "이미지 주소 복사"를 눌러 주소를 복사할 수 있습니다.
                             </div>    
-
-                            <div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
-                                <strong>참고: 무료 이미지 사이트 예시</strong>
-                                <ul class="list-disc list-inside mt-1">
-                                    <li><a href="https://unsplash.com/ko" target="_blank" rel="noopener noreferrer"
-                                            class="text-blue-500 hover:text-blue-600 hover:underline">언스플래시
-                                            (Unsplash)</a></li>
-                                    <li><a href="https://pixabay.com/ko/" target="_blank" rel="noopener noreferrer"
-                                            class="text-blue-500 hover:text-blue-600 hover:underline">픽사베이 (Pixabay)</a>
-                                    </li>
-                                </ul>
-                            </div>
                            
                         </div>
                     </div>
@@ -186,7 +197,7 @@
 
             <section class="bg-white p-6 rounded-xl shadow-lg transition hover:shadow-xl">
                 <div class="flex items-start space-x-4">
-                    <div class="step-number">6</div>
+                    <div class="step-number">5</div>
                     <div class="w-full">
                         <h2 class="text-2xl font-bold text-slate-800">(새 대화) 상호작용이 되는 간단한 게임 만들기</h2>
                         <p class="mt-2 text-slate-600">제공된 자료를 바탕으로 간단한 퀴즈 게임을 만들 수 있습니다.</p>
@@ -195,14 +206,13 @@
                             <div
                                 class="mt-2 p-4 border rounded-lg max-h-60 overflow-y-auto bg-slate-50 text-sm text-slate-700">
                                 <p class="font-bold mb-2">고려와 거란의 관계</p>
-                                <p>고려가 세워지고 성장하던 시기, 고려 주변에서는 큰 변화가 있었다. 당시 중국 대륙에는 황해를 건너 송나라가 세워졌고, 고려의 북쪽에는 거란과 여진이 있었다. 거란은 후에 요나라가 되는데, 고려를 총 세 차례에 걸쳐 침입하였다.</p>
+                                <p>고려가 세워지고 성장하던 시기... (중략)</p>
                                 <p class="font-semibold mt-2">거란의 1차 침입</p>
-                                <p>거란이 성장하면서 발해는 거란에 의해 멸망하게 되었고, 고려는 발해를 멸망시킨 거란을 믿을 수 없는 나라라고 생각하여 멀리 하였다... (중략) ...
-                                    서희는 거란의 장수와 담판을 벌였다. ... 담판의 결과, 고려는 송과의 관계를 끊고 거란과 외교 관계를 맺기로 약속하였으며 압록강 동쪽에 강동 6주의 땅을 얻게 되어 이를 개척하였다.</p>
+                                <p>...서희는 거란의 장수와 담판을 벌였다...</p>
                                 <p class="font-semibold mt-2">거란의 2차 침입</p>
-                                <p>고려가 송과 외교 관계를 계속 이어 가자 거란은 고려를 다시 침입하였다. ... 양규의 군대는 거란군에 여러 차례 승리를 거두며, 포로가 되었던 3만여명의 고려 사람을 구해 냈다...</p>
+                                <p>...양규의 군대는 거란군에 여러 차례 승리를 거두며...</p>
                                 <p class="font-semibold mt-2">거란의 3차 침입</p>
-                                <p>... 강감찬이 이끈 고려군이 귀주에서 거란군에 큰 승리를 거두었다. 이를 귀주 대첩이라고 한다. ...</p>
+                                <p>...강감찬이 이끈 고려군이 귀주에서 거란군에 큰 승리를 거두었다...</p>
                             </div>
                             <div class="mt-4">
                                 <a href="https://docs.google.com/document/d/1l733YFg5UU-vaMhbGkeVnm3efQU8wAKLzG47CDZ3RoE/copy"
@@ -214,16 +224,13 @@
                         </div>
                         <p class="mt-4 text-slate-700 font-semibold">예시 프롬프트)</p>
                         <div class="prompt-box mt-2">"첨부한 문서의 내용으로 간단한 역사 스피드 퀴즈 사이트를 html 파일로 만들 거야. 사지선다형 객관식 퀴즈로 만들고, 각 문제마다 제한 시간을 1분씩 넣어 줘."</div>
-                        <div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
-                            <strong>참고:</strong> 퀴즈 관련 코드를 요청할 때, 제미나이의 대화형 퀴즈가 생성될 수 있습니다. 대화형 퀴즈를 사용하지 않고 만들 것을 지시하거나, html 코드로 생성할 것을 명확히 지시하는 것이 좋습니다.
-                        </div>
                     </div>
                 </div>
             </section>
 
             <section class="bg-white p-6 rounded-xl shadow-lg transition hover:shadow-xl">
                 <div class="flex items-start space-x-4">
-                    <div class="step-number">7</div>
+                    <div class="step-number">6</div>
                     <div>
                         <h2 class="text-2xl font-bold text-slate-800">원하는 방향으로 수정시키기</h2>
                         <p class="mt-2 text-slate-600">만들어진 게임에 시각적인 효과를 더해 완성도를 높일 수 있습니다.</p>
@@ -236,11 +243,10 @@
 
             <section class="bg-white p-6 rounded-xl shadow-lg transition hover:shadow-xl">
                 <div class="flex items-start space-x-4">
-                    <div class="step-number">8</div>
+                    <div class="step-number">7</div>
                     <div>
                         <h2 class="text-2xl font-bold text-slate-800">호스팅하기</h2>
-                        <p class="mt-2 text-slate-600">완성한 코드는 다양한 방법으로 호스팅할 수 있습니다. 무료로 쓸 수 있는 간단한 방법 중 하나는 구글 사이트 서비스를
-                            활용하는 방법입니다. (2차시에 계속)</p>
+                        <p class="mt-2 text-slate-600">완성한 코드는 다양한 방법으로 호스팅할 수 있습니다.</p>
                         <div class="mt-4">
                             <a href="https://sites.google.com/" target="_blank" rel="noopener noreferrer"
                                 class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
@@ -262,6 +268,58 @@
             2026. 1. 지식샘터 연수자료
         </footer>
     </div>
+
+    <script>
+        async function toggleComponents() {
+            const container = document.getElementById('component-viewer');
+            const btn = document.getElementById('btn-toggle-comp');
+            
+            // 이미 열려있는지 확인 (open 클래스로 판단)
+            if (container.classList.contains('open')) {
+                container.classList.remove('open');
+                btn.innerText = '동적 구성 요소 예시 보기 ▼';
+                return;
+            }
+
+            // 닫혀있다면 열기
+            btn.innerText = '예시 닫기 ▲';
+            container.classList.add('open');
+
+            // 내용이 비어있다면 외부 파일 로드
+            if (container.children.length === 0) {
+                try {
+                    container.innerHTML = '<div class="p-6 text-center text-gray-500">로딩 중...</div>';
+                    
+                    const response = await fetch('components.html');
+                    if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
+                    
+                    const text = await response.text();
+                    
+                    // 스크립트 실행을 위한 ContextualFragment 생성
+                    const range = document.createRange();
+                    range.selectNode(container);
+                    const fragment = range.createContextualFragment(text);
+                    
+                    container.innerHTML = '';
+                    
+                    // components.html에는 스타일 충돌 방지를 위해 padding wrapper 추가
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'p-6';
+                    wrapper.appendChild(fragment);
+                    
+                    container.appendChild(wrapper);
+                    
+                } catch (e) {
+                    console.error(e);
+                    container.innerHTML = `
+                        <div class="p-6 text-center text-red-500">
+                            <p class="font-bold">구성 요소를 불러오지 못했습니다.</p>
+                            <p class="text-sm mt-2">Live Server 환경인지, components.html 파일이 같은 폴더에 있는지 확인해주세요.</p>
+                        </div>`;
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

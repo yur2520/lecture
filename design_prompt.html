@@ -42,37 +42,6 @@
             background-color: #2563eb;
         }
 
-        /* Carousel Styles */
-        .carousel-track {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Accordion Transition */
-        .accordion-content {
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-            max-height: 0;
-            overflow: hidden;
-        }
-        .accordion-content.active {
-            max-height: 200px; /* 적절한 높이 제한 */
-        }
-        
-        /* Toast Animation */
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        .toast-enter {
-            animation: slideIn 0.3s forwards;
-        }
-        .toast-exit {
-            animation: fadeOut 0.3s forwards;
-        }
-
         /* Color Picker Canvas */
         #color-picker {
             cursor: crosshair;
@@ -85,8 +54,8 @@
     <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
 
         <header class="text-center my-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">디자인 프롬프트 Tip</h1>
-            <p class="text-gray-500 text-lg">AI에게 더 정확한 디자인 요청하기</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">디자인 프롬프트</h1>
+            <p class="text-gray-500 text-lg">AI에게 더 정확한 디자인을 요청하기 위한 가이드</p>
         </header>
 
         <main>
@@ -155,72 +124,14 @@
                 <h2 class="section-title">3. 동적 구성 요소 (UI Components)</h2>
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <p class="text-base text-gray-600 mb-6">사용자와 상호작용하는 요소들입니다. 아래 예시들을 직접 조작해보세요.</p>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        
-                        <div class="p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-lg mb-2 text-indigo-600">캐러셀 (Carousel)</h4>
-                            <div id="carousel-example" class="relative overflow-hidden rounded-lg bg-gray-100 mb-2" style="height: 120px;">
-                                <div class="carousel-track absolute top-0 left-0 h-full flex transition-transform duration-300">
-                                    <div class="w-full h-full flex-shrink-0 bg-red-100 flex items-center justify-center text-red-600 font-bold">슬라이드 1</div>
-                                    <div class="w-full h-full flex-shrink-0 bg-green-100 flex items-center justify-center text-green-600 font-bold">슬라이드 2</div>
-                                    <div class="w-full h-full flex-shrink-0 bg-blue-100 flex items-center justify-center text-blue-600 font-bold">슬라이드 3</div>
-                                </div>
-                                <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md transition">&lt;</button>
-                                <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md transition">&gt;</button>
-                            </div>
-                            <p class="text-sm text-gray-500">여러 콘텐츠를 슬라이드 형태로 보여줍니다.</p>
+                    
+                    <div id="comp-loader" class="min-h-[200px] flex-grow justify-center text-gray-400 rounded-lg">
+                        <div class="text-center">
+                            <p class="mb-2">구성 요소를 불러오는 중...</p>
+                            <p class="text-xs text-red-400">* 로컬 서버(Live Server) 환경에서 실행해야 작동합니다.</p>
                         </div>
-
-                        <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
-                            <h4 class="font-bold text-lg mb-2 text-indigo-600">모달 (Modal)</h4>
-                            <button onclick="document.getElementById('demo-modal').classList.remove('hidden')" class="bg-indigo-600 text-white text-sm px-4 py-2 rounded hover:bg-indigo-700 transition w-full mb-2">모달 열기 테스트</button>
-                            <p class="text-sm text-gray-500">현재 페이지 위에 뜨는 작은 창입니다.</p>
-                        </div>
-
-                        <div class="p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-lg mb-2 text-indigo-600">아코디언 (Accordion)</h4>
-                            <div class="border rounded bg-white">
-                                <button onclick="toggleAccordion(this)" class="w-full text-left px-4 py-2 text-sm font-semibold flex justify-between items-center bg-gray-50 hover:bg-gray-100">
-                                    <span>클릭해서 내용 펼치기</span>
-                                    <span class="transform transition-transform">▼</span>
-                                </button>
-                                <div class="accordion-content bg-white px-4 text-sm text-gray-600">
-                                    <div class="py-2">아코디언은 제목을 클릭하면 숨겨진 상세 내용이 아래로 펼쳐지는 UI 요소입니다. 공간을 절약할 때 유용합니다.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-lg mb-2 text-indigo-600">탭 (Tabs)</h4>
-                            <div class="bg-white rounded border">
-                                <div class="flex border-b">
-                                    <button onclick="switchTab(0)" class="tab-btn flex-1 py-2 text-sm text-center font-medium bg-indigo-50 text-indigo-600 border-b-2 border-indigo-600 transition">메뉴 1</button>
-                                    <button onclick="switchTab(1)" class="tab-btn flex-1 py-2 text-sm text-center text-gray-500 hover:text-gray-700 transition">메뉴 2</button>
-                                </div>
-                                <div class="p-3 h-20">
-                                    <div class="tab-content text-sm text-gray-600">여기는 첫 번째 탭의 내용입니다.</div>
-                                    <div class="tab-content text-sm text-gray-600 hidden">두 번째 탭으로 전환되었습니다. 관련된 내용을 그룹화하여 보여줍니다.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
-                            <h4 class="font-bold text-lg mb-2 text-indigo-600">토스트 (Toast)</h4>
-                            <button onclick="showToast()" class="bg-white border border-gray-300 text-gray-700 text-sm px-4 py-2 rounded hover:bg-gray-50 transition w-full mb-2">알림 메시지 띄우기</button>
-                            <p class="text-sm text-gray-500">잠시 나타났다 사라지는 휘발성 알림 메시지입니다.</p>
-                        </div>
-
-                         <div class="p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-lg mb-2 text-indigo-600">입력 양식 (Input Forms)</h4>
-                            <input type="text" placeholder="텍스트 입력 필드" class="w-full text-sm p-2 border rounded mb-2 focus:ring-2 focus:ring-indigo-200 outline-none">
-                            <select class="w-full text-sm p-2 border rounded focus:ring-2 focus:ring-indigo-200 outline-none">
-                                <option>드롭다운 메뉴 선택</option>
-                                <option>옵션 A</option>
-                                <option>옵션 B</option>
-                            </select>
-                        </div>
-
                     </div>
+
                 </div>
             </section>
 
@@ -375,17 +286,6 @@
         </div>
     </footer>
 
-    <div id="demo-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm w-full relative">
-            <button onclick="document.getElementById('demo-modal').classList.add('hidden')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">&times;</button>
-            <h3 class="text-lg font-bold mb-2">모달 창</h3>
-            <p class="text-gray-600 mb-4">이것이 모달(Modal)입니다. 사용자의 주의를 집중시키거나 중요한 정보를 전달할 때 사용합니다.</p>
-            <button onclick="document.getElementById('demo-modal').classList.add('hidden')" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">닫기</button>
-        </div>
-    </div>
-
-    <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
-
     <div id="hex-picker-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
         <div id="modal-backdrop" class="absolute inset-0"></div>
         <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-center transition-all-ease relative">
@@ -419,103 +319,32 @@
     </div>
 
     <script>
-        // --- Accordion Logic ---
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            const arrow = button.querySelector('span:last-child');
-            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                content.style.maxHeight = '0px';
-                content.classList.remove('py-2');
-                arrow.style.transform = 'rotate(0deg)';
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                content.classList.add('py-2');
-                arrow.style.transform = 'rotate(180deg)';
+        // --- External Components Loader ---
+        async function loadExternalComponents() {
+            const container = document.getElementById('comp-loader');
+            if (!container) return;
+
+            try {
+                const response = await fetch('components.html');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const text = await response.text();
+                
+                // createRange().createContextualFragment()를 사용해야 
+                // 불러온 HTML 내의 <script> 태그가 실행됩니다.
+                const range = document.createRange();
+                range.selectNode(container);
+                const fragment = range.createContextualFragment(text);
+                
+                container.innerHTML = '';
+                container.appendChild(fragment);
+            } catch (e) {
+                console.error(e);
+                container.innerHTML = '<div class="text-red-500 text-center p-4">컴포넌트 로딩 실패<br><span class="text-xs">이 파일은 Live Server 환경에서 실행해야 합니다.</span></div>';
             }
         }
 
-        // --- Tabs Logic ---
-        function switchTab(index) {
-            const btns = document.querySelectorAll('.tab-btn');
-            const contents = document.querySelectorAll('.tab-content');
-            
-            btns.forEach((btn, i) => {
-                if(i === index) {
-                    btn.classList.add('text-indigo-600', 'border-indigo-600', 'bg-indigo-50', 'border-b-2');
-                    btn.classList.remove('text-gray-500');
-                } else {
-                    btn.classList.remove('text-indigo-600', 'border-indigo-600', 'bg-indigo-50', 'border-b-2');
-                    btn.classList.add('text-gray-500');
-                }
-            });
-            
-            contents.forEach((content, i) => {
-                if(i === index) content.classList.remove('hidden');
-                else content.classList.add('hidden');
-            });
-        }
-
-        // --- Toast Logic ---
-        function showToast() {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'bg-gray-800 text-white px-4 py-3 rounded shadow-lg flex items-center gap-2 toast-enter text-sm min-w-[200px]';
-            toast.innerHTML = '<span>✅ 작업이 완료되었습니다!</span>';
-            
-            container.appendChild(toast);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                toast.classList.remove('toast-enter');
-                toast.classList.add('toast-exit');
-                setTimeout(() => {
-                    if(toast.parentElement) toast.parentElement.removeChild(toast);
-                }, 300);
-            }, 3000);
-        }
-
-        // --- Carousel Script ---
-        const carousel = document.getElementById('carousel-example');
-        if (carousel) {
-            const track = carousel.querySelector('.carousel-track');
-            const prevButton = carousel.querySelector('.carousel-prev');
-            const nextButton = carousel.querySelector('.carousel-next');
-            const slides = Array.from(track.children);
-            let slideWidth = carousel.getBoundingClientRect().width;
-            let currentIndex = 0;
-
-            const setSlideWidths = () => {
-                slideWidth = carousel.getBoundingClientRect().width;
-                slides.forEach(slide => {
-                    slide.style.width = `${slideWidth}px`;
-                });
-            }
-
-            const moveToSlide = (targetIndex) => {
-                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-                currentIndex = targetIndex;
-            }
-
-            nextButton.addEventListener('click', () => {
-                const nextIndex = (currentIndex + 1) % slides.length;
-                moveToSlide(nextIndex);
-            });
-
-            prevButton.addEventListener('click', () => {
-                const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-                moveToSlide(prevIndex);
-            });
-
-            setSlideWidths();
-            window.addEventListener('resize', () => {
-                setSlideWidths();
-                track.style.transition = 'none';
-                track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
-                setTimeout(() => {
-                    track.style.transition = 'transform 0.3s ease-in-out';
-                }, 50);
-            });
-        }
+        window.addEventListener('load', loadExternalComponents);
 
         // --- Hex Picker Modal Script ---
         const openHexBtn = document.getElementById('open-hex-picker-btn');

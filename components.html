@@ -1,0 +1,241 @@
+<style>
+    /* 컴포넌트 전용 스타일 */
+    .comp-carousel-track { transition: transform 0.3s ease-in-out; }
+    .comp-accordion-content { transition: max-height 0.3s ease-out; max-height: 0; overflow: hidden; }
+    .comp-tab-content.hidden { display: none; }
+    
+    /* 애니메이션 정의 */
+    @keyframes comp-slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .comp-toast-enter { animation: comp-slideIn 0.3s forwards; }
+    
+    .comp-skeleton { 
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); 
+        background-size: 200% 100%; 
+        animation: comp-skeleton-loading 1.5s infinite; 
+    }
+    @keyframes comp-skeleton-loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+
+<div class="grid md:grid-cols-2 gap-6">
+    
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">1. 캐러셀 (Carousel)</h4>
+        <div id="comp-carousel-demo" class="relative overflow-hidden rounded-lg bg-gray-100 mb-2" style="height: 100px;">
+            <div class="comp-carousel-track absolute top-0 left-0 h-full flex w-full">
+                <div class="w-full h-full flex-shrink-0 bg-red-100 flex items-center justify-center font-bold text-red-600">Slide 1</div>
+                <div class="w-full h-full flex-shrink-0 bg-blue-100 flex items-center justify-center font-bold text-blue-600">Slide 2</div>
+            </div>
+            <button onclick="compMoveCarousel(0)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-1 rounded-full shadow-sm">&lt;</button>
+            <button onclick="compMoveCarousel(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-1 rounded-full shadow-sm">&gt;</button>
+        </div>
+        <p class="text-sm text-gray-600">이미지나 콘텐츠를 옆으로 넘겨보는 슬라이더입니다.</p>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">2. 모달 (Modal)</h4>
+        <button onclick="compOpenModal('comp-demo-modal')" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded text-sm transition">모달 열기</button>
+        <div id="comp-demo-modal" class="hidden fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
+            <div class="bg-white p-6 rounded-lg max-w-xs w-full shadow-2xl transform transition-all">
+                <h3 class="font-bold text-lg mb-2">알림</h3>
+                <p class="mb-4 text-gray-600 text-sm">중요한 정보를 전달하는 모달 창입니다.</p>
+                <button onclick="compCloseModal('comp-demo-modal')" class="w-full py-2 bg-gray-200 hover:bg-gray-300 rounded text-sm transition">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">3. 아코디언 (Accordion)</h4>
+        <div class="border rounded overflow-hidden">
+            <button onclick="compToggleAcc(this)" class="w-full p-3 text-left bg-gray-50 hover:bg-gray-100 text-sm font-bold flex justify-between transition">
+                <span>자세히 보기</span><span>▼</span>
+            </button>
+            <div class="comp-accordion-content bg-white px-3 text-sm text-gray-600">
+                <div class="py-3 border-t">숨겨져 있던 상세 정보가 아래로 펼쳐집니다.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">4. 탭 (Tabs)</h4>
+        <div class="flex border-b text-sm">
+            <button onclick="compTabSwitch(this, 'tab1')" class="comp-tab-btn px-4 py-2 border-b-2 border-indigo-600 text-indigo-600 font-medium transition-colors">메뉴 A</button>
+            <button onclick="compTabSwitch(this, 'tab2')" class="comp-tab-btn px-4 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 transition-colors">메뉴 B</button>
+        </div>
+        <div id="tab1" class="comp-tab-content py-3 text-sm text-gray-600 h-16">메뉴 A의 내용입니다.</div>
+        <div id="tab2" class="comp-tab-content py-3 text-sm text-gray-600 h-16 hidden">메뉴 B로 화면이 전환되었습니다.</div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">5. 토스트 (Toast)</h4>
+        <button onclick="compTriggerToast()" class="w-full py-2 border border-gray-300 rounded text-sm hover:bg-gray-50 transition">알림 메시지 띄우기</button>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">6. 토글 스위치 (Switch)</h4>
+        <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+            <span class="ml-3 text-sm font-medium text-gray-700">설정 켜기</span>
+        </label>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">7. 툴팁 (Tooltip)</h4>
+        <div class="relative inline-block group mt-2">
+            <span class="underline decoration-dotted cursor-help text-sm text-gray-700">여기에 마우스를 올려보세요</span>
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10 shadow-lg">
+                도움말이 표시됩니다.
+                <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">8. 스켈레톤 (Skeleton)</h4>
+        <div class="space-y-3">
+            <div class="comp-skeleton h-4 w-3/4 rounded"></div>
+            <div class="comp-skeleton h-3 w-full rounded"></div>
+            <div class="comp-skeleton h-3 w-5/6 rounded"></div>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">9. 진행 바 (Progress)</h4>
+        <div class="flex justify-between mb-1">
+            <span class="text-xs font-medium text-indigo-700">Loading...</span>
+            <span class="text-xs font-medium text-indigo-700">70%</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 70%"></div>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">10. 배지 (Badge)</h4>
+        <div class="flex gap-2 items-center">
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded border border-blue-200">New</span>
+            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded border border-green-200">Completed</span>
+            <button class="relative inline-flex items-center p-1 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:text-gray-900 focus:outline-none">
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -right-1">8</div>
+            </button>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">11. 브레드크럼 (Breadcrumb)</h4>
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm text-gray-500">
+                <li class="inline-flex items-center hover:text-gray-700 cursor-pointer">홈</li>
+                <li><span class="mx-1">/</span></li>
+                <li class="hover:text-gray-700 cursor-pointer">카테고리</li>
+                <li><span class="mx-1">/</span></li>
+                <li class="text-indigo-600 font-bold" aria-current="page">현재 페이지</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">12. 별점 (Rating)</h4>
+        <div class="flex items-center">
+            <div class="flex text-yellow-400 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-gray-300">★</span>
+            </div>
+            <span class="bg-blue-100 text-blue-800 text-xs font-semibold ml-2 px-2.5 py-0.5 rounded">4.0</span>
+        </div>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">13. 페이지네이션</h4>
+        <nav>
+            <ul class="inline-flex -space-x-px text-sm">
+                <li><button class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">Prev</button></li>
+                <li><button class="px-3 py-2 leading-tight text-indigo-600 bg-indigo-50 border border-indigo-300 hover:bg-indigo-100 hover:text-indigo-700">1</button></li>
+                <li><button class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</button></li>
+                <li><button class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">Next</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="p-4 rounded-lg border border-gray-200 bg-white">
+        <h4 class="font-bold text-lg mb-2 text-indigo-600">14. 입력 폼 (Forms)</h4>
+        <div class="space-y-3">
+            <div>
+                <label class="block mb-1 text-xs font-medium text-gray-900">이메일 입력</label>
+                <input type="text" placeholder="example@email.com" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 outline-none">
+            </div>
+            <div>
+                <label class="block mb-1 text-xs font-medium text-gray-900">옵션 선택</label>
+                <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 outline-none">
+                    <option>선택해주세요</option>
+                    <option>옵션 1</option>
+                    <option>옵션 2</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // --- 컴포넌트 동작 스크립트 ---
+    // (메인 페이지에서 로드 시 자동으로 실행됩니다)
+
+    // 1. 캐러셀 로직
+    window.compMoveCarousel = function(index) {
+        const track = document.querySelector('#comp-carousel-demo .comp-carousel-track');
+        // index 0이면 0%, 1이면 -100% 이동
+        track.style.transform = `translateX(-${index * 100}%)`;
+    };
+
+    // 2. 모달 로직
+    window.compOpenModal = function(id) { document.getElementById(id).classList.remove('hidden'); };
+    window.compCloseModal = function(id) { document.getElementById(id).classList.add('hidden'); };
+
+    // 3. 아코디언 로직
+    window.compToggleAcc = function(btn) {
+        const content = btn.nextElementSibling;
+        const arrow = btn.querySelector('span:last-child');
+        
+        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = '0px';
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            arrow.style.transform = 'rotate(180deg)';
+        }
+    };
+
+    // 4. 탭 로직
+    window.compTabSwitch = function(btn, contentId) {
+        // 모든 버튼 스타일 초기화
+        const container = btn.closest('.p-4'); // 현재 컴포넌트 박스 안에서만 검색
+        container.querySelectorAll('.comp-tab-btn').forEach(b => {
+            b.classList.remove('border-indigo-600', 'text-indigo-600');
+            b.classList.add('border-transparent', 'text-gray-500');
+        });
+        // 모든 컨텐츠 숨기기
+        container.querySelectorAll('.comp-tab-content').forEach(c => c.classList.add('hidden'));
+        
+        // 선택된 버튼 활성화
+        btn.classList.remove('border-transparent', 'text-gray-500');
+        btn.classList.add('border-indigo-600', 'text-indigo-600');
+        
+        // 선택된 컨텐츠 보이기
+        container.querySelector('#' + contentId).classList.remove('hidden');
+    };
+
+    // 5. 토스트 로직
+    window.compTriggerToast = function() {
+        const toast = document.createElement('div');
+        toast.className = 'fixed bottom-5 right-5 bg-gray-800 text-white px-4 py-3 rounded shadow-lg comp-toast-enter text-sm z-[200] flex items-center gap-2';
+        toast.innerHTML = '<span>🔔 알림이 도착했습니다!</span>';
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.5s';
+            setTimeout(() => toast.remove(), 500);
+        }, 2500);
+    };
+</script>
