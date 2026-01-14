@@ -67,16 +67,31 @@
             border-radius: 0.5rem;
         }
 
-        /* 아코디언 애니메이션 */
-        #component-viewer {
+        /* 아코디언 애니메이션 공통 클래스 */
+        .accordion-content {
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
         }
-        #component-viewer.open {
-            max-height: 2000px; /* 충분히 큰 값 */
+        .accordion-content.open {
+            max-height: 3000px; /* 충분히 큰 값 */
             opacity: 1;
+        }
+
+        /* 탭 스타일 */
+        .tab-btn {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            color: #64748b; /* slate-500 */
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            border-bottom-color: #3b82f6; /* blue-500 */
+            color: #1d4ed8; /* blue-700 */
+            font-weight: 700;
         }
     </style>
 </head>
@@ -143,8 +158,8 @@
                                 </button>
                             </div>
                             
-                            <div id="component-viewer" class="mt-4 bg-slate-50 rounded-lg border border-slate-200">
-                                </div>
+                            <div id="component-viewer" class="accordion-content mt-4 bg-slate-50 rounded-lg border border-slate-200">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -157,12 +172,23 @@
                         <h2 class="text-2xl font-bold text-slate-800">미디어 더하기</h2>
                         <p class="mt-2 text-slate-600">영상이나 이미지 같은 미디어 자료를 추가하여 콘텐츠를 더욱 풍부하게 만들 수 있습니다.</p>
 
-                        <div class="mt-4">
-                            <h3 class="font-semibold text-slate-700">영상 추가 예시</h3>
-                            <div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
+                        <div class="mt-6 border-b border-slate-200">
+                            <div class="flex gap-4">
+                                <button onclick="switchMediaTab('video')" id="tab-video" class="tab-btn active">
+                                    영상 추가 예시
+                                </button>
+                                <button onclick="switchMediaTab('image')" id="tab-image" class="tab-btn">
+                                    이미지 추가 예시
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="content-video" class="mt-6 block">
+                            <h3 class="font-semibold text-slate-700">영상 추가</h3>
+                            <div class="mt-2 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
                                유튜브에서 영상을 오른쪽 클릭한 후, "동영상 URL 복사"를 눌러 주소를 복사할 수 있습니다.
                             </div> 
-                            <div class="video-container mt-2">
+                            <div class="video-container mt-4">
                                 <iframe src="https://www.youtube.com/embed/lfFMFa7HxVY" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
@@ -170,27 +196,33 @@
                             <p class="mt-4 text-slate-700 font-semibold">예시 프롬프트)</p>
                             <div class="prompt-box mt-2">"버스 탑승 안전 탭의 각 카드 위에 이 영상을 넣어 줘. https://youtu.be/lfFMFa7HxVY"
                             </div>
-
                             <div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
-                                <strong>참고:</strong> 제미나이 캔버스에서 코드 확인 시 보안 제약으로 인하여 영상이 실행되지 않고 동영상 플레이어 구성 오류 153 메세지가
-                                뜰 수 있습니다.
+                                <strong>참고:</strong> 제미나이 캔버스에서 코드 확인 시 보안 제약으로 인하여 영상이 실행되지 않고 동영상 플레이어 구성 오류 153 메세지가 뜰 수 있습니다.
                             </div>
                         </div>
 
-                        <div class="mt-6">
-                            <h3 class="font-semibold text-slate-700">이미지 추가 예시</h3>
+                        <div id="content-image" class="mt-6 hidden">
+                            <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+                                <h3 class="font-semibold text-slate-700">이미지 추가</h3>
+                                
+                                <div class="text-sm mt-2 sm:mt-0">
+                                    <span class="text-slate-500 mr-2">무료 이미지 찾기:</span>
+                                    <a href="https://unsplash.com/" target="_blank" class="text-blue-500 hover:underline mr-2">Unsplash ↗</a>
+                                    <a href="https://pixabay.com/" target="_blank" class="text-blue-500 hover:underline">Pixabay ↗</a>
+                                </div>
+                            </div>
+<div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
+                               이미지에서 마우스 오른쪽 버튼 클릭 후 "이미지 주소 복사"를 눌러 주소를 복사할 수 있습니다.
+                            </div>    
                             <img src="https://cdn.pixabay.com/photo/2020/10/05/20/03/boys-5630669_1280.jpg"
-                                alt="길을 걷는 아이들" class="mt-2 rounded-lg w-full max-w-md mx-auto"
+                                alt="길을 걷는 아이들" class="mt-2 rounded-lg w-full max-w-md mx-auto shadow-sm"
                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Image+Not+Found';">
                             <p class="mt-4 text-slate-700 font-semibold">예시 프롬프트)</p>
                             <div class="prompt-box mt-2">"위험 상황 대처 내용 탭에 이 이미지를 삽입해 줘.
                                 https://cdn.pixabay.com/photo/2020/10/05/20/03/boys-5630669_1280.jpg"</div>
-                            
-                             <div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
-                               이미지에서 마우스 오른쪽 버튼 클릭 후 "이미지 주소 복사"를 눌러 주소를 복사할 수 있습니다.
-                            </div>    
-                           
+                             
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -224,6 +256,9 @@
                         </div>
                         <p class="mt-4 text-slate-700 font-semibold">예시 프롬프트)</p>
                         <div class="prompt-box mt-2">"첨부한 문서의 내용으로 간단한 역사 스피드 퀴즈 사이트를 html 파일로 만들 거야. 사지선다형 객관식 퀴즈로 만들고, 각 문제마다 제한 시간을 1분씩 넣어 줘."</div>
+                         <div class="mt-6 p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">
+                            <strong>참고:</strong> 퀴즈 관련 코드를 요청할 때, 제미나이의 대화형 퀴즈가 생성될 수 있습니다. 대화형 퀴즈를 사용하지 않고 만들 것을 지시하거나, html 코드로 생성할 것을 명확히 지시하는 것이 좋습니다.
+                        </div>
                     </div>
                 </div>
             </section>
@@ -244,18 +279,107 @@
             <section class="bg-white p-6 rounded-xl shadow-lg transition hover:shadow-xl">
                 <div class="flex items-start space-x-4">
                     <div class="step-number">7</div>
-                    <div>
+                    <div class="w-full">
                         <h2 class="text-2xl font-bold text-slate-800">호스팅하기</h2>
                         <p class="mt-2 text-slate-600">완성한 코드는 다양한 방법으로 호스팅할 수 있습니다.</p>
-                        <div class="mt-4">
+                        <div class="mt-4 flex flex-col sm:flex-row gap-3">
                             <a href="https://sites.google.com/" target="_blank" rel="noopener noreferrer"
-                                class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                                class="inline-block bg-blue-500 hover:bg-blue-600 text-center text-white font-bold py-2 px-4 rounded-lg transition duration-300">
                                 구글 사이트 서비스로 이동
                             </a>
-                            <a href="g-site/practice-ex-g-site.html" rel="noopener noreferrer"
-                                class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                                구글 사이트로 코드 호스팅하기 (방법 설명)
-                            </a>
+                            <button id="btn-toggle-hosting" onclick="toggleHostingGuide()"
+                                class="inline-block bg-white border border-blue-500 text-blue-500 hover:bg-blue-50 font-bold py-2 px-4 rounded-lg transition duration-300">
+                                구글 사이트로 코드 호스팅하기 (방법 설명) ▼
+                            </button>
+                        </div>
+                        
+                        <div id="hosting-viewer" class="accordion-content mt-6 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-slate-700 mb-4">구글 사이트로 HTML 코드 호스팅하기</h3>
+                                <p class="text-slate-600 mb-6">제미나이가 만든 코드를 구글 사이트 기능을 통해 무료로 호스팅할 수 있습니다.</p>
+                                
+                                <div class="grid grid-cols-1 grid-cols-1 gap-6">
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step1.png" class="max-w-full max-h-full object-contain" alt="빈 사이트 생성">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                                            <p class="text-slate-700 text-sm">구글 사이트 도구에서 <strong>[빈 사이트]</strong>를 클릭하여 새 프로젝트를 생성합니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step2.png" class="max-w-full max-h-full object-contain" alt="페이지 탭">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                                            <p class="text-slate-700 text-sm">오른쪽 사이드바 패널의 상단에 있는 <strong>[페이지]</strong> 탭을 선택합니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step3.png" class="max-w-full max-h-full object-contain" alt="전체 페이지 삽입">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                                            <p class="text-slate-700 text-sm">하단의 [+] 버튼에 마우스를 올린 후 <strong>[전체 페이지 삽입 &lt;&gt;]</strong>을 클릭합니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step4.png" class="max-w-full max-h-full object-contain" alt="페이지 이름 설정">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                                            <p class="text-slate-700 text-sm">생성될 페이지의 <strong>적절한 이름</strong>을 입력하고 [완료]를 누릅니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step5.png" class="max-w-full max-h-full object-contain" alt="삽입 버튼">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                                            <p class="text-slate-700 text-sm">생성된 빈 화면 중앙의 <strong>[삽입 추가]</strong> 버튼을 클릭합니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step6.png" class="max-w-full max-h-full object-contain" alt="코드 붙여넣기">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">6</div>
+                                            <p class="text-slate-700 text-sm">팝업창에서 <strong>[소스 코드]</strong> 탭을 누르고 제미나이의 HTML 코드를 붙여넣습니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step7.png" class="max-w-full max-h-full object-contain" alt="게시 버튼">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">7</div>
+                                            <p class="text-slate-700 text-sm">우측 상단의 파란색 <strong>[게시]</strong> 버튼을 클릭합니다.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow p-4 flex flex-col h-full">
+                                        <div class="bg-slate-100 rounded mb-3 flex items-center justify-center h-48">
+                                            <img src="g-site/step8.png" class="max-w-full max-h-full object-contain" alt="최종 게시">
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-sm">8</div>
+                                            <p class="text-slate-700 text-sm"><strong>웹 주소</strong>를 설정하고 게시합니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -263,29 +387,36 @@
 
         </main>
 
-        <footer class="text-center mt-12 py-6 border-t border-slate-200">
-            <p class="text-slate-500"></p>
-            2026. 1. 지식샘터 연수자료
-        </footer>
-    </div>
 
+    </div>
+          <footer class="bg-gray-800 text-white mt-20 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-8 md:mb-0">
+                    <p class="font-bold text-xl">지식샘터 강의자료</p>
+                    <p class="text-gray-400 text-sm mt-2">2026.1. 생각대로 뚝딱! 바이브코딩</p>
+                </div>
+                <div class="text-xs text-gray-400 space-y-2">
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
     <script>
+        // Step 3: 동적 구성 요소 아코디언
         async function toggleComponents() {
             const container = document.getElementById('component-viewer');
             const btn = document.getElementById('btn-toggle-comp');
             
-            // 이미 열려있는지 확인 (open 클래스로 판단)
             if (container.classList.contains('open')) {
                 container.classList.remove('open');
                 btn.innerText = '동적 구성 요소 예시 보기 ▼';
                 return;
             }
 
-            // 닫혀있다면 열기
             btn.innerText = '예시 닫기 ▲';
             container.classList.add('open');
 
-            // 내용이 비어있다면 외부 파일 로드
             if (container.children.length === 0) {
                 try {
                     container.innerHTML = '<div class="p-6 text-center text-gray-500">로딩 중...</div>';
@@ -294,19 +425,14 @@
                     if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
                     
                     const text = await response.text();
-                    
-                    // 스크립트 실행을 위한 ContextualFragment 생성
                     const range = document.createRange();
                     range.selectNode(container);
                     const fragment = range.createContextualFragment(text);
                     
                     container.innerHTML = '';
-                    
-                    // components.html에는 스타일 충돌 방지를 위해 padding wrapper 추가
                     const wrapper = document.createElement('div');
                     wrapper.className = 'p-6';
                     wrapper.appendChild(fragment);
-                    
                     container.appendChild(wrapper);
                     
                 } catch (e) {
@@ -314,9 +440,45 @@
                     container.innerHTML = `
                         <div class="p-6 text-center text-red-500">
                             <p class="font-bold">구성 요소를 불러오지 못했습니다.</p>
-                            <p class="text-sm mt-2">Live Server 환경인지, components.html 파일이 같은 폴더에 있는지 확인해주세요.</p>
+                            <p class="text-sm mt-2">Live Server 환경인지 확인해주세요.</p>
                         </div>`;
                 }
+            }
+        }
+
+        // Step 4: 미디어 탭 전환
+        function switchMediaTab(type) {
+            const videoContent = document.getElementById('content-video');
+            const imageContent = document.getElementById('content-image');
+            const tabVideo = document.getElementById('tab-video');
+            const tabImage = document.getElementById('tab-image');
+
+            if (type === 'video') {
+                videoContent.classList.remove('hidden');
+                imageContent.classList.add('hidden');
+                
+                tabVideo.classList.add('active');
+                tabImage.classList.remove('active');
+            } else {
+                videoContent.classList.add('hidden');
+                imageContent.classList.remove('hidden');
+
+                tabVideo.classList.remove('active');
+                tabImage.classList.add('active');
+            }
+        }
+
+        // Step 7: 호스팅 가이드 아코디언 토글 (통합된 내용 열기/닫기)
+        function toggleHostingGuide() {
+            const container = document.getElementById('hosting-viewer');
+            const btn = document.getElementById('btn-toggle-hosting');
+
+            if (container.classList.contains('open')) {
+                container.classList.remove('open');
+                btn.innerText = '구글 사이트로 코드 호스팅하기 (방법 설명) ▼';
+            } else {
+                container.classList.add('open');
+                btn.innerText = '설명 닫기 ▲';
             }
         }
     </script>
