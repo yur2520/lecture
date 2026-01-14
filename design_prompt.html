@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>디자인 프롬프트</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            src: url('https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/variable/woff2/SUITE-Variable.woff2') format('woff2-variations');
+        }
+
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #2563eb;
+        }
+
+        /* Carousel Styles */
+        .carousel-track {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Accordion Transition */
+        .accordion-content {
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .accordion-content.active {
+            max-height: 200px; /* 적절한 높이 제한 */
+        }
+        
+        /* Toast Animation */
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        .toast-enter {
+            animation: slideIn 0.3s forwards;
+        }
+        .toast-exit {
+            animation: fadeOut 0.3s forwards;
+        }
+
+        /* Color Picker Canvas */
+        #color-picker {
+            cursor: crosshair;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">디자인 프롬프트 Tip</h1>
+            <p class="text-gray-500 text-lg">AI에게 더 정확한 디자인 요청하기</p>
+        </header>
+
+        <main>
+            <section class="mb-16">
+                <h2 class="section-title">1. 기본 원칙</h2>
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                    <ul class="space-y-6">
+                        <li class="flex flex-col">
+                            <span class="text-sky-600 font-bold text-lg">1. 명확한 위치 지정</span>
+                            <p class="text-gray-600 mt-1">수정하고 싶은 <span class="font-semibold text-gray-800 underline decoration-sky-200">정확한 영역</span>을 알려주세요.</p>
+                            <p class="text-slate-400 text-xs mt-1">예: "화면 상단의 헤더 부분", "가입 버튼"</p>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="text-sky-600 font-bold text-lg">2. 구체적인 방향 제시</span>
+                            <p class="text-gray-600 mt-1">'보기 좋게' 보다는 <span class="font-semibold text-gray-800 underline decoration-sky-200">'가운데 정렬', '3열 그리드'</span>처럼 구체적으로 지시하세요.</p>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="text-sky-600 font-bold text-lg">3. 정확한 색상과 수치</span>
+                            <p class="text-gray-600 mt-1">'파란색' 대신 <span class="font-semibold text-gray-800 underline decoration-sky-200">'진한 파란색(#2563EB)'</span>, '넓게' 대신 <span class="font-semibold text-gray-800 underline decoration-sky-200">'30px'</span>를 사용하세요.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="section-title">2. 레이아웃 명칭</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6 md:col-span-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div class="sm:col-span-1">
+                                <img src="layout.png" onerror="this.onerror=null;this.src='https://placehold.co/400x600/e0f2fe/0ea5e9?text=Layout%5CnZone';" alt="레이아웃 구역 예시" class="rounded-lg shadow-sm w-full h-full object-cover">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <h3 class="text-xl font-bold mb-4 text-sky-700">웹 페이지의 구역(Zone)</h3>
+                                <hr class="my-3">
+                                <div class="space-y-3 text-base">
+                                    <p><strong>헤더 (Header):</strong> 웹사이트 최상단. 로고, 메인 메뉴(GNB)가 위치합니다.</p>
+                                    <p><strong>메인 콘텐츠 (Main Content):</strong> 페이지의 핵심 정보가 담기는 중앙 영역입니다.</p>
+                                    <p><strong>사이드바 (Sidebar):</strong> 좌/우측에 위치하여 보조 메뉴나 광고, 필터 등을 표시합니다.</p>
+                                    <p><strong>푸터 (Footer):</strong> 최하단. 저작권, 회사 정보, 이용 약관 등이 위치합니다.</p>
+                                    <p><strong>내비게이션 (Navigation):</strong> 다른 페이지로 이동하기 위한 링크 모음(메뉴바)입니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 md:col-span-2">
+                        <h3 class="text-xl font-bold mb-4 text-sky-700">배치 및 정렬 (Arrangement)</h3>
+                        <hr class="my-3">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-3 text-base">
+                                <p><strong>그리드 (Grid):</strong> 바둑판처럼 행과 열을 맞추어 요소를 배치하는 방식입니다.</p>
+                                <p><strong>플렉스 (Flexbox):</strong> 아이템들을 가로 또는 세로 한 방향으로 유연하게 배치합니다.</p>
+                                <p><strong>정렬 (Alignment):</strong> "중앙 정렬(Center)", "양쪽 맞춤(Justify)" 등으로 표현합니다.</p>
+                            </div>
+                            <div class="space-y-3 text-base">
+                                <p><strong>여백 (Margin):</strong> 요소의 '바깥쪽' 공간. 요소끼리 떨어뜨릴 때 사용합니다.</p>
+                                <p><strong>안쪽 여백 (Padding):</strong> 요소의 '안쪽' 공간. 테두리와 내용 사이의 간격입니다.</p>
+                                <p><strong>간격 (Gap):</strong> 그리드나 플렉스 아이템 사이의 거리를 의미합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="section-title">3. 동적 구성 요소 (UI Components)</h2>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <p class="text-base text-gray-600 mb-6">사용자와 상호작용하는 요소들입니다. 아래 예시들을 직접 조작해보세요.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        
+                        <div class="p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-600">캐러셀 (Carousel)</h4>
+                            <div id="carousel-example" class="relative overflow-hidden rounded-lg bg-gray-100 mb-2" style="height: 120px;">
+                                <div class="carousel-track absolute top-0 left-0 h-full flex transition-transform duration-300">
+                                    <div class="w-full h-full flex-shrink-0 bg-red-100 flex items-center justify-center text-red-600 font-bold">슬라이드 1</div>
+                                    <div class="w-full h-full flex-shrink-0 bg-green-100 flex items-center justify-center text-green-600 font-bold">슬라이드 2</div>
+                                    <div class="w-full h-full flex-shrink-0 bg-blue-100 flex items-center justify-center text-blue-600 font-bold">슬라이드 3</div>
+                                </div>
+                                <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md transition">&lt;</button>
+                                <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md transition">&gt;</button>
+                            </div>
+                            <p class="text-sm text-gray-500">여러 콘텐츠를 슬라이드 형태로 보여줍니다.</p>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-600">모달 (Modal)</h4>
+                            <button onclick="document.getElementById('demo-modal').classList.remove('hidden')" class="bg-indigo-600 text-white text-sm px-4 py-2 rounded hover:bg-indigo-700 transition w-full mb-2">모달 열기 테스트</button>
+                            <p class="text-sm text-gray-500">현재 페이지 위에 뜨는 작은 창입니다.</p>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-600">아코디언 (Accordion)</h4>
+                            <div class="border rounded bg-white">
+                                <button onclick="toggleAccordion(this)" class="w-full text-left px-4 py-2 text-sm font-semibold flex justify-between items-center bg-gray-50 hover:bg-gray-100">
+                                    <span>클릭해서 내용 펼치기</span>
+                                    <span class="transform transition-transform">▼</span>
+                                </button>
+                                <div class="accordion-content bg-white px-4 text-sm text-gray-600">
+                                    <div class="py-2">아코디언은 제목을 클릭하면 숨겨진 상세 내용이 아래로 펼쳐지는 UI 요소입니다. 공간을 절약할 때 유용합니다.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-600">탭 (Tabs)</h4>
+                            <div class="bg-white rounded border">
+                                <div class="flex border-b">
+                                    <button onclick="switchTab(0)" class="tab-btn flex-1 py-2 text-sm text-center font-medium bg-indigo-50 text-indigo-600 border-b-2 border-indigo-600 transition">메뉴 1</button>
+                                    <button onclick="switchTab(1)" class="tab-btn flex-1 py-2 text-sm text-center text-gray-500 hover:text-gray-700 transition">메뉴 2</button>
+                                </div>
+                                <div class="p-3 h-20">
+                                    <div class="tab-content text-sm text-gray-600">여기는 첫 번째 탭의 내용입니다.</div>
+                                    <div class="tab-content text-sm text-gray-600 hidden">두 번째 탭으로 전환되었습니다. 관련된 내용을 그룹화하여 보여줍니다.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-600">토스트 (Toast)</h4>
+                            <button onclick="showToast()" class="bg-white border border-gray-300 text-gray-700 text-sm px-4 py-2 rounded hover:bg-gray-50 transition w-full mb-2">알림 메시지 띄우기</button>
+                            <p class="text-sm text-gray-500">잠시 나타났다 사라지는 휘발성 알림 메시지입니다.</p>
+                        </div>
+
+                         <div class="p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-600">입력 양식 (Input Forms)</h4>
+                            <input type="text" placeholder="텍스트 입력 필드" class="w-full text-sm p-2 border rounded mb-2 focus:ring-2 focus:ring-indigo-200 outline-none">
+                            <select class="w-full text-sm p-2 border rounded focus:ring-2 focus:ring-indigo-200 outline-none">
+                                <option>드롭다운 메뉴 선택</option>
+                                <option>옵션 A</option>
+                                <option>옵션 B</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="section-title">4. 색상과 폰트(Typography)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-4 text-sky-700">색상 지정하기</h3>
+                        <div class="space-y-4">
+                            <div class="p-3 rounded-lg border border-gray-200">
+                                <p class="font-bold mb-1">HEX 코드</p>
+                                <p class="text-sm text-gray-600 mb-2">#2563EB 처럼 # 뒤에 6자리 코드로 색을 지정합니다.</p>
+                                <button id="open-hex-picker-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">HEX코드 선택기 열기</button>
+                            </div>
+                            <div class="p-3 rounded-lg border border-gray-200">
+                                <p class="font-bold mb-1">Tailwind CSS 컬러</p>
+                                <p class="text-sm text-gray-600 mb-2">blue-500, sky-200 처럼 미리 정의된 이름을 사용합니다.</p>
+                                <button id="open-tailwind-colors-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">색상표 보기</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-4 text-sky-700">구글 폰트 (Google Fonts)</h3>
+                        <p class="text-sm text-gray-600 mb-4">웹에서 무료로 사용할 수 있는 다양한 폰트를 적용하는 방법입니다.</p>
+                        <ol class="list-decimal list-inside space-y-3 text-sm text-gray-700">
+                            <li><strong>fonts.google.com</strong> 접속</li>
+                            <li>원하는 폰트를 검색하고 선택 (예: Noto Sans KR)</li>
+                            <li><strong>'Get font'</strong> > <strong>'Embed code'</strong> 클릭</li>
+                            <li>제공된 <code>&lt;link&gt;</code> 코드를 복사</li>
+                            <li>프롬프트에 <strong>"Noto Sans KR 폰트를 CDN으로 추가해 줘"</strong>라고 요청</li>
+                        </ol>
+                        <div class="mt-4 bg-gray-800 text-gray-200 p-3 rounded text-xs font-mono">
+                            /* CSS 예시 */<br>
+                            font-family: 'Noto Sans KR', sans-serif;
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="section-title">5. 프롬프트 예시</h2>
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-sky-100 text-sky-800 text-xs font-bold px-2 py-1 rounded-full">구조 변경</span>
+                            <h3 class="text-lg font-bold">화면 레이아웃 잡기</h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-300">
+                                <p class="text-xs text-gray-500 font-bold mb-1">일반적인 요청</p>
+                                <p class="text-gray-600">"옆에 메뉴가 있었으면 좋겠어."</p>
+                            </div>
+                            <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
+                                <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
+                                <p class="text-gray-800 font-medium">"페이지 왼쪽에 사이드바를 배치하고, 너비는 250px로 고정해 줘. 오른쪽 나머지 공간은 메인 콘텐츠 영역으로 채워 줘."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-sky-100 text-sky-800 text-xs font-bold px-2 py-1 rounded-full">스타일 변경</span>
+                            <h3 class="text-lg font-bold">색상과 여백 조정</h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-300">
+                                <p class="text-xs text-gray-500 font-bold mb-1">일반적인 요청</p>
+                                <p class="text-gray-600">"버튼이랑 글자가 너무 붙었어. 좀 띄워줘."</p>
+                            </div>
+                            <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
+                                <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
+                                <p class="text-gray-800 font-medium">"모든 버튼에 12px의 패딩(Padding)을 주고, 버튼과 텍스트 사이에는 20px의 마진(Margin)을 줘서 간격을 확보해 줘."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-sky-100 text-sky-800 text-xs font-bold px-2 py-1 rounded-full">타이포그래피</span>
+                            <h3 class="text-lg font-bold">폰트와 글자 크기</h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-300">
+                                <p class="text-xs text-gray-500 font-bold mb-1">일반적인 요청</p>
+                                <p class="text-gray-600">"제목 글씨 좀 예쁘게 해줘."</p>
+                            </div>
+                            <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
+                                <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
+                                <p class="text-gray-800 font-medium">"섹션 제목(h2)은 'Noto Sans KR' 폰트를 사용하고, 크기는 24px, 굵기는 bold로 설정해 줘. 자간은 -0.5px로 약간 좁혀 줘."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-sky-100 text-sky-800 text-xs font-bold px-2 py-1 rounded-full">애니메이션</span>
+                            <h3 class="text-lg font-bold">동적 효과 추가</h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded border-l-4 border-gray-300">
+                                <p class="text-xs text-gray-500 font-bold mb-1">일반적인 요청</p>
+                                <p class="text-gray-600">"마우스 올리면 움직이게 해줘."</p>
+                            </div>
+                            <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
+                                <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
+                                <p class="text-gray-800 font-medium">"카드를 마우스로 가리켰을 때(Hover), 카드가 위로 5px 올라오면서 그림자가 더 진해지는 부드러운 전환 효과(transition 0.3s)를 넣어 줘."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="section-title">6. 기타 고려사항</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-4 text-sky-700">반응형 & 적응형 디자인</h3>
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/2">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/design-spec/o/projects%2Fm3%2Fimages%2Fm4jg8q51-4.png?alt=media&token=27179f20-8323-4717-8c90-eb258ac4363b" alt="적응형 디자인 예시" class="rounded-lg w-full shadow-sm">
+                        </div>
+                        <div class="md:w-1/2 text-base space-y-3">
+                            <p><strong>반응형 디자인 (Responsive):</strong> 화면 크기에 따라 요소가 유동적으로 늘어나거나 줄어듭니다.</p>
+                            <p><strong>적응형 디자인 (Adaptive):</strong> 모바일(스마트폰), 태블릿, 데스크탑 등 특정 크기 지점(Breakpoint)마다 레이아웃을 다르게 보여줍니다.</p>
+                            <div class="bg-sky-50 p-3 rounded mt-4 border border-sky-100">
+                                <p class="text-sm font-bold text-sky-700 mb-1">프롬프트 팁:</p>
+                                <p class="text-sm font-medium text-gray-700">"모바일 화면(768px 이하)에서는 메뉴를 숨기고 햄버거 아이콘 버튼을 보여줘."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-8 md:mb-0">
+                    <p class="font-bold text-xl">지식샘터 강의자료</p>
+                    <p class="text-gray-400 text-sm mt-2">2026.1. 생각대로 뚝딱! 바이브코딩</p>
+                </div>
+                <div class="text-xs text-gray-400 space-y-2">
+                    <p class="font-semibold text-gray-200 mb-2">출처 및 참고자료</p>
+                    <p><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank" class="hover:text-sky-600">MDN Web Docs</a></p>
+                    <p><a href="https://www.w3schools.com/css/" target="_blank" class="hover:text-sky-600">W3Schools</a></p>
+                    <p><a href="https://m3.material.io/" target="_blank" class="hover:text-sky-600">Google Material Design</a></p>
+                    <p><a href="https://www.awwwards.com/" target="_blank" class="hover:text-sky-600">Awwwards</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="demo-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm w-full relative">
+            <button onclick="document.getElementById('demo-modal').classList.add('hidden')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">&times;</button>
+            <h3 class="text-lg font-bold mb-2">모달 창</h3>
+            <p class="text-gray-600 mb-4">이것이 모달(Modal)입니다. 사용자의 주의를 집중시키거나 중요한 정보를 전달할 때 사용합니다.</p>
+            <button onclick="document.getElementById('demo-modal').classList.add('hidden')" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">닫기</button>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
+
+    <div id="hex-picker-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div id="modal-backdrop" class="absolute inset-0"></div>
+        <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-center transition-all-ease relative">
+            <button id="close-hex-picker-btn" class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Hexcode 선택기</h1>
+            <p class="text-gray-500 mb-6">원하는 색상을 직접 선택해 보세요.</p>
+            <canvas id="color-picker" class="w-full h-56 rounded-xl border-2 border-gray-200"></canvas>
+            <div class="my-4">
+                <input type="range" id="hue-slider" min="0" max="360" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <div id="color-preview" class="w-16 h-16 rounded-full border-4 border-gray-200 transition-all-ease"></div>
+                <div class="flex-grow bg-gray-100 rounded-lg p-4 flex items-center justify-between">
+                    <span id="hex-code" class="text-xl md:text-2xl font-mono font-semibold text-gray-800">#FFFFFF</span>
+                    <button id="copy-btn" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-5 rounded-lg transition-all-ease transform hover:scale-105 active:scale-95">복사</button>
+                </div>
+            </div>
+            <div id="copy-message" class="mt-4 text-sm text-green-500 opacity-0 transition-opacity duration-300 h-5">클립보드에 복사되었습니다!</div>
+        </div>
+    </div>
+
+    <div id="tailwind-colors-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div id="tailwind-modal-backdrop" class="absolute inset-0"></div>
+        <div class="w-full max-w-4xl bg-white rounded-2xl shadow-2xl transition-all-ease relative max-h-[80vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white p-4 border-b z-10 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-800">Tailwind CSS 색상표</h2>
+                <button id="close-tailwind-colors-btn" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+            <div id="tailwind-color-chart" class="p-6"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- Accordion Logic ---
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span:last-child');
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                content.classList.remove('py-2');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.add('py-2');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // --- Tabs Logic ---
+        function switchTab(index) {
+            const btns = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            btns.forEach((btn, i) => {
+                if(i === index) {
+                    btn.classList.add('text-indigo-600', 'border-indigo-600', 'bg-indigo-50', 'border-b-2');
+                    btn.classList.remove('text-gray-500');
+                } else {
+                    btn.classList.remove('text-indigo-600', 'border-indigo-600', 'bg-indigo-50', 'border-b-2');
+                    btn.classList.add('text-gray-500');
+                }
+            });
+            
+            contents.forEach((content, i) => {
+                if(i === index) content.classList.remove('hidden');
+                else content.classList.add('hidden');
+            });
+        }
+
+        // --- Toast Logic ---
+        function showToast() {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-gray-800 text-white px-4 py-3 rounded shadow-lg flex items-center gap-2 toast-enter text-sm min-w-[200px]';
+            toast.innerHTML = '<span>✅ 작업이 완료되었습니다!</span>';
+            
+            container.appendChild(toast);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('toast-enter');
+                toast.classList.add('toast-exit');
+                setTimeout(() => {
+                    if(toast.parentElement) toast.parentElement.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // --- Carousel Script ---
+        const carousel = document.getElementById('carousel-example');
+        if (carousel) {
+            const track = carousel.querySelector('.carousel-track');
+            const prevButton = carousel.querySelector('.carousel-prev');
+            const nextButton = carousel.querySelector('.carousel-next');
+            const slides = Array.from(track.children);
+            let slideWidth = carousel.getBoundingClientRect().width;
+            let currentIndex = 0;
+
+            const setSlideWidths = () => {
+                slideWidth = carousel.getBoundingClientRect().width;
+                slides.forEach(slide => {
+                    slide.style.width = `${slideWidth}px`;
+                });
+            }
+
+            const moveToSlide = (targetIndex) => {
+                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                currentIndex = targetIndex;
+            }
+
+            nextButton.addEventListener('click', () => {
+                const nextIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(nextIndex);
+            });
+
+            prevButton.addEventListener('click', () => {
+                const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                moveToSlide(prevIndex);
+            });
+
+            setSlideWidths();
+            window.addEventListener('resize', () => {
+                setSlideWidths();
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.3s ease-in-out';
+                }, 50);
+            });
+        }
+
+        // --- Hex Picker Modal Script ---
+        const openHexBtn = document.getElementById('open-hex-picker-btn');
+        const closeHexBtn = document.getElementById('close-hex-picker-btn');
+        const hexModal = document.getElementById('hex-picker-modal');
+        const hexModalBackdrop = document.getElementById('modal-backdrop');
+
+        const canvas = document.getElementById('color-picker');
+        const ctx = canvas.getContext('2d');
+        const hueSlider = document.getElementById('hue-slider');
+        const colorPreview = document.getElementById('color-preview');
+        const hexCodeElement = document.getElementById('hex-code');
+        const copyBtn = document.getElementById('copy-btn');
+        const copyMessage = document.getElementById('copy-message');
+
+        let currentHue = 0;
+
+        function drawColorGradient(hue) {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            const whiteGradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            whiteGradient.addColorStop(0, 'rgba(255,255,255,1)');
+            whiteGradient.addColorStop(1, 'rgba(255,255,255,0)');
+            ctx.fillStyle = whiteGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            const blackGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            blackGradient.addColorStop(0, 'rgba(0,0,0,0)');
+            blackGradient.addColorStop(1, 'rgba(0,0,0,1)');
+            ctx.fillStyle = blackGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function rgbToHex(r, g, b) {
+            const toHex = c => ('0' + c.toString(16)).slice(-2);
+            return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
+        }
+
+        function pickColor(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const pixelData = ctx.getImageData(x, y, 1, 1).data;
+            const [r, g, b] = pixelData;
+            const hexColor = rgbToHex(r, g, b);
+            hexCodeElement.textContent = hexColor;
+            colorPreview.style.backgroundColor = hexColor;
+        }
+
+        function copyToClipboard() {
+            const hexCode = hexCodeElement.textContent;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = hexCode;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+            copyMessage.classList.remove('opacity-0');
+            setTimeout(() => {
+                copyMessage.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        if(openHexBtn) {
+            openHexBtn.addEventListener('click', () => {
+                hexModal.classList.remove('hidden');
+                setTimeout(() => drawColorGradient(currentHue), 10);
+            });
+        }
+
+        function closeHexModal() {
+            hexModal.classList.add('hidden');
+        }
+
+        if(closeHexBtn) closeHexBtn.addEventListener('click', closeHexModal);
+        if(hexModalBackdrop) hexModalBackdrop.addEventListener('click', closeHexModal);
+
+        if(hueSlider) {
+            hueSlider.addEventListener('input', (e) => {
+                currentHue = e.target.value;
+                drawColorGradient(currentHue);
+            });
+        }
+
+        if(canvas) canvas.addEventListener('click', pickColor);
+        if(copyBtn) copyBtn.addEventListener('click', copyToClipboard);
+
+        // --- Tailwind Colors Modal Script ---
+        const openTailwindBtn = document.getElementById('open-tailwind-colors-btn');
+        const closeTailwindBtn = document.getElementById('close-tailwind-colors-btn');
+        const tailwindModal = document.getElementById('tailwind-colors-modal');
+        const tailwindModalBackdrop = document.getElementById('tailwind-modal-backdrop');
+        const colorChartContainer = document.getElementById('tailwind-color-chart');
+
+        const tailwindColors = {
+            'Slate': 'slate', 'Gray': 'gray', 'Zinc': 'zinc', 'Neutral': 'neutral', 'Stone': 'stone',
+            'Red': 'red', 'Orange': 'orange', 'Amber': 'amber', 'Yellow': 'yellow', 'Lime': 'lime',
+            'Green': 'green', 'Emerald': 'emerald', 'Teal': 'teal', 'Cyan': 'cyan', 'Sky': 'sky',
+            'Blue': 'blue', 'Indigo': 'indigo', 'Violet': 'violet', 'Purple': 'purple', 'Fuchsia': 'fuchsia',
+            'Pink': 'pink', 'Rose': 'rose'
+        };
+        const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+
+        function generateColorChart() {
+            if (!colorChartContainer) return;
+            let chartHtml = '';
+            for (const name in tailwindColors) {
+                const color = tailwindColors[name];
+                chartHtml += `<div class="mb-8">`;
+                chartHtml += `<h3 class="text-lg font-semibold text-gray-800 mb-2">${name}</h3>`;
+                chartHtml += `<div class="grid grid-cols-5 sm:grid-cols-11 gap-2 text-center">`;
+                shades.forEach(shade => {
+                    const bgColor = `bg-${color}-${shade}`;
+                    chartHtml += `<div>`;
+                    chartHtml += `<div class="${bgColor} h-10 w-full rounded-md border border-gray-100"></div>`;
+                    chartHtml += `<p class="text-xs mt-1 text-gray-600">${shade}</p>`;
+                    chartHtml += `</div>`;
+                });
+                chartHtml += `</div></div>`;
+            }
+            colorChartContainer.innerHTML = chartHtml;
+        }
+
+        if(openTailwindBtn) {
+            openTailwindBtn.addEventListener('click', () => {
+                tailwindModal.classList.remove('hidden');
+            });
+        }
+
+        function closeTailwindModal() {
+            tailwindModal.classList.add('hidden');
+        }
+
+        if(closeTailwindBtn) closeTailwindBtn.addEventListener('click', closeTailwindModal);
+        if(tailwindModalBackdrop) tailwindModalBackdrop.addEventListener('click', closeTailwindModal);
+
+        generateColorChart();
+
+    </script>
+</body>
+</html>
