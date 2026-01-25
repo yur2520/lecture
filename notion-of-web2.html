@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>웹 기술 기본 개념</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+            src: url('https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/variable/woff2/SUITE-Variable.woff2') format('woff2-variations');
+        }
+
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+            word-wrap: break-word;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #2563eb;
+        }
+        
+        /* 모달 애니메이션 */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.2s, transform 0.2s;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">웹 기술 기본 개념</h1>
+            <p class="text-gray-500 text-base">HTML, CSS, JavaScript</p>
+            <p class="text-gray-500 text-base">프론트엔드와 백엔드, 서버와 호스팅</p>
+            
+        </header>
+
+        <main>
+            <section class="mb-16">
+                <h2 class="section-title">1. 웹사이트의 구성 요소</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
+                        <img class="w-full h-28 object-cover" src="html2.png" alt="HTML code"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/ef4444/ffffff?text=HTML';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">구조 잡기 <span class="text-sky-600 text-lg">(HTML)</span></h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                웹페이지의 <strong>뼈대</strong>입니다. 제목, 본문, 이미지 등 웹페이지에 들어갈 <span class="font-semibold text-gray-800 underline decoration-sky-200">콘텐츠와 구조</span>를 정의합니다. <br> < > 형태의 태그를 사용하여 작성합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
+                        <img class="w-full h-28 object-cover" src="css.png" alt="CSS code"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/3b82f6/ffffff?text=CSS';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">스타일 입히기 <span class="text-sky-600 text-lg">(CSS)</span></h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                웹페이지의 <strong>디자인</strong>입니다. 글자 크기, 색상, 배치(레이아웃) 등을 지정하여 <span class="font-semibold text-gray-800 underline decoration-sky-200">시각적인 표현</span>을 담당합니다. <br> 요소마다 { } 안에 스타일 속성을 지정하여 꾸며줍니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
+                        <img class="w-full h-28 object-cover" src="js.png" alt="JavaScript code"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=JS';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">기능 구현 <span class="text-sky-600 text-lg">(JavaScript)</span></h3>
+                            <p class="text-gray-600 text-[17px] leading-7">
+                                웹페이지의 <strong>동작</strong>입니다. 버튼 클릭 시 반응하거나 데이터를 처리하는 등 사용자와의 <span class="font-semibold text-gray-800 underline decoration-sky-200">상호작용 기능</span>을 구현합니다. <br> 함수나 조건문 등으로 이루어져 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">통합 개발 환경과 도구의 활용</h3>
+                    <p class="text-gray-600 text-[17px] leading-8 text-justify">
+                        과거에는 HTML, CSS, JavaScript 파일을 각각 분리해서 작업했으나, 최근에는 개발 편의성과 유지보수를 위해 이들을 <strong>하나의 컴포넌트(Component) 단위로 통합하여 개발(All-in-one)</strong>하는 경우가 많습니다. 
+                        <br><br>
+                        이 과정에서 개발자들은 처음부터 모든 코드를 작성하지 않고, 디자인 속도를 획기적으로 높여주는
+                        <button onclick="openModal('modal-tailwind')" class="text-sky-600 font-bold underline decoration-sky-300 decoration-2 underline-offset-4 hover:text-sky-800 hover:bg-sky-50 rounded px-1 transition">Tailwind CSS</button>나, 
+                        복잡한 기능을 손쉽게 구현할 수 있도록 도와주는
+                        <button onclick="openModal('modal-jslib')" class="text-sky-600 font-bold underline decoration-sky-300 decoration-2 underline-offset-4 hover:text-sky-800 hover:bg-sky-50 rounded px-1 transition">JS 라이브러리</button>와 
+                        같은 효율적인 도구들을 적극적으로 사용합니다.
+                    </p>
+                    <p class="mt-4 text-sm text-gray-400 text-right">* 파란색 글씨를 클릭하면 용어 설명을 볼 수 있습니다.</p>
+                </div>
+            </section>
+
+           
+            <section class="mb-16">
+                <h2 class="section-title">2. 프론트엔드와 백엔드</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+    <div class="flex flex-col md:flex-row gap-8 items-center">
+        
+        <div class="w-full md:w-1/2">
+            <img src="frontbackend.png" alt="프론트엔드와 백엔드 설명"
+                 class="w-full h-auto rounded-lg shadow-sm object-cover"
+                 onerror="this.onerror=null;this.src='https://placehold.co/800x600/e0f2fe/0369a1?text=Frontend+%26+Backend';">
+        </div>
+
+        <div class="w-full md:w-1/2 flex flex-col gap-6">
+            <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-sky-400 shadow-sm">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">프론트엔드 (Frontend)</h3>
+                <p class="text-gray-600 text-[17px] leading-7">
+                    사용자가 웹사이트에 접속했을 때 <strong>눈에 보이는 화면과 인터페이스</strong>를 만드는 영역입니다. 사용자의 입력(클릭, 스크롤 등)을 받아 처리하거나 출력된 결과를 보여줍니다.
+                </p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-gray-400 shadow-sm">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">백엔드 (Backend)</h3>
+                <p class="text-gray-600 text-[17px] leading-7">
+                    눈에 보이지 않는 <strong>서버 시스템과 데이터</strong>를 관리하는 영역입니다. 회원 정보를 저장하거나 결제 시스템을 연동하는 등의 작업이 이루어집니다.
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="section-title">3. 웹사이트가 공개되는 과정</h2>
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                    <ul class="space-y-8">
+                        <li class="flex flex-col md:flex-row gap-4 items-start">
+                            <div class="flex-shrink-0">
+                                <span class="inline-block w-8 h-8 rounded-full bg-sky-100 text-sky-600 text-center leading-8 font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800">로컬 (Local)</h4>
+                                <p class="text-gray-600 mt-2 text-[17px] leading-7">
+                                    개발자의 개인 컴퓨터 환경을 '로컬'이라고 부릅니다. 이곳에서는 자유롭게 코드를 작성하고 수정하며, 웹사이트가 의도한 대로 작동하는지 테스트하는 작업을 수행합니다. 하지만 이 공간은 외부 인터넷망과 연결되지 않은 개인적인 공간이기 때문에, 다른 사람들이 내 웹사이트에 접속하여 볼 수는 없습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-4 items-start">
+                            <div class="flex-shrink-0">
+                                <span class="inline-block w-8 h-8 rounded-full bg-sky-100 text-sky-600 text-center leading-8 font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800">서버와 호스팅 (Server & Hosting)</h4>
+                                <p class="text-gray-600 mt-2 text-[17px] leading-7">
+                                    내가 만든 웹사이트를 다른 사람들이 볼 수 있게 하려면, 24시간 내내 인터넷에 연결되어 켜져 있는 고성능 컴퓨터인 '서버'에 파일들을 올려야 합니다. 개인이 이런 서버 컴퓨터를 직접 갖추고 관리하기는 어렵기 때문에, 전문 업체로부터 서버의 일정 공간을 임대하여 사용하는 것을 '호스팅' 서비스라고 합니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-4 items-start">
+                            <div class="flex-shrink-0">
+                                <span class="inline-block w-8 h-8 rounded-full bg-sky-100 text-sky-600 text-center leading-8 font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800">네트워크 (Network)</h4>
+                                <p class="text-gray-600 mt-2 text-[17px] leading-7">
+                                    사용자가 웹 브라우저의 주소창에 'www.google.com'과 같은 도메인 주소(URL)를 입력하면, 인터넷이라는 거대한 네트워크망을 통해 해당 주소가 가리키는 서버를 찾아갑니다. 서버는 요청을 확인하고 저장된 웹사이트 파일(HTML, CSS 등)을 사용자의 컴퓨터로 전송하며, 브라우저는 이 코드를 해석하여 우리가 보는 화면으로 보여줍니다.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-8 md:mb-0">
+                    <p class="font-bold text-xl">지식샘터 강의자료</p>
+                    <p class="text-gray-400 text-sm mt-2">2026.1. 생각대로 뚝딱! 바이브코딩</p>
+                </div>
+                <div class="text-xs text-gray-400 space-y-2">
+                    <p class="font-semibold text-gray-200 mb-2">출처 및 참고자료</p>
+                    <p><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank" class="hover:text-sky-400 hover:underline">MDN Web Docs (웹 기술 공식 문서)</a></p>
+                    <p><a href="https://www.w3schools.com/css/" target="_blank" class="hover:text-sky-400 hover:underline">W3Schools (CSS 레퍼런스)</a></p>
+                    <p><a href="https://ko.javascript.info/" target="_blank" class="hover:text-sky-400 hover:underline">모던 JavaScript 튜토리얼</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-tailwind" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300" onclick="closeModal('modal-tailwind')">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full relative" onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-tailwind')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-sky-600 mb-4">Tailwind CSS란?</h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                CSS 파일에 스타일 코드를 일일이 작성하는 전통적인 방식 대신, HTML 태그 안에 미리 정의된 <strong>스타일 도구(Class)</strong>를 적어 넣는 방식의 도구입니다.
+            </p>
+            <div class="bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
+                <p class="font-semibold mb-2">예시:</p>
+                <p><code>class="text-center bg-blue-500"</code>라고 적기만 하면, 별도의 CSS 파일 없이도 파란 배경에 가운데 정렬된 글씨가 만들어집니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-jslib" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300" onclick="closeModal('modal-jslib')">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full relative" onclick="event.stopPropagation()">
+            <button onclick="closeModal('modal-jslib')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-sky-600 mb-4">JavaScript 라이브러리란?</h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                이미지 슬라이드, 차트, 데이터 처리 등 자주 사용되는 복잡한 기능들을 개발자들이 미리 만들어 둔 <strong>'코드 모음집'</strong>입니다.
+            </p>
+            <div class="bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
+                <p class="font-semibold mb-2">장점:</p>
+                <p>바퀴를 다시 발명할 필요가 없는 것처럼, 이미 검증된 코드를 가져와 사용하기 때문에 개발 시간을 단축하고 오류를 줄일 수 있습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            // 애니메이션 효과를 위해 약간의 지연 후 클래스 추가 (선택사항)
+            setTimeout(() => {
+                modal.firstElementChild.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+                    modal.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -374,48 +374,7 @@
         </div>
     </div>
     
-    <!-- 모달 창 -->
-    <div id="image-modal-overlay" class="modal-overlay">
-        <div class="modal-container">
-            <button id="modal-close" class="modal-close">&times;</button>
-            <img id="modal-image" src="" alt="확대 이미지">
-        </div>
-    </div>
-
-    <footer>
-        <!--본 페이지는 학습을 위한 비영리적 목적으로 제작되었습니다.<br>
-        Copyright (c) 2025. All rights reserved.<br>-->
-    </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const link = document.getElementById('samsung-logo-link');
-            const overlay = document.getElementById('image-modal-overlay');
-            const modalImage = document.getElementById('modal-image');
-            const closeButton = document.getElementById('modal-close');
-            
-            if (link) {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    modalImage.src = 'https://hype4-academy-storyblok-copy.s3.amazonaws.com/storyblok-assets/1748953367169-samsungneumorphism.jpg';
-                    overlay.style.display = 'flex';
-                });
-            }
-
-            if (closeButton) {
-                closeButton.addEventListener('click', () => {
-                    overlay.style.display = 'none';
-                });
-            }
-
-            if (overlay) {
-                overlay.addEventListener('click', (e) => {
-                    if (e.target.id === 'image-modal-overlay') {
-                        overlay.style.display = 'none';
-                    }
-                });
-            }
-        });
-    </script>
+ 
+                   
 </body>
 </html>
