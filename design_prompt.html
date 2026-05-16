@@ -41,7 +41,7 @@
             width: 60px;
             height: 2px;
             background-color: #2563eb;
-            
+
         }
 
         /* Color Picker Canvas */
@@ -67,16 +67,24 @@
                     <ul class="space-y-6">
                         <li class="flex flex-col">
                             <span class="text-sky-600 font-bold text-lg">1. 명확한 위치 지정</span>
-                            <p class="text-gray-600 mt-1">수정하고 싶은 <span class="font-semibold text-gray-800 underline decoration-sky-200">정확한 영역</span>을 알려주세요.</p>
+                            <p class="text-gray-600 mt-1">수정하고 싶은 <span
+                                    class="font-semibold text-gray-800 underline decoration-sky-200">정확한 영역</span>을
+                                알려주세요.</p>
                             <p class="text-slate-400 text-xs mt-1">예: "화면 상단의 헤더 부분", "가입 버튼"</p>
                         </li>
                         <li class="flex flex-col">
                             <span class="text-sky-600 font-bold text-lg">2. 구체적인 방향 제시</span>
-                            <p class="text-gray-600 mt-1">'보기 좋게' 보다는 <span class="font-semibold text-gray-800 underline decoration-sky-200">'가운데 정렬', '3열 그리드'</span>처럼 구체적으로 지시하세요.</p>
+                            <p class="text-gray-600 mt-1">'보기 좋게' 보다는 <span
+                                    class="font-semibold text-gray-800 underline decoration-sky-200">'가운데 정렬', '3열
+                                    그리드'</span>처럼 구체적으로 지시하세요.</p>
                         </li>
                         <li class="flex flex-col">
                             <span class="text-sky-600 font-bold text-lg">3. 정확한 색상과 수치</span>
-                            <p class="text-gray-600 mt-1">'파란색' 대신 <span class="font-semibold text-gray-800 underline decoration-sky-200">'진한 파란색(#2563EB)'</span>, '넓게' 대신 <span class="font-semibold text-gray-800 underline decoration-sky-200">'30px'</span>를 사용하세요.</p>
+                            <p class="text-gray-600 mt-1">'파란색' 대신 <span
+                                    class="font-semibold text-gray-800 underline decoration-sky-200">'진한
+                                    파란색(#2563EB)'</span>, '넓게' 대신 <span
+                                    class="font-semibold text-gray-800 underline decoration-sky-200">'30px'</span>를
+                                사용하세요.</p>
                         </li>
                     </ul>
                 </div>
@@ -88,7 +96,9 @@
                     <div class="bg-white rounded-xl shadow-lg p-6 md:col-span-2">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div class="sm:col-span-1">
-                                <img src="layout.png" onerror="this.onerror=null;this.src='https://placehold.co/400x600/e0f2fe/0ea5e9?text=Layout%5CnZone';" alt="레이아웃 구역 예시" class="rounded-lg shadow-sm w-full h-full object-cover">
+                                <img src="layout.png"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x600/e0f2fe/0ea5e9?text=Layout%5CnZone';"
+                                    alt="레이아웃 구역 예시" class="rounded-lg shadow-sm w-full h-full object-cover">
                             </div>
                             <div class="sm:col-span-2">
                                 <h3 class="text-xl font-bold mb-4 text-sky-700">웹 페이지의 구역(Zone)</h3>
@@ -126,7 +136,7 @@
                 <h2 class="section-title">3. 동적 구성 요소 (UI Components)</h2>
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <p class="text-base text-gray-600 mb-6">사용자와 상호작용하는 요소들입니다. 아래 예시들을 직접 조작해보세요.</p>
-                    
+
                     <div id="comp-loader" class="min-h-[200px] flex-grow justify-center text-gray-400 rounded-lg">
                         <div class="text-center">
                             <p class="mb-2">구성 요소를 불러오는 중...</p>
@@ -137,32 +147,89 @@
                 </div>
             </section>
 
-           <section class="mb-16">
-    <h2 class="section-title">4. 색상과 폰트(Typography)</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="text-xl font-bold mb-4 text-sky-700">색상 지정하기</h3>
-            <div class="space-y-4">
-                <div class="p-3 rounded-lg border border-gray-200">
-                    <p class="font-bold mb-1">HEX 코드</p>
-                    <p class="text-sm text-gray-600 mb-2">#2563EB 처럼 # 뒤에 6자리 코드로 색을 지정합니다.</p>
-                    <button id="open-hex-picker-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">HEX코드 선택기 열기</button>
-                </div>
-                <div class="p-3 rounded-lg border border-gray-200">
-                    <p class="font-bold mb-1">Tailwind CSS 컬러</p>
-                    <p class="text-sm text-gray-600 mb-2">blue-500, sky-200 처럼 미리 정의된 이름을 사용합니다.</p>
-                    <button id="open-tailwind-colors-btn" class="w-full bg-sky-100 text-sky-700 text-sm font-semibold px-2 py-2 rounded-md hover:bg-sky-200 transition">색상표 보기</button>
-                </div>
-            </div>
-        </div>
+            <section class="mb-16">
+                <h2 class="section-title">4. 색상과 폰트(Typography)</h2>
+                <div class="flex flex-col space-y-6">
 
-        <div id="font-guide-loader" class="min-h-[200px] flex-grow">
-            <div class="text-center text-gray-400 p-10">폰트 가이드 불러오는 중...</div>
-        </div>
+                    <!-- [첫 번째 섹션] 색상 지정하기 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-4 text-sky-700">색상 지정하기</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="p-4 rounded-lg border border-gray-200">
+                                <p class="font-bold mb-1">HEX 코드</p>
+                                <p class="text-sm text-gray-600 mb-3">#2563EB 처럼 # 뒤에 6자리 코드로 색을 지정합니다.</p>
+                                <button id="open-hex-picker-btn"
+                                    class="w-full sm:w-auto bg-sky-100 text-sky-700 text-sm font-semibold px-4 py-2 rounded-md hover:bg-sky-200 transition">HEX코드
+                                    선택기 열기</button>
+                            </div>
+                            <div class="p-4 rounded-lg border border-gray-200">
+                                <p class="font-bold mb-1">Tailwind CSS 컬러</p>
+                                <p class="text-sm text-gray-600 mb-3">blue-500, sky-200 처럼 미리 정의된 이름을 사용합니다.</p>
+                                <button id="open-tailwind-colors-btn"
+                                    class="w-full sm:w-auto bg-sky-100 text-sky-700 text-sm font-semibold px-4 py-2 rounded-md hover:bg-sky-200 transition">색상표
+                                    보기</button>
+                            </div>
+                        </div>
+                    </div>
 
-    </div>
-</section>
+                    <!-- [두 번째 섹션] 문단 모양 설정하기 (시각적 가이드 추가) -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-4 text-sky-700">문단 모양 설정하기</h3>
+                        <div class="space-y-5">
+
+                            <!-- 1. 텍스트 정렬 가이드 -->
+                            <div class="p-4 rounded-lg border border-gray-200">
+                                <p class="font-bold mb-3">텍스트 정렬</p>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm text-gray-700">
+                                    <div class="bg-gray-50 p-2 rounded border text-left">
+                                        <span class="font-semibold text-sky-600 block mb-1">text-left</span>
+                                        좌측 정렬
+                                    </div>
+                                    <div class="bg-gray-50 p-2 rounded border text-center">
+                                        <span class="font-semibold text-sky-600 block mb-1">text-center</span>
+                                        중앙 정렬
+                                    </div>
+                                    <div class="bg-gray-50 p-2 rounded border text-right">
+                                        <span class="font-semibold text-sky-600 block mb-1">text-right</span>
+                                        우측 정렬
+                                    </div>
+                                    <div class="bg-gray-50 p-2 rounded border text-justify">
+                                        <span class="font-semibold text-sky-600 block mb-1">text-justify</span>
+                                        양끝 정렬
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 md:grid-cols-2 gap-8">
+                                <div class="p-4 rounded-lg border border-gray-200">
+                                    <p class="font-bold mb-3">줄 간격(Leading) 및 자간(Tracking)</p>
+                                    <p class="text-sm text-gray-600 mb-3">줄 간격이나 자간을 넓히거나 좁히라고 명령하는 프롬프트를 통해 줄 간격이나
+                                        자간을 조절할 수 있습니다.</p>
+                                </div>
+
+
+                                <!-- 3. 단어 단위 줄 바꿈 -->
+                                <div class="p-4 rounded-lg border border-gray-200">
+                                    <p class="font-bold mb-2">단어 단위 줄 바꿈 (Word Break)</p>
+                                    <p class="text-sm text-gray-600 mb-3">텍스트 영역이 좁아질 때, 단어가 중간에 잘리지 않고 온전한 단어 단위로 줄
+                                        바꿈되도록
+                                        설정할 수 있습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- [세 번째 섹션] 폰트 가이드 로더 -->
+                    <div id="font-guide-loader"
+                        class="bg-white rounded-xl shadow-lg p-6 min-h-[150px] flex flex-col items-center justify-center">
+                        <h3 class="text-xl font-bold mb-2 text-sky-700 w-full text-left">구글 폰트 설정</h3>
+                        <div class="flex-grow flex items-center justify-center w-full">
+                            <div class="text-center text-gray-400">폰트 가이드 불러오는 중...</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
 
             <section class="mb-16">
                 <h2 class="section-title">5. 프롬프트 예시</h2>
@@ -179,7 +246,8 @@
                             </div>
                             <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
                                 <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
-                                <p class="text-gray-800 font-medium">"페이지 왼쪽에 사이드바를 배치하고, 너비는 250px로 고정해 줘. 오른쪽 나머지 공간은 메인 콘텐츠 영역으로 채워 줘."</p>
+                                <p class="text-gray-800 font-medium">"페이지 왼쪽에 사이드바를 배치하고, 너비는 250px로 고정해 줘. 오른쪽 나머지 공간은
+                                    메인 콘텐츠 영역으로 채워 줘."</p>
                             </div>
                         </div>
                     </div>
@@ -196,7 +264,8 @@
                             </div>
                             <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
                                 <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
-                                <p class="text-gray-800 font-medium">"모든 버튼에 12px의 패딩(Padding)을 주고, 버튼과 텍스트 사이에는 20px의 마진(Margin)을 줘서 간격을 확보해 줘."</p>
+                                <p class="text-gray-800 font-medium">"모든 버튼에 12px의 패딩(Padding)을 주고, 버튼과 텍스트 사이에는 20px의
+                                    마진(Margin)을 줘서 간격을 확보해 줘."</p>
                             </div>
                         </div>
                     </div>
@@ -213,7 +282,8 @@
                             </div>
                             <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
                                 <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
-                                <p class="text-gray-800 font-medium">"섹션 제목(h2)은 'Noto Sans KR' 폰트를 사용하고, 크기는 24px, 굵기는 bold로 설정해 줘. 자간은 -0.5px로 약간 좁혀 줘."</p>
+                                <p class="text-gray-800 font-medium">"섹션 제목(h2)은 'Noto Sans KR' 폰트를 사용하고, 크기는 24px, 굵기는
+                                    bold로 설정해 줘. 자간은 -0.5px로 약간 좁혀 줘."</p>
                             </div>
                         </div>
                     </div>
@@ -230,7 +300,8 @@
                             </div>
                             <div class="bg-sky-50 p-4 rounded border-l-4 border-sky-400">
                                 <p class="text-xs text-sky-600 font-bold mb-1">구체적인 요청</p>
-                                <p class="text-gray-800 font-medium">"카드를 마우스로 가리켰을 때(Hover), 카드가 위로 5px 올라오면서 그림자가 더 진해지는 부드러운 전환 효과(transition 0.3s)를 넣어 줘."</p>
+                                <p class="text-gray-800 font-medium">"카드를 마우스로 가리켰을 때(Hover), 카드가 위로 5px 올라오면서 그림자가 더
+                                    진해지는 부드러운 전환 효과(transition 0.3s)를 넣어 줘."</p>
                             </div>
                         </div>
                     </div>
@@ -243,14 +314,17 @@
                     <h3 class="text-xl font-bold mb-4 text-sky-700">반응형 & 적응형 디자인</h3>
                     <div class="flex flex-col md:flex-row gap-8 items-center">
                         <div class="md:w-1/2">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/design-spec/o/projects%2Fm3%2Fimages%2Fm4jg8q51-4.png?alt=media&token=27179f20-8323-4717-8c90-eb258ac4363b" alt="적응형 디자인 예시" class="rounded-lg w-full shadow-sm">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/design-spec/o/projects%2Fm3%2Fimages%2Fm4jg8q51-4.png?alt=media&token=27179f20-8323-4717-8c90-eb258ac4363b"
+                                alt="적응형 디자인 예시" class="rounded-lg w-full shadow-sm">
                         </div>
                         <div class="md:w-1/2 text-base space-y-3">
                             <p><strong>반응형 디자인 (Responsive):</strong> 화면 크기에 따라 요소가 유동적으로 늘어나거나 줄어듭니다.</p>
-                            <p><strong>적응형 디자인 (Adaptive):</strong> 모바일(스마트폰), 태블릿, 데스크탑 등 특정 크기 지점(Breakpoint)마다 레이아웃을 다르게 보여줍니다.</p>
+                            <p><strong>적응형 디자인 (Adaptive):</strong> 모바일(스마트폰), 태블릿, 데스크탑 등 특정 크기 지점(Breakpoint)마다 레이아웃을
+                                다르게 보여줍니다.</p>
                             <div class="bg-sky-50 p-3 rounded mt-4 border border-sky-100">
                                 <p class="text-sm font-bold text-sky-700 mb-1">프롬프트 팁:</p>
-                                <p class="text-sm font-medium text-gray-700">"모바일 화면(768px 이하)에서는 메뉴를 숨기고 햄버거 아이콘 버튼을 보여줘."</p>
+                                <p class="text-sm font-medium text-gray-700">"모바일 화면(768px 이하)에서는 메뉴를 숨기고 햄버거 아이콘 버튼을
+                                    보여줘."</p>
                             </div>
                         </div>
                     </div>
@@ -265,46 +339,59 @@
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="mb-8 md:mb-0">
                     <p class="font-bold text-xl">지식샘터 강의자료</p>
-                    <p class="text-gray-400 text-sm mt-2">2026.1. 생각대로 뚝딱! 바이브코딩</p>
+                    <p class="text-gray-400 text-sm mt-2">2026.5. 생각대로 뚝딱! 바이브코딩</p>
                 </div>
                 <div class="text-xs text-gray-400 space-y-2">
                     <p class="font-semibold text-gray-200 mb-2">출처 및 참고자료</p>
-                    <p><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank" class="hover:text-sky-600">MDN Web Docs</a></p>
-                    <p><a href="https://www.w3schools.com/css/" target="_blank" class="hover:text-sky-600">W3Schools</a></p>
-                    <p><a href="https://m3.material.io/" target="_blank" class="hover:text-sky-600">Google Material Design</a></p>
+                    <p><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank"
+                            class="hover:text-sky-600">MDN Web Docs</a></p>
+                    <p><a href="https://www.w3schools.com/css/" target="_blank" class="hover:text-sky-600">W3Schools</a>
+                    </p>
+                    <p><a href="https://m3.material.io/" target="_blank" class="hover:text-sky-600">Google Material
+                            Design</a></p>
                     <p><a href="https://www.awwwards.com/" target="_blank" class="hover:text-sky-600">Awwwards</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div id="hex-picker-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div id="hex-picker-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
         <div id="modal-backdrop" class="absolute inset-0"></div>
-        <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-center transition-all-ease relative">
-            <button id="close-hex-picker-btn" class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+        <div
+            class="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-center transition-all-ease relative">
+            <button id="close-hex-picker-btn"
+                class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
             <h1 class="text-3xl font-bold text-gray-800 mb-2">Hexcode 선택기</h1>
             <p class="text-gray-500 mb-6">원하는 색상을 직접 선택해 보세요.</p>
             <canvas id="color-picker" class="w-full h-56 rounded-xl border-2 border-gray-200"></canvas>
             <div class="my-4">
-                <input type="range" id="hue-slider" min="0" max="360" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                <input type="range" id="hue-slider" min="0" max="360" value="0"
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
             </div>
             <div class="flex items-center justify-between gap-4">
-                <div id="color-preview" class="w-16 h-16 rounded-full border-4 border-gray-200 transition-all-ease"></div>
+                <div id="color-preview" class="w-16 h-16 rounded-full border-4 border-gray-200 transition-all-ease">
+                </div>
                 <div class="flex-grow bg-gray-100 rounded-lg p-4 flex items-center justify-between">
                     <span id="hex-code" class="text-xl md:text-2xl font-mono font-semibold text-gray-800">#FFFFFF</span>
-                    <button id="copy-btn" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-5 rounded-lg transition-all-ease transform hover:scale-105 active:scale-95">복사</button>
+                    <button id="copy-btn"
+                        class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-5 rounded-lg transition-all-ease transform hover:scale-105 active:scale-95">복사</button>
                 </div>
             </div>
-            <div id="copy-message" class="mt-4 text-sm text-green-500 opacity-0 transition-opacity duration-300 h-5">클립보드에 복사되었습니다!</div>
+            <div id="copy-message" class="mt-4 text-sm text-green-500 opacity-0 transition-opacity duration-300 h-5">
+                클립보드에 복사되었습니다!</div>
         </div>
     </div>
 
-    <div id="tailwind-colors-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div id="tailwind-colors-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
         <div id="tailwind-modal-backdrop" class="absolute inset-0"></div>
-        <div class="w-full max-w-4xl bg-white rounded-2xl shadow-2xl transition-all-ease relative max-h-[80vh] overflow-y-auto">
+        <div
+            class="w-full max-w-4xl bg-white rounded-2xl shadow-2xl transition-all-ease relative max-h-[80vh] overflow-y-auto">
             <div class="sticky top-0 bg-white p-4 border-b z-10 flex justify-between items-center">
                 <h2 class="text-2xl font-bold text-gray-800">Tailwind CSS 색상표</h2>
-                <button id="close-tailwind-colors-btn" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+                <button id="close-tailwind-colors-btn"
+                    class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
             </div>
             <div id="tailwind-color-chart" class="p-6"></div>
         </div>
@@ -319,15 +406,15 @@
             try {
                 const response = await fetch('components.html');
                 if (!response.ok) throw new Error('Network response was not ok');
-                
+
                 const text = await response.text();
-                
+
                 // createRange().createContextualFragment()를 사용해야 
                 // 불러온 HTML 내의 <script> 태그가 실행됩니다.
                 const range = document.createRange();
                 range.selectNode(container);
                 const fragment = range.createContextualFragment(text);
-                
+
                 container.innerHTML = '';
                 container.appendChild(fragment);
             } catch (e) {
@@ -337,32 +424,32 @@
         }
 
         async function loadFontGuide() {
-    const container = document.getElementById('font-guide-loader');
-    if (!container) return;
+            const container = document.getElementById('font-guide-loader');
+            if (!container) return;
 
-    try {
-        const response = await fetch('font_guide.html'); // 새로 만든 파일명
-        if (!response.ok) throw new Error('Network response was not ok');
-        
-        const text = await response.text();
-        
-        // 스크립트 실행을 위해 Range 사용
-        const range = document.createRange();
-        range.selectNode(container);
-        const fragment = range.createContextualFragment(text);
-        
-        container.innerHTML = '';
-        container.appendChild(fragment);
-    } catch (e) {
-        console.error(e);
-        container.innerHTML = '<div class="text-red-500 text-center p-4">폰트 가이드 로딩 실패<br><span class="text-xs">Live Server 환경인지 확인하세요.</span></div>';
-    }
-}
+            try {
+                const response = await fetch('font_guide.html'); // 새로 만든 파일명
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const text = await response.text();
+
+                // 스크립트 실행을 위해 Range 사용
+                const range = document.createRange();
+                range.selectNode(container);
+                const fragment = range.createContextualFragment(text);
+
+                container.innerHTML = '';
+                container.appendChild(fragment);
+            } catch (e) {
+                console.error(e);
+                container.innerHTML = '<div class="text-red-500 text-center p-4">폰트 가이드 로딩 실패<br><span class="text-xs">Live Server 환경인지 확인하세요.</span></div>';
+            }
+        }
 
         window.addEventListener('load', () => {
-    loadExternalComponents();
-    loadFontGuide(); // 추가됨
-});
+            loadExternalComponents();
+            loadFontGuide(); // 추가됨
+        });
 
         // --- Hex Picker Modal Script ---
         const openHexBtn = document.getElementById('open-hex-picker-btn');
@@ -428,7 +515,7 @@
             }, 2000);
         }
 
-        if(openHexBtn) {
+        if (openHexBtn) {
             openHexBtn.addEventListener('click', () => {
                 hexModal.classList.remove('hidden');
                 setTimeout(() => drawColorGradient(currentHue), 10);
@@ -439,20 +526,20 @@
             hexModal.classList.add('hidden');
         }
 
-        if(closeHexBtn) closeHexBtn.addEventListener('click', closeHexModal);
-        if(hexModalBackdrop) hexModalBackdrop.addEventListener('click', closeHexModal);
+        if (closeHexBtn) closeHexBtn.addEventListener('click', closeHexModal);
+        if (hexModalBackdrop) hexModalBackdrop.addEventListener('click', closeHexModal);
 
-        if(hueSlider) {
+        if (hueSlider) {
             hueSlider.addEventListener('input', (e) => {
                 currentHue = e.target.value;
                 drawColorGradient(currentHue);
             });
         }
 
-        if(canvas) canvas.addEventListener('click', pickColor);
-        if(copyBtn) copyBtn.addEventListener('click', copyToClipboard);
+        if (canvas) canvas.addEventListener('click', pickColor);
+        if (copyBtn) copyBtn.addEventListener('click', copyToClipboard);
 
-        
+
 
         // --- Tailwind Colors Modal Script ---
         const openTailwindBtn = document.getElementById('open-tailwind-colors-btn');
@@ -490,7 +577,7 @@
             colorChartContainer.innerHTML = chartHtml;
         }
 
-        if(openTailwindBtn) {
+        if (openTailwindBtn) {
             openTailwindBtn.addEventListener('click', () => {
                 tailwindModal.classList.remove('hidden');
             });
@@ -500,11 +587,12 @@
             tailwindModal.classList.add('hidden');
         }
 
-        if(closeTailwindBtn) closeTailwindBtn.addEventListener('click', closeTailwindModal);
-        if(tailwindModalBackdrop) tailwindModalBackdrop.addEventListener('click', closeTailwindModal);
+        if (closeTailwindBtn) closeTailwindBtn.addEventListener('click', closeTailwindModal);
+        if (tailwindModalBackdrop) tailwindModalBackdrop.addEventListener('click', closeTailwindModal);
 
         generateColorChart();
 
     </script>
 </body>
+
 </html>
